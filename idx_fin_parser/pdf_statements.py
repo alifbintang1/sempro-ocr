@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import os
 import re
+import shutil
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 
@@ -32,19 +34,64 @@ class StatementResult:
             "sections": {k: [n.to_dict() for n in v] for k, v in self.sections.items()},
         }
 
-def _find_page_index(pdf: pdfplumber.PDF, patterns: List[str], start: int = 0) -> Optional[int]:
+def _extract_page_text(page: pdfplumber.page.Page, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> str:
+    text = page.extract_text() or ""
+    if text.strip() or not use_ocr:
+        return text
+
+    try:
+        import pytesseract
+    except ImportError as exc:
+        raise ValueError("OCR mode but 'pytesseract' is not installed. Run: pip install pytesseract") from exc
+
+    if shutil.which("tesseract") is None:
+        candidates = [
+            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+            os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe"),
+        ]
+        for candidate in candidates:
+            if os.path.exists(candidate):
+                pytesseract.pytesseract.tesseract_cmd = candidate
+                break
+
+    try:
+        pil_img = page.to_image(resolution=250).original
+        ocr_text = pytesseract.image_to_string(pil_img, lang=ocr_lang, config="--psm 6")
+        return ocr_text or ""
+    except pytesseract.pytesseract.TesseractNotFoundError as exc:
+        raise ValueError(
+            "Tesseract engine not found. Install Tesseract OCR and ensure it is in PATH. "
+            "Windows example: install UB Mannheim Tesseract."
+        ) from exc
+
+
+def _find_page_index(
+    pdf: pdfplumber.PDF,
+    patterns: List[str],
+    start: int = 0,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> Optional[int]:
     pats = [p.lower() for p in patterns]
     for i in range(start, len(pdf.pages)):
-        text = (pdf.pages[i].extract_text() or "").lower()
+        text = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang).lower()
         if any(p in text for p in pats):
             return i
     return None
 
-def _collect_pages_until(pdf: pdfplumber.PDF, start_idx: int, stop_patterns: List[str]) -> List[int]:
+
+def _collect_pages_until(
+    pdf: pdfplumber.PDF,
+    start_idx: int,
+    stop_patterns: List[str],
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> List[int]:
     stop_pats = [p.lower() for p in stop_patterns]
     pages: List[int] = []
     for i in range(start_idx, len(pdf.pages)):
-        text = (pdf.pages[i].extract_text() or "").lower()
+        text = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang).lower()
         if i != start_idx and any(p in text for p in stop_pats):
             break
         pages.append(i)
@@ -182,36 +229,62 @@ def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[I
 
     return sections
 
-def extract_statement_financial_position(pdf_path: str) -> StatementResult:
+def extract_statement_financial_position(
+    pdf_path: str,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> StatementResult:
     with pdfplumber.open(pdf_path) as pdf:
-        start = _find_page_index(pdf, ["statement of financial position", "laporan posisi keuangan"])
+        start = _find_page_index(
+            pdf,
+            ["statement of financial position", "laporan posisi keuangan"],
+            use_ocr=use_ocr,
+            ocr_lang=ocr_lang,
+        )
         if start is None:
             raise ValueError("Could not find 'Statement of financial position' in PDF.")
-        pages = _collect_pages_until(pdf, start, ["statement of profit or loss", "laporan laba rugi"])
+        pages = _collect_pages_until(
+            pdf,
+            start,
+            ["statement of profit or loss", "laporan laba rugi"],
+            use_ocr=use_ocr,
+            ocr_lang=ocr_lang,
+        )
 
         all_lines: List[str] = []
         for i in pages:
-            txt = pdf.pages[i].extract_text() or ""
+            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
             all_lines.extend(txt.splitlines())
 
         years = find_years_in_order(all_lines)
         sections = _parse_lines_to_tree(all_lines, years)
         return StatementResult("financial_position", years, pages, sections)
 
-def extract_statement_profit_loss(pdf_path: str) -> StatementResult:
+def extract_statement_profit_loss(
+    pdf_path: str,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> StatementResult:
     with pdfplumber.open(pdf_path) as pdf:
-        start = _find_page_index(pdf, ["statement of profit or loss", "laporan laba rugi"])
+        start = _find_page_index(
+            pdf,
+            ["statement of profit or loss", "laporan laba rugi"],
+            use_ocr=use_ocr,
+            ocr_lang=ocr_lang,
+        )
         if start is None:
             raise ValueError("Could not find 'Statement of profit or loss' in PDF.")
         pages = _collect_pages_until(
             pdf,
             start,
             ["statement of cash flows", "laporan arus kas", "catatan atas laporan keuangan", "notes to the financial statements"],
+            use_ocr=use_ocr,
+            ocr_lang=ocr_lang,
         )
 
         all_lines: List[str] = []
         for i in pages:
-            txt = pdf.pages[i].extract_text() or ""
+            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
             all_lines.extend(txt.splitlines())
 
         years = find_years_in_order(all_lines)

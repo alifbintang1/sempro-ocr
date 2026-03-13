@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hasil – {{ data.source_pdf }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-900 text-slate-200">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-20 bg-slate-900/95 backdrop-blur border-b border-slate-700 px-6 py-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3 min-w-0">
+      <a href="/" class="flex-shrink-0 p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </a>
+      <div class="min-w-0">
+        <p class="text-xs text-slate-500 uppercase tracking-wide">Hasil ekstraksi</p>
+        <p class="font-semibold text-white truncate">{{ data.source_pdf }}</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <button onclick="copyJson()" id="copyBtn"
+        class="px-3 py-1.5 text-xs bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        Salin JSON
+      </button>
+      <!-- View toggle -->
+      <div class="flex bg-slate-800 rounded-lg p-0.5 text-xs">
+        <button onclick="setView('table')" id="btnTable"
+          class="view-btn px-3 py-1.5 rounded-md font-medium transition-colors bg-indigo-600 text-white">Tabel</button>
+        <button onclick="setView('json')" id="btnJson"
+          class="view-btn px-3 py-1.5 rounded-md font-medium transition-colors text-slate-400 hover:text-white">JSON</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="p-6 space-y-6 max-w-7xl mx-auto">
+
+    <!-- ======= TABLE VIEW ======= -->
+    <div id="viewTable">
+      {% for stmt in data.statements %}
+      {% set stmt_id = loop.index %}
+      <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl mb-6">
+        <!-- Statement header -->
+        <div class="px-6 py-4 bg-slate-700/50 flex items-center justify-between">
+          <div>
+            <h2 class="text-lg font-bold text-white">
+              {% if stmt.type == "financial_position" %}
+                Laporan Posisi Keuangan
+              {% else %}
+                Laporan Laba Rugi
+              {% endif %}
+            </h2>
+            <p class="text-slate-400 text-sm mt-0.5">
+              Halaman {{ stmt.pages | join(', ') }} &nbsp;·&nbsp;
+              Tahun: {{ stmt.years | join(', ') }}
+            </p>
+          </div>
+          <span class="text-xs px-3 py-1 rounded-full font-medium
+            {% if stmt.type == 'financial_position' %}bg-indigo-600/30 text-indigo-300{% else %}bg-emerald-600/30 text-emerald-300{% endif %}">
+            {{ stmt.type.replace('_', ' ') }}
+          </span>
+        </div>
+
+        <!-- Sections -->
+        {% for section_name, nodes in stmt.sections.items() %}
+        <div class="border-t border-slate-700">
+          <button onclick="toggleSection('s{{ stmt_id }}_{{ loop.index }}')"
+            class="w-full text-left px-6 py-3 bg-slate-700/40 hover:bg-slate-700/70 transition-colors flex items-center justify-between group">
+            <span class="text-sm font-semibold uppercase tracking-wider text-slate-300">{{ section_name.replace('_', ' ') }}</span>
+            <svg id="arrow_s{{ stmt_id }}_{{ loop.index }}" class="w-4 h-4 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div id="s{{ stmt_id }}_{{ loop.index }}">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-slate-700/20 text-xs text-slate-400 uppercase tracking-wide">
+                  <th class="text-left px-6 py-2 font-medium w-1/2">Akun</th>
+                  <th class="text-left px-4 py-2 font-medium text-slate-500">Akun (EN)</th>
+                  {% for yr in stmt.years %}
+                  <th class="text-right px-6 py-2 font-medium">{{ yr }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for node in nodes %}
+                  {% set node_values = node.get('values', {}) %}
+                  {% set yr0 = stmt.years[0] ~ "-12-31" %}
+                  {% set yr1 = stmt.years[1] ~ "-12-31" if stmt.years|length > 1 else "" %}
+                  {# Parent / header row #}
+                  <tr class="border-t border-slate-700/50
+                    {% if node_values %} bg-slate-800/80 hover:bg-slate-700/30 {% else %} bg-slate-700/20 {% endif %}">
+                    <td class="px-6 py-2.5 {% if not node_values %}font-semibold text-slate-200{% else %}text-slate-300{% endif %}">
+                      {{ node.label }}
+                    </td>
+                    <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_right or "" }}</td>
+                    {% if node_values %}
+                      <td class="px-6 py-2.5 text-right font-mono tabular-nums text-slate-200">
+                        {{ node_values.get(yr0) | format_number if node_values.get(yr0) is not none else "" }}
+                      </td>
+                      {% if yr1 %}
+                      <td class="px-6 py-2.5 text-right font-mono tabular-nums text-slate-400">
+                        {{ node_values.get(yr1) | format_number if node_values.get(yr1) is not none else "" }}
+                      </td>
+                      {% endif %}
+                    {% else %}
+                      <td class="px-6 py-2.5" colspan="{{ stmt.years | length }}"></td>
+                    {% endif %}
+                  </tr>
+                  {# Children #}
+                  {% for child in node.get('children', []) %}
+                  {% set child_values = child.get('values', {}) %}
+                  <tr class="border-t border-slate-700/30 bg-slate-800/50 hover:bg-slate-700/20 transition-colors">
+                    <td class="pl-10 pr-6 py-2 text-slate-400">
+                      <span class="text-slate-600 mr-1">└</span> {{ child.label }}
+                    </td>
+                    <td class="px-4 py-2 text-slate-600 text-xs">{{ child.label_right or "" }}</td>
+                    <td class="px-6 py-2 text-right font-mono tabular-nums text-slate-300 text-xs">
+                      {{ child_values.get(yr0) | format_number if child_values.get(yr0) is not none else "" }}
+                    </td>
+                    {% if yr1 %}
+                    <td class="px-6 py-2 text-right font-mono tabular-nums text-slate-500 text-xs">
+                      {{ child_values.get(yr1) | format_number if child_values.get(yr1) is not none else "" }}
+                    </td>
+                    {% endif %}
+                  </tr>
+                  {% endfor %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- ======= JSON VIEW ======= -->
+    <div id="viewJson" class="hidden">
+      <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+        <div class="px-6 py-4 bg-slate-700/50 flex items-center justify-between">
+          <h2 class="font-bold text-white">Raw JSON</h2>
+        </div>
+        <pre id="jsonContent" class="p-6 text-xs text-green-300 overflow-auto max-h-[80vh] leading-relaxed"><code>{{ raw_json }}</code></pre>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Hidden raw JSON for copy
+    const RAW_JSON = {{ raw_json | tojson }};
+
+    function setView(v) {
+      document.getElementById('viewTable').classList.toggle('hidden', v !== 'table');
+      document.getElementById('viewJson').classList.toggle('hidden', v !== 'json');
+      document.getElementById('btnTable').className =
+        'view-btn px-3 py-1.5 rounded-md font-medium transition-colors ' +
+        (v === 'table' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white');
+      document.getElementById('btnJson').className =
+        'view-btn px-3 py-1.5 rounded-md font-medium transition-colors ' +
+        (v === 'json' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white');
+    }
+
+    function toggleSection(id) {
+      const el = document.getElementById(id);
+      const arrow = document.getElementById('arrow_' + id);
+      el.classList.toggle('hidden');
+      arrow.style.transform = el.classList.contains('hidden') ? 'rotate(-90deg)' : '';
+    }
+
+    async function copyJson() {
+      const btn = document.getElementById('copyBtn');
+      await navigator.clipboard.writeText(JSON.stringify(RAW_JSON, null, 2));
+      btn.textContent = '✓ Tersalin!';
+      setTimeout(() => {
+        btn.innerHTML = `<svg class="w-3.5 h-3.5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>Salin JSON`;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

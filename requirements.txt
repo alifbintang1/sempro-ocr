@@ -5,3 +5,9 @@ pypdfium2==4.30.0
 # (dependency yang biasanya ikut, tapi bagus dipin supaya stabil)
 pdfminer.six==20231228
 Pillow==10.4.0
+
+# Web UI
+flask>=3.0.0
+
+# OCR (optional mode)
+pytesseract>=0.3.10
