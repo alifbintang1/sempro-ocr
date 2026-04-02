@@ -1,0 +1,29 @@
+{
+  "statement_type": "profit_or_loss",
+  "start_page": 12,
+  "pages": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "years": [
+    2025,
+    2024
+  ],
+  "start_patterns": [
+    "statement of profit or loss",
+    "laporan laba rugi"
+  ],
+  "stop_patterns": [
+    "statement of cash flows",
+    "laporan arus kas",
+    "catatan atas laporan keuangan",
+    "notes to the financial statements"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "statement_type": "financial_position",
+  "start_page": 3,
+  "pages": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "years": [
+    2025,
+    2024
+  ],
+  "start_patterns": [
+    "statement of financial position",
+    "laporan posisi keuangan"
+  ],
+  "stop_patterns": [
+    "statement of profit or loss",
+    "laporan laba rugi"
+  ]
+}

@@ -1,0 +1,598 @@
+
+--- FILE: .\app.py ---
+
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+import os
+import tempfile
+from pathlib import Path
+
+from flask import Flask, jsonify, redirect, render_template, request, url_for
+
+from idx_fin_parser.pdf_statements import (
+    extract_statement_financial_position,
+    extract_statement_profit_loss,
+)
+
+app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50 MB max upload
+
+
+@app.template_filter("format_number")
+def format_number(value):
+    """Format integer with thousands separator, parentheses for negatives."""
+    if value is None:
+        return ""
+    try:
+        v = int(value)
+    except (TypeError, ValueError):
+        return str(value)
+    if v < 0:
+        return f"({abs(v):,})".replace(",", ".")
+    return f"{v:,}".replace(",", ".")
+
+
+def _build_result(pdf_path: str, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> dict:
+    fp = extract_statement_financial_position(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
+    pl = extract_statement_profit_loss(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
+    return {
+        "source_pdf": Path(pdf_path).name,
+        "statements": [fp.to_dict(), pl.to_dict()],
+    }
+
+
+@app.route("/", methods=["GET"])
+def index():
+    return render_template("index.html")
+
+
+@app.route("/extract", methods=["POST"])
+def extract():
+    if "pdf" not in request.files:
+        return redirect(url_for("index"))
+
+    file = request.files["pdf"]
+    if not file.filename or not file.filename.lower().endswith(".pdf"):
+        return render_template("index.html", error="Hanya file PDF yang diterima.")
+
+    use_ocr = request.form.get("use_ocr") == "on"
+    ocr_lang = "ind+eng"
+
+    # Save to a temp file
+    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
+        tmp_path = tmp.name
+        file.save(tmp_path)
+
+    try:
+        result = _build_result(tmp_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
+        result["source_pdf"] = file.filename
+        result["meta"] = {"use_ocr": use_ocr, "ocr_lang": ocr_lang}
+    except Exception as e:
+        os.unlink(tmp_path)
+        return render_template("index.html", error=f"Gagal memproses PDF: {e}", use_ocr=use_ocr)
+
+    os.unlink(tmp_path)
+
+    if request.args.get("format") == "json":
+        return jsonify(result)
+
+    return render_template("result.html", data=result, raw_json=json.dumps(result, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5001)
+
+
+
+--- FILE: .\compile.py ---
+
+import os
+
+output_file = "all_python_files.txt"
+
+with open(output_file, "w", encoding="utf-8") as outfile:
+    for root, dirs, files in os.walk("."):
+        if "venv" in root:
+            continue  # Lewati direktori virtual environment
+        print(f"Memproses direktori: {root}")
+        for file in files:
+            if file.endswith(".py"):
+                filepath = os.path.join(root, file)
+                print(f"Memproses file: {filepath}")
+                outfile.write(f"\n--- FILE: {filepath} ---\n\n")
+                
+                try:
+                    with open(filepath, "r", encoding="utf-8") as infile:
+                        outfile.write(infile.read())
+                        outfile.write("\n\n")
+                except Exception as e:
+                    outfile.write(f"[ERROR reading file: {e}]\n\n")
+
+print(f"Selesai. Semua file .py digabung ke {output_file}")
+
+
+--- FILE: .\main_extract.py ---
+
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+from typing import Any, Dict
+
+from idx_fin_parser.pdf_statements import (
+    extract_statement_financial_position,
+    extract_statement_profit_loss,
+)
+
+def build_output(pdf_path: str, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> Dict[str, Any]:
+    fp = extract_statement_financial_position(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
+    pl = extract_statement_profit_loss(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
+
+    return {
+        "source_pdf": str(pdf_path),
+        "meta": {"use_ocr": use_ocr, "ocr_lang": ocr_lang},
+        "statements": [fp.to_dict(), pl.to_dict()],
+    }
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description="Extract IDX financial statements into JSON.")
+    ap.add_argument("pdf", help="Path to IDX PDF file")
+    ap.add_argument("-o", "--out", default="output.json", help="Output JSON path")
+    ap.add_argument("--ocr", action="store_true", help="Use OCR fallback when PDF text layer is empty")
+    ap.add_argument("--ocr-lang", default="ind+eng", help="Tesseract OCR language (default: ind+eng)")
+    args = ap.parse_args()
+
+    data = build_output(args.pdf, use_ocr=args.ocr, ocr_lang=args.ocr_lang)
+    out_path = Path(args.out)
+    out_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"Wrote: {out_path.resolve()}")
+
+if __name__ == "__main__":
+    main()
+
+
+--- FILE: .\idx_fin_parser\pdf_statements.py ---
+
+from __future__ import annotations
+
+import os
+import re
+import shutil
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
+
+import pdfplumber
+
+from .utils import (
+    ItemNode,
+    extract_amount_tokens,
+    find_years_in_order,
+    looks_like_section_header,
+    normalize_text,
+    split_bilingual_if_possible,
+    split_label_amounts,
+    token_to_int,
+)
+
+@dataclass
+class StatementResult:
+    statement_type: str
+    years: List[int]
+    pages: List[int]
+    sections: Dict[str, List[ItemNode]]
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "type": self.statement_type,
+            "years": self.years,
+            "pages": self.pages,
+            "sections": {k: [n.to_dict() for n in v] for k, v in self.sections.items()},
+        }
+
+def _extract_page_text(page: pdfplumber.page.Page, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> str:
+    text = page.extract_text() or ""
+    if text.strip() or not use_ocr:
+        return text
+
+    try:
+        import pytesseract
+    except ImportError as exc:
+        raise ValueError("OCR mode but 'pytesseract' is not installed. Run: pip install pytesseract") from exc
+
+    if shutil.which("tesseract") is None:
+        candidates = [
+            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+            os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe"),
+        ]
+        for candidate in candidates:
+            if os.path.exists(candidate):
+                pytesseract.pytesseract.tesseract_cmd = candidate
+                break
+
+    try:
+        pil_img = page.to_image(resolution=250).original
+        ocr_text = pytesseract.image_to_string(pil_img, lang=ocr_lang, config="--psm 6")
+        return ocr_text or ""
+    except pytesseract.pytesseract.TesseractNotFoundError as exc:
+        raise ValueError(
+            "Tesseract engine not found. Install Tesseract OCR and ensure it is in PATH. "
+            "Windows example: install UB Mannheim Tesseract."
+        ) from exc
+
+
+def _find_page_index(
+    pdf: pdfplumber.PDF,
+    patterns: List[str],
+    start: int = 0,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> Optional[int]:
+    pats = [p.lower() for p in patterns]
+    for i in range(start, len(pdf.pages)):
+        text = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang).lower()
+        if any(p in text for p in pats):
+            return i
+    return None
+
+
+def _collect_pages_until(
+    pdf: pdfplumber.PDF,
+    start_idx: int,
+    stop_patterns: List[str],
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> List[int]:
+    stop_pats = [p.lower() for p in stop_patterns]
+    pages: List[int] = []
+    for i in range(start_idx, len(pdf.pages)):
+        text = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang).lower()
+        if i != start_idx and any(p in text for p in stop_pats):
+            break
+        pages.append(i)
+    return pages
+
+def _merge_wrapped_lines(lines: List[str], years: List[int]) -> List[str]:
+    """
+    Merge wrapped lines caused by PDF line breaking.
+
+    We handle:
+    1) Header/label wrapping: consecutive lines WITHOUT amounts where the next line looks like continuation.
+    2) Value-row wrapping: a line WITH amounts followed by tail lines WITHOUT amounts (qualifiers like 'pihak ketiga').
+    """
+    merged: List[str] = []
+    i = 0
+    while i < len(lines):
+        cur = normalize_text(lines[i])
+        if not cur:
+            i += 1
+            continue
+
+        cur_amt = extract_amount_tokens(cur, years)
+
+        # Case 2: value row + wrapped tail lines
+        if cur_amt:
+            buf = cur
+            j = i + 1
+            while j < len(lines):
+                nxt = normalize_text(lines[j])
+                if not nxt:
+                    j += 1
+                    continue
+                nxt_amt = extract_amount_tokens(nxt, years)
+                if nxt_amt:
+                    break
+                if looks_like_section_header(nxt) is not None:
+                    break
+                if (nxt[:1].islower()) or (len(nxt.split()) <= 4):
+                    buf = f"{buf} {nxt}".strip()
+                    j += 1
+                    continue
+                break
+            merged.append(buf)
+            i = j
+            continue
+
+        # Case 1: label/header wrapping
+        j = i + 1
+        buf = cur
+        while j < len(lines):
+            nxt = normalize_text(lines[j])
+            if not nxt:
+                j += 1
+                continue
+            nxt_amt = extract_amount_tokens(nxt, years)
+            if nxt_amt:
+                break
+            if looks_like_section_header(nxt) is not None:
+                break
+            if (nxt[:1].islower()) or (len(nxt.split()) <= 3):
+                buf = f"{buf} {nxt}".strip()
+                j += 1
+                continue
+            break
+        merged.append(buf)
+        i = j
+    return merged
+
+def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[ItemNode]]:
+    """
+    Conservative hierarchy:
+    - section headers reset parent
+    - "parent" is a no-amount line
+    - amount lines attach to current parent if prefix matches
+    """
+    year_keys = [f"{y}-12-31" for y in years]
+    sections: Dict[str, List[ItemNode]] = {}
+    current_section = "unknown"
+    current_parent: Optional[ItemNode] = None
+
+    def add_root(node: ItemNode) -> None:
+        sections.setdefault(current_section, []).append(node)
+
+    lines2 = _merge_wrapped_lines(lines, years)
+
+    for raw in lines2:
+        ln = normalize_text(raw)
+        if not ln:
+            continue
+
+        amt_tokens = extract_amount_tokens(ln, years)
+        amt_tokens = amt_tokens[-len(years):] if amt_tokens else []
+        left, right = split_label_amounts(ln, amt_tokens)
+
+        # Section header
+        sec = looks_like_section_header(left)
+        if sec and not amt_tokens:
+            current_section = sec
+            current_parent = None
+            continue
+
+        # Parent line (no amounts)
+        if not amt_tokens:
+            if not right:
+                left, right = split_bilingual_if_possible(left)
+            node = ItemNode(label=left, label_right=right)
+            add_root(node)
+            current_parent = node
+            continue
+
+        # Value line
+        values: Dict[str, Optional[int]] = {}
+        padded = [None] * (len(years) - len(amt_tokens)) + amt_tokens
+        for yk, tok in zip(year_keys, padded):
+            values[yk] = token_to_int(tok) if tok is not None else None
+
+        node_label = left
+        attached = False
+
+        if current_parent:
+            pl = current_parent.label.lower()
+            cl = node_label.lower()
+            if cl.startswith(pl):
+                short = node_label[len(current_parent.label):].strip()
+                node_label = short if short else node_label
+                current_parent.children.append(ItemNode(label=node_label, label_right=right, values=values))
+                attached = True
+
+        if not attached:
+            add_root(ItemNode(label=node_label, label_right=right, values=values))
+
+        # Totals usually end a block
+        if re.search(r"\b(jumlah|total|subtotal)\b", left.lower()):
+            current_parent = None
+
+    return sections
+
+def extract_statement_financial_position(
+    pdf_path: str,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> StatementResult:
+    with pdfplumber.open(pdf_path) as pdf:
+        start = _find_page_index(
+            pdf,
+            ["statement of financial position", "laporan posisi keuangan"],
+            use_ocr=use_ocr,
+            ocr_lang=ocr_lang,
+        )
+        if start is None:
+            raise ValueError("Could not find 'Statement of financial position' in PDF.")
+        pages = _collect_pages_until(
+            pdf,
+            start,
+            ["statement of profit or loss", "laporan laba rugi"],
+            use_ocr=use_ocr,
+            ocr_lang=ocr_lang,
+        )
+
+        all_lines: List[str] = []
+        for i in pages:
+            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
+            all_lines.extend(txt.splitlines())
+
+        years = find_years_in_order(all_lines)
+        sections = _parse_lines_to_tree(all_lines, years)
+        return StatementResult("financial_position", years, pages, sections)
+
+def extract_statement_profit_loss(
+    pdf_path: str,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> StatementResult:
+    with pdfplumber.open(pdf_path) as pdf:
+        start = _find_page_index(
+            pdf,
+            ["statement of profit or loss", "laporan laba rugi"],
+            use_ocr=use_ocr,
+            ocr_lang=ocr_lang,
+        )
+        if start is None:
+            raise ValueError("Could not find 'Statement of profit or loss' in PDF.")
+        pages = _collect_pages_until(
+            pdf,
+            start,
+            ["statement of cash flows", "laporan arus kas", "catatan atas laporan keuangan", "notes to the financial statements"],
+            use_ocr=use_ocr,
+            ocr_lang=ocr_lang,
+        )
+
+        all_lines: List[str] = []
+        for i in pages:
+            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
+            all_lines.extend(txt.splitlines())
+
+        years = find_years_in_order(all_lines)
+        sections = _parse_lines_to_tree(all_lines, years)
+        return StatementResult("profit_or_loss", years, pages, sections)
+
+
+--- FILE: .\idx_fin_parser\utils.py ---
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional, Tuple
+
+YEAR_RE = re.compile(r"\b(?:19|20)\d{2}\b")
+
+def normalize_text(line: str) -> str:
+    """Normalize spaced parentheses like '( 7 )' -> '(7)' and collapse spaces."""
+    line = re.sub(r"\(\s+", "(", line)
+    line = re.sub(r"\s+\)", ")", line)
+    line = re.sub(r"[ \t]+", " ", line).strip()
+    return line
+
+def find_years_in_order(lines: List[str]) -> List[int]:
+    """
+    Find the column years in the order they appear in the header.
+    We look for a line containing at least 2 years (often near '31 December').
+    """
+    for ln in lines[:50]:
+        ln_norm = normalize_text(ln)
+        years = [int(m.group(0)) for m in YEAR_RE.finditer(ln_norm)]
+        ordered: List[int] = []
+        for y in years:
+            if y not in ordered:
+                ordered.append(y)
+        if len(ordered) >= 2:
+            return ordered[:2]
+
+    # Fallback: pick two most recent
+    all_years: List[int] = []
+    for ln in lines[:50]:
+        all_years.extend(int(m.group(0)) for m in YEAR_RE.finditer(ln))
+    uniq = sorted(set(all_years), reverse=True)
+    return uniq[:2]
+
+_AMOUNT_TOKEN_RE = re.compile(r"\(?\s*(?:\d{1,3}(?:,\d{3})+|\d+)\s*\)?")
+
+def extract_amount_tokens(line: str, years: List[int]) -> List[str]:
+    """
+    Extract amount-looking tokens from a line (numbers with optional commas/parentheses),
+    skipping header years like 2025/2024.
+    """
+    years_set = set(years)
+    tokens: List[str] = []
+    for m in _AMOUNT_TOKEN_RE.finditer(line):
+        tok = normalize_text(m.group(0))
+        if tok.isdigit() and len(tok) == 4 and int(tok) in years_set:
+            continue
+        tokens.append(tok)
+    return tokens
+
+def token_to_int(tok: str) -> Optional[int]:
+    tok = normalize_text(tok)
+    if not tok:
+        return None
+    neg = tok.startswith("(") and tok.endswith(")")
+    tok_num = tok.strip("()").replace(",", "").strip()
+    if not tok_num:
+        return None
+    try:
+        val = int(tok_num)
+    except ValueError:
+        return None
+    return -val if neg else val
+
+def split_label_amounts(line: str, amount_tokens: List[str]) -> Tuple[str, str]:
+    """
+    Split line into (left_label, right_label) around amounts.
+    Heuristic: left label is text before first amount token occurrence,
+    right label is text after last amount token occurrence.
+    """
+    if not amount_tokens:
+        return normalize_text(line), ""
+    first = amount_tokens[0]
+    last = amount_tokens[-1]
+    i = line.find(first)
+    j = line.rfind(last)
+    left = line[:i].strip()
+    right = line[j + len(last):].strip()
+    return normalize_text(left), normalize_text(right)
+
+def looks_like_section_header(label_left: str) -> Optional[str]:
+    """
+    Map Indonesian/English section labels to canonical section names.
+    """
+    l = label_left.lower().strip()
+    if l == "aset" or l == "assets" or l.startswith("aset "):
+        return "assets"
+    if l == "liabilitas" or l == "liabilities" or l.startswith("liabilitas "):
+        return "liabilities"
+    if l == "ekuitas" or l == "equity" or l.startswith("ekuitas "):
+        return "equity"
+    if "dana syirkah temporer" in l:
+        return "temporary_syirkah_funds"
+    return None
+
+@dataclass
+class ItemNode:
+    label: str
+    label_right: str = ""
+    values: Dict[str, Optional[int]] = field(default_factory=dict)
+    children: List["ItemNode"] = field(default_factory=list)
+
+    def to_dict(self) -> Dict[str, Any]:
+        d: Dict[str, Any] = {"label": self.label}
+        if self.label_right:
+            d["label_right"] = self.label_right
+        if self.values:
+            d["values"] = self.values
+        if self.children:
+            d["children"] = [c.to_dict() for c in self.children]
+        return d
+
+_EN_STARTERS = [
+    "Current", "Placements", "Insurance", "Deferred", "Deposits", "Marketable",
+    "Loans", "Investments", "Reinsurance", "Post-employment", "Equipment",
+    "Guarantees", "Claims", "Difference", "Reserve", "Subordinated",
+    "Obligations", "Securities", "Derivative", "Provisions", "Contract",
+    "Other", "Total", "Cash", "Restricted", "Assets", "Liabilities", "Equity",
+]
+
+def split_bilingual_if_possible(text: str) -> Tuple[str, str]:
+    """
+    Try to split 'Indonesian English' combined labels into (left, right).
+    Heuristic: split at the first occurrence of common English starters.
+    """
+    t = normalize_text(text)
+    for starter in _EN_STARTERS:
+        idx = t.find(starter)
+        if idx > 0:
+            left = t[:idx].strip()
+            right = t[idx:].strip()
+            if left and right:
+                return left, right
+    return t, ""
+
+
+--- FILE: .\idx_fin_parser\__init__.py ---
+
+
+

@@ -1,0 +1,536 @@
+===== PAGE 3 =====
+[4220000] Statement of financial position presented using order of liquidity -
+Financial and Sharia Industry
+Laporan posisi keuangan Statement of financial position
+31 December 2025 31 December 2024
+Laporan posisi keuangan Statement of financial position
+Aset Assets
+Kas 13,352,065 13,709,930 Cash
+Dana yang dibatasi Restricted funds
+penggunaannya
+Giro pada Bank Indonesia 79,989,122 51,669,054 Current accounts with Bank
+Indonesia
+Giro pada bank lain Current accounts with
+other banks
+Giro pada bank lain 25,858,094 22,031,212 Current accounts with
+pihak ketiga other banks third parties
+Giro pada bank lain 79,999 42,974 Current accounts with
+pihak berelasi other banks related
+parties
+Cadangan kerugian ( 7 ) ( 13 ) Allowance for impairment
+penurunan nilai pada losses for current
+giro pada bank lain accounts with other bank
+Penempatan pada Bank Placements with Bank
+Indonesia dan bank lain Indonesia and other banks
+Penempatan pada 31,725,849 15,455,444 Placements with Bank
+Bank Indonesia dan Indonesia and other
+bank lain pihak ketiga banks third parties
+Penempatan pada 2,054,144 1,620,191 Placements with Bank
+Bank Indonesia dan Indonesia and other
+bank lain pihak banks related parties
+berelasi
+Cadangan kerugian ( 78 ) ( 194 ) Allowance for impairment
+penurunan nilai pada losses for placements
+penempatan pada with other banks
+bank lain
+Piutang asuransi Insurance receivables
+Piutang asuransi pihak Insurance receivables
+ketiga third parties
+Piutang asuransi pihak Insurance receivables
+berelasi related parties
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for insurance
+piutang asuransi receivables
+Biaya akuisisi tangguhan Deferred acquisition costs
+Deposito pada lembaga Deposits to clearing and
+kliring dan penjaminan settlement guarantee
+institution
+Efek-efek yang Marketable securities
+diperdagangkan
+Efek-efek yang 50,783,955 38,376,931 Marketable securities
+diperdagangkan pihak third parties
+ketiga
+Efek-efek yang 12,232,740 10,157,415 Marketable securities
+diperdagangkan pihak related parties
+berelasi
+Cadangan kerugian ( 15 ) ( 273 ) Allowance for impairment
+penurunan nilai pada losses for marketable
+
+===== PAGE 4 =====
+efek-efek yang securities
+diperdagangkan
+Investasi pemegang polis Investments of policyholder
+pada kontrak unit-linked in unit-linked contracts
+Efek yang dibeli dengan 6,910,606 7,971,923 Securities purchased under
+janji dijual kembali agreement to resale
+Wesel ekspor dan Bills and other receivables
+tagihan lainnya
+Wesel ekspor dan 8,181,871 7,087,118 Bills and other
+tagihan lainnya pihak receivables third parties
+ketiga
+Wesel ekspor dan 5,338,937 6,208,736 Bills and other
+tagihan lainnya pihak receivables related
+berelasi parties
+Cadangan kerugian ( 67,962 ) ( 52,828 ) Allowance for impairment
+penurunan nilai pada losses for bills and other
+wesel ekspor dan receivables
+tagihan lainnya
+Tagihan akseptasi Acceptance receivables
+Tagihan akseptasi 13,528,919 13,193,510 Acceptance receivables
+pihak ketiga third parties
+Tagihan akseptasi 6,053,827 2,825,260 Acceptance receivables
+pihak berelasi related parties
+Cadangan kerugian ( 133,986 ) ( 93,249 ) Allowance for impairment
+penurunan nilai pada losses for acceptance
+tagihan akseptasi receivables
+Tagihan derivatif Derivative receivables
+Tagihan derivatif pihak 4,654,266 1,451,146 Derivative receivables
+ketiga third parties
+Tagihan derivatif pihak 768,083 341,832 Derivative receivables
+berelasi related parties
+Pinjaman yang Loans
+diberikan
+Pinjaman yang 660,513,890 616,469,089 Loans third parties
+diberikan pihak ketiga
+Pinjaman yang 239,016,801 159,402,689 Loans related parties
+diberikan pihak
+berelasi
+Cadangan kerugian ( 35,860,626 ) ( 38,684,520 ) Allowance for impairment
+penurunan nilai pada losses for loans
+pinjaman yang
+diberikan
+Piutang dari lembaga Receivables from clearing
+kliring dan penjaminan and settlement guarantee
+institution
+Piutang nasabah Receivables from
+customers
+Piutang nasabah Receivables from
+pihak ketiga customers third parties
+Piutang nasabah Receivables from
+pihak berelasi customers related parties
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for receivables
+piutang nasabah from customers
+Piutang murabahah Murabahah receivables
+Piutang murabahah Murabahah receivables
+pihak ketiga third parties
+Piutang murabahah Murabahah receivables
+pihak berelasi related parties
+Cadangan kerugian Allowance for impairment
+
+===== PAGE 5 =====
+penurunan nilai pada losses for murabahah
+piutang murabahah receivables
+Piutang istishna Istishna receivables
+Piutang istishna pihak Istishna receivables third
+ketiga parties
+Piutang istishna pihak Istishna receivables
+berelasi related parties
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for istishna
+piutang istishna receivables
+Piutang ijarah Ijarah receivables
+Piutang ijarah pihak Ijarah receivables third
+ketiga parties
+Piutang ijarah pihak Ijarah receivables related
+berelasi parties
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for ijarah
+piutang ijarah receivables
+Piutang pembiayaan Consumer financing
+konsumen receivables
+Piutang pembiayaan Consumer financing
+konsumen pihak receivables third parties
+ketiga
+Piutang pembiayaan Consumer financing
+konsumen pihak receivables related
+berelasi parties
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for consumer
+piutang pembiayaan financing receivables
+konsumen
+Pinjaman qardh Qardh funds
+Pinjaman qardh pihak Qardh funds third parties
+ketiga
+Pinjaman qardh pihak Qardh funds related
+berelasi parties
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for qardh funds
+pinjaman qardh
+Pembiayaan Mudharabah financing
+mudharabah
+Pembiayaan Mudharabah financing
+mudharabah pihak third parties
+ketiga
+Pembiayaan Mudharabah financing
+mudharabah pihak related parties
+berelasi
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for mudharabah
+pembiayaan financing
+mudharabah
+Pembiayaan Musyarakah financing
+musyarakah
+Pembiayaan Musyarakah financing
+musyarakah pihak third parties
+ketiga
+Pembiayaan Musyarakah financing
+musyarakah pihak related parties
+berelasi
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for musyarakah
+
+===== PAGE 6 =====
+pembiayaan financing
+musyarakah
+Investasi sewa Lease investments
+Investasi sewa pihak Lease investments third
+ketiga parties
+Investasi sewa pihak Lease investments
+berelasi related parties
+Investasi sewa nilai Lease investments
+residu yang terjamin guaranteed residual
+value
+Investasi sewa Lease investments
+pendapatan deferred financing
+pembiayaan income
+tangguhan
+Investasi sewa Lease investments
+simpanan jaminan guarantee deposits
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for lease
+investasi sewa investments
+Tagihan anjak piutang Factoring receivables
+Tagihan anjak piutang Factoring receivables
+pihak ketiga third parties
+Tagihan anjak piutang Factoring receivables
+pihak berelasi related parties
+Tagihan anjak piutang Factoring receivables on
+pada pendapatan deferred factoring
+anjak piutang income
+tangguhan
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for factoring
+tagihan anjak piutang receivables
+Piutang lainnya Other receivables
+Piutang lainnya pihak Other receivables third
+ketiga parties
+Piutang lainnya pihak Other receivables related
+berelasi parties
+Cadangan kerugian Allowance for impairment
+penurunan nilai pada losses for other
+piutang lainnya receivables
+Aset keuangan lainnya Other financial assets
+Obligasi pemerintah 163,510,426 132,068,581 Government bonds
+Aset tidak lancar atau Non-current assets or
+kelompok lepasan disposal groups classified as
+diklasifikasikan sebagai held-for-sale
+dimiliki untuk dijual
+Aset tidak lancar atau Non-current assets or
+kelompok lepasan disposal groups classified as
+diklasifikasikan sebagai held-for-distribution to
+dimiliki untuk owners
+didistribusikan kepada
+pemilik
+Uang muka Advances
+Biaya dibayar dimuka 2,274,762 2,941,109 Prepaid expenses
+Jaminan Guarantees
+Pajak dibayar dimuka 3,090,304 18,950 Prepaid taxes
+Klaim atas pengembalian Claims for tax refund
+pajak
+Aset pajak tangguhan 2,315,772 7,145,286 Deferred tax assets
+Investasi yang dicatat 652,311 637,280 Investments accounted for
+dengan menggunakan using equity method
+
+===== PAGE 7 =====
+metode ekuitas
+Investasi pada ventura Investments in joint
+bersama dan entitas ventures and associates
+asosiasi
+Investasi pada entitas Investments in joint
+ventura bersama ventures
+Investasi pada entitas 14,354,281 12,748,127 Investments in
+asosiasi associates
+Aset reasuransi Reinsurance assets
+Aset imbalan pasca kerja Post-employment benefit
+assets
+Goodwill 727,789 727,786 Goodwill
+Aset takberwujud selain 14,416 15,528 Intangible assets other than
+goodwill goodwill
+Properti investasi Investment properties
+Aset ijarah Ijarah assets
+Aset tetap 31,112,635 30,408,236 Property, plant, and
+equipment
+Aset hak guna Right of use assets
+Aset pengampunan pajak Tax amnesty assets
+Agunan yang diambil alih 864,637 914,825 Foreclosed assets
+Aset lainnya 18,156,904 13,319,777 Other assets
+Jumlah aset 1,362,054,731 1,130,128,862 Total assets
+Liabilitas, dana syirkah Liabilities, temporary syirkah
+temporer dan ekuitas funds and equity
+Liabilitas Liabilities
+Liabilitas segera 5,761,037 5,514,720 Obligations due
+immediately
+Bagi hasil yang belum Undistributed profit
+dibagikan sharing
+Dana simpanan Sharia deposits
+syariah
+Simpanan nasabah Customers deposits
+Giro Current accounts
+Giro pihak 275,664,821 229,995,309 Current accounts
+ketiga third parties
+Giro pihak 163,834,043 75,738,219 Current accounts
+berelasi related parties
+Giro wadiah Wadiah demand
+deposits
+Giro wadiah Wadiah demand
+pihak ketiga deposits third
+parties
+Giro wadiah Wadiah demand
+pihak berelasi deposits related
+parties
+Tabungan Savings
+Tabungan 286,152,305 257,431,407 Savings third
+pihak ketiga parties
+Tabungan 307,846 112,946 Savings related
+pihak berelasi parties
+Tabungan wadiah Wadiah savings
+Tabungan Wadiah savings
+wadiah pihak third parties
+ketiga
+Tabungan Wadiah savings
+wadiah pihak related parties
+berelasi
+
+===== PAGE 8 =====
+Deposito Time deposits
+berjangka
+Deposito 188,209,389 205,250,321 Time deposits
+berjangka pihak third parties
+ketiga
+Deposito 126,666,020 36,982,646 Time deposits
+berjangka pihak related parties
+berelasi
+Deposito wakalah Wakalah deposits
+Deposito Wakalah deposits
+wakalah pihak third parties
+ketiga
+Deposito Wakalah deposits
+wakalah pihak related parties
+berelasi
+Simpanan dari bank Other banks deposits
+lain
+Simpanan dari 2,945,332 4,164,697 Other banks deposits
+bank lain pihak related parties
+berelasi
+Simpanan dari 8,617,451 14,383,767 Other banks deposits
+bank lain pihak third parties
+ketiga
+Efek yang dijual 7,251,381 15,890,945 Securities sold with
+dengan janji untuk repurchase agreement
+dibeli kembali
+Liabilitas derivatif Derivative payables
+Liabilitas derivatif 977,119 154,840 Derivative payables
+pihak ketiga third parties
+Liabilitas derivatif 4,421,780 1,324,345 Derivative payables
+pihak berelasi related parties
+Utang asuransi Insurance payables
+Utang koasuransi Coinsurance liabilities
+Liabilitas kepada Liabilities to policyholder
+pemegang polis in unit-linked contracts
+unit-linked
+Utang bunga Interest payables
+Liabilitas akseptasi Acceptance liabilities
+Liabilitas akseptasi 501,612 900,755 Acceptance liabilities
+pihak berelasi related parties
+Liabilitas akseptasi 1,822,893 3,328,729 Acceptance liabilities
+pihak ketiga third parties
+Utang usaha Accounts payable
+Uang muka dan Advances and
+angsuran installments
+Utang dividen Dividends payable
+Utang dealer Dealer payables
+Pinjaman yang Borrowings
+diterima
+Pinjaman yang 37,612,374 41,357,233 Borrowings third
+diterima pihak parties
+ketiga
+Pinjaman yang 1,428,013 1,574,211 Borrowings related
+diterima pihak parties
+berelasi
+Pinjaman yang Borrowings payables
+diterima utang to clearing and
+pada lembaga settlement guarantee
+kliring dan institution
+penjaminan
+
+===== PAGE 9 =====
+Efek yang diterbitkan Securities issued
+Utang obligasi Bonds payable
+Sukuk Sukuk
+Obligasi 18,339,988 17,699,183 Subordinated bonds
+subordinasi
+Surat utang jangka Medium term notes
+menengah
+Efek yang 14,253,190 12,974,497 Others securities
+diterbitkan lainnya issued
+Liabilitas kontrak Insurance contract
+asuransi liabilities
+Utang perusahaan Securities company
+efek payables
+Provisi Provisions
+Liabilitas atas kontrak Contract liabilities
+Pendapatan Deferred income
+ditangguhkan
+Liabilitas sewa Finance lease liabilities
+pembiayaan
+Estimasi kerugian 1,463,072 2,283,222 Estimated losses on
+komitmen dan commitments and
+kontinjensi contingencies
+Beban akrual 941,816 1,529,305 Accrued expenses
+Utang pajak 414,884 317,569 Taxes payable
+Liabilitas pajak Deferred tax liabilities
+tangguhan
+Liabilitas Tax amnesty liabilities
+pengampunan pajak
+Liabilitas lainnya 29,290,002 27,525,272 Other liabilities
+Kewajiban imbalan 8,838,995 7,146,717 Post-employment benefit
+pasca kerja obligations
+Pinjaman Subordinated loans
+subordinasi
+Pinjaman Subordinated loans
+subordinasi pihak third parties
+ketiga
+Pinjaman Subordinated loans
+subordinasi pihak related parties
+berelasi
+Jumlah liabilitas 1,185,715,363 963,580,855 Total liabilities
+Dana syirkah temporer Temporary syirkah funds
+Bukan bank Non-banks
+Giro mudharabah Mudharabah current
+account
+Giro Mudharabah
+mudharabah current account
+pihak ketiga third parties
+Giro berjangka Mudharabah
+mudharabah current account
+pihak berelasi related parties
+Tabungan Mudharabah saving
+mudharabah deposits
+Tabungan Mudharabah
+mudharabah saving deposits
+pihak ketiga third parties
+Tabungan Mudharabah
+mudharabah saving deposits
+pihak berelasi related parties
+Deposito Mudharabah time
+
+===== PAGE 10 =====
+berjangka deposits
+mudharabah
+Deposito Mudharabah time
+berjangka deposits third
+mudharabah parties
+pihak ketiga
+Deposito Mudharabah time
+berjangka deposits related
+mudharabah parties
+pihak berelasi
+Bank Bank
+Giro mudharabah Mudharabah current
+account
+Tabungan Mudharabah saving
+mudharabah deposits (ummat)
+(ummat)
+Deposito berjangka Mudharabah time
+mudharabah deposits
+Efek yang diterbitkan Bank securities issued
+bank
+Investasi Interbank
+mudharabah antar mudharabah
+bank investments
+Sukuk mudharabah Mudharabah sukuk
+Sukuk mudharabah Subordinated
+subordinasi mudharabah sukuk
+Jumlah dana syirkah Total temporary
+temporer syirkah funds
+Jumlah akumulasi dana Total accumulated tabarru's
+tabarru funds
+Ekuitas Equity
+Ekuitas yang Equity attributable to
+diatribusikan kepada equity owners of
+pemilik entitas induk parent entity
+Saham biasa 9,054,807 9,054,807 Common stocks
+Saham preferen Preferred stocks
+Tambahan modal 17,010,254 17,010,254 Additional paid-in
+disetor capital
+Saham treasuri ( 0 ) ( 0 ) Treasury stocks
+Uang muka Advances in capital
+setoran modal stock
+Opsi saham Stock options
+Penjabaran Translation
+laporan keuangan adjustment
+Cadangan 16,711,395 16,711,395 Revaluation reserves
+revaluasi
+Cadangan selisih ( 124,345 ) ( 96,998 ) Reserve of exchange
+kurs penjabaran differences on
+translation
+Cadangan 2,617,037 ( 1,465,059 ) Reserve for changes
+perubahan nilai in fair value of fair
+wajar aset value through other
+keuangan nilai comprehensive
+wajar melalui income financial
+pendapatan assets
+komprehensif
+lainnya
+Cadangan Reserve of gains
+keuntungan (losses) from
+(kerugian) investasi investments in equity
+
+===== PAGE 11 =====
+pada instrumen instruments
+ekuitas
+Cadangan 349,167 322,589 Reserve of
+pembayaran share-based
+berbasis saham payments
+Cadangan lindung Reserve of cash flow
+nilai arus kas hedges
+Cadangan Reserve of
+pengukuran remeasurements of
+kembali program defined benefit plans
+imbalan pasti
+Cadangan lainnya 2,256,999 2,256,999 Other reserves
+Selisih Transaksi Difference Due to
+Perubahan Ekuitas Changes of Equity in
+Entitas Subsidiary/Associates
+Anak/Asosiasi
+Komponen ekuitas Other components of
+lainnya equity
+Saldo laba Retained earnings
+(akumulasi (deficit)
+kerugian)
+Saldo laba Appropriated
+yang telah retained
+ditentukan earnings
+penggunaanya
+Cadangan 2,778,412 2,778,412 General and
+umum dan legal reserves
+wajib
+Cadangan Specific
+khusus reserves
+Saldo laba 121,076,418 115,465,415 Unappropriated
+yang belum retained earnings
+ditentukan
+penggunaannya
+Jumlah ekuitas 171,730,144 162,071,240 Total equity
+yang attributable to
+diatribusikan equity owners of
+kepada pemilik parent entity
+entitas induk
+Proforma ekuitas Proforma equity
+Kepentingan 4,609,224 4,476,767 Non-controlling interests
+non-pengendali
+Jumlah ekuitas 176,339,368 166,548,007 Total equity
+Jumlah liabilitas, dana 1,362,054,731 1,130,128,862 Total liabilities, temporary
+syirkah temporer dan syirkah funds and equity
+ekuitas

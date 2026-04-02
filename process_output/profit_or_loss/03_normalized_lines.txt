@@ -1,0 +1,516 @@
+[4312000] Statement of profit or loss and other comprehensive income, OCI
+components presented net of tax, by nature - Financial and Sharia Industry
+Laporan laba rugi dan penghasilan Statement of profit or loss and other
+komprehensif lain comprehensive income
+31 December 2025 31 December 2024
+Laporan laba rugi dan Statement of profit or loss
+penghasilan komprehensif and other comprehensive
+lain income
+Pendapatan dan beban Operating income and
+operasional expenses
+Pendapatan bunga 69,394,154 66,583,110 Interest income
+Beban bunga (29,060,959) (26,102,905) Interest expenses
+Pendapatan pengelolaan Revenue from fund
+dana oleh bank sebagai management as
+mudharib mudharib
+Hak pihak ketiga atas Third parties share on
+bagi hasil dana syirkah return of temporary
+temporer syirkah funds
+Pendapatan asuransi Insurance income
+Pendapatan dari Revenue from
+premi asuransi insurance premiums
+Premi reasuransi Reinsurance
+premiums
+Premi retrosesi Retrocession
+premiums
+Penurunan (kenaikan) Decrease (increase) in
+premi yang belum unearned premiums
+merupakan
+pendapatan
+Penurunan (kenaikan) Decrease (increase) in
+pendapatan premi premium income
+disesikan kepada ceded to reinsurancer
+reasuradur
+Pendapatan komisi Insurance commission
+asuransi income
+Pendapatan bersih 2,029,888 1,255,915 Net investment
+investasi income
+Penerimaan ujrah Ujrah received
+Pendapatan asuransi 1,881,769 1,992,607 Other insurance
+lainnya income
+Beban asuransi Insurance expenses
+Beban klaim (1,523) (1,752) Claim expenses
+Klaim reasuransi Reinsurance claims
+Klaim retrosesi Retrocession claims
+Kenaikan (penurunan) Increase (decrease) in
+estimasi liabilitas estimated claims
+klaim liability
+Kenaikan (penurunan) Increase (decrease) in
+liabilitas manfaat polis liability for future
+masa depan policy benefit
+Kenaikan (penurunan) Increase (decrease) in
+provisi yang timbul provision for losses
+dari tes kecukupan arising from liability
+liabilitas adequacy test
+Kenaikan (penurunan) Increase (decrease) in
+liabilitas asuransi yang insurance liabilities
+disesikan kepada ceded to reinsurers
+reasuradur
+Kenaikan (penurunan) Increase (decrease) in
+liabilitas pemegang liabilities to
+polis pada kontrak policyholder in
+unit-linked unit-linked contracts
+Beban komisi asuransi Insurance commission
+expenses
+Ujrah dibayar Ujrah paid
+Beban akuisisi dari Acquisition costs of
+kontrak asuransi insurance contracts
+Beban asuransi (3,166,941) (2,480,478) Other insurance
+lainnya expenses
+Pendapatan dari Financing income
+pembiayaan
+Pendapatan dari Revenue from
+pembiayaan consumer financing
+konsumen
+Pendapatan dari sewa Revenue from finance
+pembiayaan lease
+Pendapatan dari sewa Revenue from
+operasi operating lease
+Pendapatan dari anjak Revenue from
+piutang factoring
+Pendapatan sekuritas Securities income
+Pendapatan kegiatan Revenue from
+penjamin emisi dan underwriting activities
+penjualan efek and selling fees
+Pendapatan Revenue from
+pembiayaan transaksi financing transactions
+nasabah
+Pendapatan jasa biro Revenue from
+administrasi efek securities
+administration service
+Pendapatan kegiatan Revenue from
+jasa manajer investasi investment
+management services
+Pendapatan kegiatan Revenue from
+jasa penasehat financial advisory
+keuangan services
+Keuntungan 2,885,819 1,769,243 Realised gains
+(kerugian) dari (losses) on trading of
+transaksi marketable securities
+perdagangan efek
+yang telah direalisasi
+Keuntungan 141,576 144,558 Gains (losses) on
+(kerugian) perubahan changes in fair value
+nilai wajar efek of marketable
+securities
+Pendapatan operasional Other operating income
+lainnya
+Pendapatan investasi 1,627,444 1,522,798 Investments income
+Pendapatan provisi 11,167,675 10,599,228 Provisions and
+dan komisi dari commissions income
+transaksi lainnya from transactions
+selain kredit other than loan
+Pendapatan transaksi Revenue from trading
+perdagangan transactions
+Pendapatan dividen Dividends income
+Keuntungan Realised gains
+(kerugian) yang telah (losses) from
+direalisasi atas derivative instruments
+instrumen derivatif
+Penerimaan kembali 5,438,988 6,025,183 Revenue from
+aset yang telah recovery of written-off
+dihapusbukukan assets
+Keuntungan 1,037,143 1,259,207 Gains (losses) on
+(kerugian) selisih kurs changes in foreign
+mata uang asing exchange rates
+Keuntungan Gains (losses) on
+(kerugian) pelepasan disposal of property
+aset tetap and equipment
+Keuntungan Gains (losses) on
+(kerugian) pelepasan disposal of foreclosed
+agunan yang diambil assets
+alih
+Pendapatan 1,601,317 1,328,962 Other operating
+operasional lainnya income
+Pemulihan penyisihan Recovery of impairment
+kerugian penurunan loss
+nilai
+Pemulihan penyisihan Recovery of
+kerugian penurunan impairment loss of
+nilai aset keuangan financial assets
+Pemulihan penyisihan Recovery of
+kerugian penurunan impairment loss of
+nilai aset keuangan - financial assets
+sewa pembiayaan finance lease
+Pemulihan penyisihan Recovery of
+kerugian penurunan impairment loss of
+nilai aset keuangan - financial assets
+piutang pembiayaan consumer financing
+konsumen receivables
+Pemulihan penyisihan Recovery of
+kerugian penurunan impairment loss of
+nilai aset non-financial assets
+non-keuangan
+Pemulihan penyisihan Recovery of
+kerugian penurunan impairment loss of
+nilai aset non-financial assets
+non-keuangan - repossessed
+agunan yang diambil collaterals
+alih
+Pemulihan penyisihan Recovery of estimated
+estimasi kerugian atas loss of commitments
+komitmen dan and contingency
+kontinjensi
+Pembentukan kerugian Allowances for
+penurunan nilai impairment losses
+Pembentukan (9,724,370) (8,210,562) Allowances for
+penyisihan kerugian impairment losses on
+penurunan nilai aset earnings assets
+produktif
+Pembentukan Allowances for
+penyisihan kerugian impairment losses on
+penurunan nilai aset non-earnings assets
+non-produktif
+Pembalikan (beban) Reversal (expense) of
+estimasi kerugian estimated losses on
+komitmen dan kontijensi commitments and
+contingencies
+Beban operasional Other operating
+lainnya expenses
+Beban umum dan (23,923,938) (22,806,989) General and
+administrasi administrative
+expenses
+Beban penjualan (1,187,693) (1,103,491) Selling expenses
+Beban sewa, (695,137) (679,572) Rent, maintenance
+pemeliharaan, dan and improvement
+perbaikan expenses
+Beban provisi dan (0) (0) Other fees and
+komisi commissions
+expenses
+Beban operasional (5,049,588) (4,522,174) Other operating
+lainnya expenses
+Jumlah laba operasional 24,395,624 26,572,888 Total profit from operation
+Pendapatan dan beban Non-operating income and
+bukan operasional expense
+Pendapatan bukan 1,839 0 Non-operating income
+operasional
+Beban bukan operasional (0) (3,797) Non-operating expenses
+Bagian atas laba (rugi) Share of profit (loss) of
+entitas asosiasi yang associates accounted for
+dicatat dengan using equity method
+menggunakan metode
+ekuitas
+Bagian atas laba (rugi) Share of profit (loss) of
+entitas ventura bersama joint ventures accounted
+yang dicatat for using equity method
+menggunakan metode
+ekuitas
+Jumlah laba (rugi) sebelum 24,397,463 26,569,091 Total profit (loss) before
+pajak penghasilan tax
+Pendapatan (beban) pajak (4,286,423) (4,899,694) Tax benefit (expenses)
+Jumlah laba (rugi) dari 20,111,040 21,669,397 Total profit (loss) from
+operasi yang dilanjutkan continuing operations
+Laba (rugi) dari operasi yang Profit (loss) from
+dihentikan discontinued operations
+Jumlah laba (rugi) 20,111,040 21,669,397 Total profit (loss)
+Pendapatan komprehensif Other comprehensive
+lainnya, setelah pajak income, after tax
+Pendapatan Other comprehensive
+komprehensif lainnya income that will not be
+yang tidak akan reclassified to profit or
+direklasifikasi ke laba loss, after tax
+rugi, setelah pajak
+Pendapatan 0 1,263,566 Other comprehensive
+komprehensif lainnya income for gains
+atas keuntungan (losses) on revaluation
+(kerugian) hasil of property and
+revaluasi aset tetap, equipment, after tax
+setelah pajak
+Pendapatan (591,455) 523,859 Other comprehensive
+komprehensif lainnya income for
+atas pengukuran remeasurement of
+kembali kewajiban defined benefit
+manfaat pasti, setelah obligation, after tax
+pajak
+Penyesuaian lainnya 112,403 (99,722) Other adjustments to
+atas pendapatan other comprehensive
+komprehensif lainnya income that will not be
+reclassified to profit or
+loss, after tax
+yang tidak akan
+direklasifikasi ke laba
+rugi, setelah pajak
+Jumlah pendapatan (479,052) 1,687,703 Total other
+komprehensif comprehensive
+lainnya yang tidak income that will not
+akan direklasifikasi be reclassified to
+ke laba rugi, setelah profit or loss, after
+pajak tax
+Pendapatan Other comprehensive
+komprehensif lainnya income that may be
+yang akan reclassified to profit or
+direklasifikasi ke laba loss, after tax
+rugi, setelah pajak
+Keuntungan (27,347) (38,631) Gains (losses) on
+(kerugian) selisih kurs exchange differences
+penjabaran, setelah on translation, after
+pajak tax
+Penyesuaian Reclassification
+reklasifikasi selisih adjustments on
+kurs penjabaran, exchange differences
+setelah pajak on translation, after
+tax
+Keuntungan 5,084,110 (770,837) Unrealised gains
+(kerugian) yang belum (losses) on changes in
+direalisasi atas fair value through
+perubahan nilai wajar other comprehensive
+aset keuangan melalui income financial
+penghasilan assets, after tax
+komprehensif lain,
+setelah pajak
+Penyesuaian Reclassification
+reklasifikasi atas aset adjustments on fair
+keuangan nilai wajar value through other
+melalui pendapatan comprehensive
+komprehensif lainnya, income financial
+setelah pajak assets, after tax
+Keuntungan Gains (losses) on
+(kerugian) lindung nilai cash flow hedges,
+arus kas, setelah after tax
+pajak
+Penyesuaian Reclassification
+reklasifikasi atas adjustments on cash
+lindung nilai arus kas, flow hedges, after tax
+setelah pajak
+Nilai tercatat dari aset Carrying amount of
+(liabilitas) non-financial asset
+non-keuangan yang (liability) whose
+perolehan atau acquisition or
+keterjadiannya incurrence was
+merupakan suatu hedged on highly
+prakiraan transaksi probable forecast
+yang kemungkinan transaction, adjusted
+besar terjadi yang from equity, after tax
+dilindung nilai, setelah
+pajak
+Keuntungan Gains (losses) on
+(kerugian) lindung nilai hedges of net
+investasi bersih investments in foreign
+kegiatan usaha luar operations, after tax
+negeri, setelah pajak
+Penyesuaian Reclassification
+reklasifikasi atas adjustments on
+lindung nilai investasi hedges of net
+bersih kegiatan usaha investments in foreign
+luar negeri, setelah operations, after tax
+pajak
+Bagian pendapatan Share of other
+komprehensif lainnya comprehensive
+dari entitas asosiasi income of associates
+yang dicatat dengan accounted for using
+menggunakan metode equity method, after
+ekuitas, setelah pajak tax
+Bagian pendapatan Share of other
+komprehensif lainnya comprehensive
+dari entitas ventura income of joint
+bersama yang dicatat ventures accounted
+dengan menggunakan for using equity
+metode ekuitas, method, after tax
+setelah pajak
+Penyesuaian lainnya (972,629) 152,276 Other adjustments to
+atas pendapatan other comprehensive
+komprehensif lainnya income that may be
+yang akan reclassified to profit or
+direklasifikasi ke laba loss, after tax
+rugi, setelah pajak
+Jumlah pendapatan 4,084,134 (657,192) Total other
+komprehensif comprehensive
+lainnya yang akan income that may be
+direklasifikasi ke reclassified to profit
+laba rugi, setelah or loss, after tax
+pajak
+Jumlah pendapatan 3,605,082 1,030,511 Total other
+komprehensif lainnya, comprehensive income,
+setelah pajak after tax
+Jumlah laba rugi 23,716,122 22,699,908 Total comprehensive
+komprehensif income
+Laba (rugi) yang dapat Profit (loss) attributable to
+diatribusikan
+Laba (rugi) yang dapat 20,040,703 21,463,599 Profit (loss) attributable to
+diatribusikan ke entitas parent entity
+induk
+Laba (rugi) yang dapat 70,337 205,798 Profit (loss) attributable to
+diatribusikan ke non-controlling interests
+kepentingan
+non-pengendali
+Laba rugi komprehensif Comprehensive income
+yang dapat diatribusikan attributable to
+Laba rugi komprehensif 23,583,665 22,551,316 Comprehensive income
+yang dapat diatribusikan attributable to parent
+ke entitas induk entity
+Laba rugi komprehensif 132,457 148,592 Comprehensive income
+yang dapat diatribusikan attributable to
+ke kepentingan non-controlling interests
+non-pengendali
+Laba (rugi) per saham Earnings (loss) per share
+Laba per saham dasar Basic earnings per
+diatribusikan kepada share attributable to
+pemilik entitas induk equity owners of the
+parent entity
+Laba (rugi) per saham 537 576 Basic earnings (loss)
+dasar dari operasi per share from
+yang dilanjutkan continuing operations
+Laba (rugi) per saham Basic earnings (loss)
+dasar dari operasi per share from
+yang dihentikan discontinued
+operations
+Laba (rugi) per saham Diluted earnings (loss)
+dilusian per share
+Laba (rugi) per saham Diluted earnings (loss)
+dilusian dari operasi per share from
+yang dilanjutkan continuing operations
+Laba (rugi) per saham Diluted earnings (loss)
+dilusian dari operasi per share from
+yang dihentikan discontinued
+operations
+[4410000] Statement of changes in equity - Financial and Sharia Industry
+Laporan perubahan ekuitas Statement of changes in equity
+Additional Reserve of exchange Reserve for changes in fair value of fair value Reserve of gains (losses) from Reserve of Reserve of Reserve of Difference Due to Changes of Difference in value of equity Other transactions with Other components
+Common Preferred Treasury Advances in Stock Translation Revaluation Other Other equity Appropriated retained Appropriated retained Unappropriated retained Equity attributable to Proforma Non-controlling
+paid-in differences on through other comprehensive income financial investments in equity share-based cash flow remeasurements of Equity in transactions with non-controlling non-controlling of equity Equity
+stocks stocks stocks capital stock options adjustment reserves reserves interests earnings-general and legal reserves earnings-specific reserves earnings parent entity equity interests
+capital translation assets instruments payments hedges defined benefit plans Subsidiary/Associates interests interests transactions
+Tambahan Uang muka Penjabaran Cadangan perubahan nilai wajar aset keuangan Cadangan Cadangan Cadangan pengukuran Kepentingan Komponen Saldo laba yang telah ditentukan Saldo laba yang telah ditentukan Saldo laba yang belum Ekuitas yang dapat
+Saham Saham Saham Opsi Cadangan Cadangan selisih kurs Cadangan keuntungan (kerugian) Cadangan Selisih Transaksi Perubahan Selisih transaksi ekuitas dengan Transaksi dengan pihak Proforma Kepentingan
+modal setoran laporan nilai wajar melalui pendapatan komprehensif pembayaran lindung nilai kembali program imbalan ekuitas transaksi ekuitas penggunaannya-cadangan umum dan penggunaannya-cadangan ditentukan diatribusikan kepada Ekuitas
+biasa preferen treasuri saham revaluasi penjabaran investasi pada instrumen ekuitas lainnya Ekuitas Entitas Anak/Asosiasi pihak non-pengendali non-pengendali lainnya ekuitas non-pengendali
+disetor modal keuangan lainnya berbasis saham arus kas pasti lainnya lainnya wajib khusus penggunaannya entitas induk
+Laporan perubahan ekuitas [baris komponen] Statement of changes in equity [line items]
+Posisi ekuitas Equity position
+Saldo awal periode sebelum penyajian kembali 9,054,807 17,010,254 16,711,395 (96,998) (1,431,633) 322,589 2,256,999 2,778,412 115,465,415 162,071,240 4,476,767 166,548,007 Balance before restatement at beginning of
+period
+Penyesuaian Adjustments
+Penerapan awal standar akuntansi baru dan revisi Initial adoption of new and revised accounting
+standards
+Perubahan kebijakan akuntansi secara sukarela Voluntary changes in accounting policies
+Koreksi kesalahan periode lalu Correction of prior period errors
+Penyesuaian lainnya Other adjustments
+Posisi ekuitas, awal periode 9,054,807 17,010,254 16,711,395 (96,998) (1,431,633) 322,589 2,256,999 2,778,412 115,465,415 162,071,240 4,476,767 166,548,007 Equity position, beginning of the period
+Laba (rugi) 20,040,703 20,040,703 70,337 20,111,040 Profit (loss)
+Pendapatan komprehensif lainnya (27,347) 4,048,670 (478,361) 3,542,962 62,120 3,605,082 Other comprehensive income
+Penjabaran laporan keuangan Translation adjustment
+Pembentukan cadangan umum Allocation for general reserves
+Pembentukan cadangan khusus Allocation for specific reserves
+Distribusi dividen kas (13,951,339) (13,951,339) (Distributions of cash dividends
+13,951,339
+)
+Distribusi dividen saham Distributions of stock dividends
+Penerbitan saham biasa Issuance of common stocks
+Penerbitan saham preferen Issuance of preferred stocks
+Biaya emisi efek Stock issuance costs
+Penerbitan instrumen yang dapat dikonversi Issuance of convertible instruments
+Kenaikan (penurunan) ekuitas melalui transaksi saham tresuri Increase (decrease) in equity through treasury
+stock transactions
+Kenaikan (penurunan) ekuitas melalui transaksi pembayaran berbasis saham 26,578 26,578 26,578 Increase (decrease) in equity through
+share-based payment transactions
+Pelaksanaan instrumen yang dapat dikonversi Exercise of convertible instruments
+Pelaksanaan waran Exercise of warrants
+Kenaikan (penurunan) ekuitas melalui transaksi dengan pemilik ekuitas Increase (decrease) in equity through
+transactions with owner's equity
+Setoran modal dari kepentingan non-pengendali Stock subscription from non-controlling
+interests
+Perubahan kepentingan non-pengendali atas akuisisi entitas anak Changes in non-controlling interests due to
+acquisition of subsidiaries
+Perubahan kepentingan non-pengendali atas pendirian entitas anak Changes in non-controlling interests due to
+establishment of subsidiaries
+Perubahan kepentingan non-pengendali atas pelepasan entitas anak Changes in non-controlling interests due to
+disposal of subsidiaries
+Perubahan kepentingan non-pengendali atas pelepasan operasi yang Changes in non-controlling interests due to
+dihentikan disposal of a discontinued operation
+Perubahan kepentingan non-pengendali atas pelepasan sebagian Changes in non-controlling interests due to
+kepemilikan pada entitas anak yang tidak mengakibatkan hilangnya partial disposal of interests in subsidiaries
+pengendalian without loss of control
+Perubahan kepentingan non-pengendali atas transaksi lainnya dengan Changes in non-controlling interests due to
+kepentingan non-pengendali other transactions with non-controlling
+interests
+Eliminasi defisit dalam rangka kuasi reorganisasi Elimination of deficit in connection with
+quasi-reorganisation
+Pelaksanaan opsi saham Stock options exercised
+Dampak penerapan psak no. 70 atas aset pengampunan pajak Impact of psak no. 70 adoption on tax
+amnesty assets
+Saldo penyesuaian dampak penerapan retrospektif atas PSAK Retrospective adjustment of PSAK
+implementation
+Transaksi ekuitas lainnya Other equity transactions
+Posisi ekuitas, akhir periode 9,054,807 17,010,254 16,711,395 (124,345) 2,617,037 349,167 2,256,999 2,778,412 121,076,418 171,730,144 4,609,224 176,339,368 Equity position, end of the period
+[4410000] Statement of changes in equity - Financial and Sharia Industry - Prior Year
+Laporan perubahan ekuitas Statement of changes in equity
+Additional Reserve of exchange Reserve for changes in fair value of fair value Reserve of gains (losses) from Reserve of Reserve of Reserve of Difference Due to Changes of Difference in value of equity Other transactions with Other components
+Common Preferred Treasury Advances in Stock Translation Revaluation Other Other equity Appropriated retained Appropriated retained Unappropriated retained Equity attributable to Proforma Non-controlling
+paid-in differences on through other comprehensive income financial investments in equity share-based cash flow remeasurements of Equity in transactions with non-controlling non-controlling of equity Equity
+stocks stocks stocks capital stock options adjustment reserves reserves interests earnings-general and legal reserves earnings-specific reserves earnings parent entity equity interests
+capital translation assets instruments payments hedges defined benefit plans Subsidiary/Associates interests interests transactions
+Tambahan Uang muka Penjabaran Cadangan perubahan nilai wajar aset keuangan Cadangan Cadangan Cadangan pengukuran Kepentingan Komponen Saldo laba yang telah ditentukan Saldo laba yang telah ditentukan Saldo laba yang belum Ekuitas yang dapat
+Saham Saham Saham Opsi Cadangan Cadangan selisih kurs Cadangan keuntungan (kerugian) Cadangan Selisih Transaksi Perubahan Selisih transaksi ekuitas dengan Transaksi dengan pihak Proforma Kepentingan
+modal setoran laporan nilai wajar melalui pendapatan komprehensif pembayaran lindung nilai kembali program imbalan ekuitas transaksi ekuitas penggunaannya-cadangan umum dan penggunaannya-cadangan ditentukan diatribusikan kepada Ekuitas
+biasa preferen treasuri saham revaluasi penjabaran investasi pada instrumen ekuitas lainnya Ekuitas Entitas Anak/Asosiasi pihak non-pengendali non-pengendali lainnya ekuitas non-pengendali
+disetor modal keuangan lainnya berbasis saham arus kas pasti lainnya lainnya wajib khusus penggunaannya entitas induk
+Laporan perubahan ekuitas [baris komponen] Statement of changes in equity [line items]
+Posisi ekuitas Equity position
+Saldo awal periode sebelum penyajian kembali 9,054,807 17,010,254 (15,447,829 (58,367) (896,178) 260,116 2,256,999 2,778,412 104,457,102 150,131,014 4,601,506 154,732,520 Balance before restatement at beginning of
+179,960 period
+)
+Penyesuaian Adjustments
+Penerapan awal standar akuntansi baru dan revisi (45,011) (419,767) (464,778) (304,496) (769,274) Initial adoption of new and revised accounting
+standards
+Perubahan kebijakan akuntansi secara sukarela Voluntary changes in accounting policies
+Koreksi kesalahan periode lalu Correction of prior period errors
+Penyesuaian lainnya Other adjustments
+Posisi ekuitas, awal periode 9,054,807 17,010,254 (15,447,829 (58,367) (941,189) 260,116 2,256,999 2,778,412 104,037,335 149,666,236 4,297,010 153,963,246 Equity position, beginning of the period
+179,960
+)
+Laba (rugi) 21,463,599 21,463,599 205,798 21,669,397 Profit (loss)
+Pendapatan komprehensif lainnya 1,263,566 (38,631) (490,444) 353,226 1,087,717 (57,206) 1,030,511 Other comprehensive income
+Penjabaran laporan keuangan Translation adjustment
+Pembentukan cadangan umum Allocation for general reserves
+Pembentukan cadangan khusus Allocation for specific reserves
+Distribusi dividen kas (10,454,738) (10,454,738) (Distributions of cash dividends
+10,454,738
+)
+Distribusi dividen saham Distributions of stock dividends
+Penerbitan saham biasa Issuance of common stocks
+Penerbitan saham preferen Issuance of preferred stocks
+Biaya emisi efek Stock issuance costs
+Penerbitan instrumen yang dapat dikonversi Issuance of convertible instruments
+Kenaikan (penurunan) ekuitas melalui transaksi saham tresuri 179,960 179,960 179,960 Increase (decrease) in equity through treasury
+stock transactions
+Kenaikan (penurunan) ekuitas melalui transaksi pembayaran berbasis saham 62,473 62,473 62,473 Increase (decrease) in equity through
+share-based payment transactions
+Pelaksanaan instrumen yang dapat dikonversi Exercise of convertible instruments
+Pelaksanaan waran Exercise of warrants
+Kenaikan (penurunan) ekuitas melalui transaksi dengan pemilik ekuitas Increase (decrease) in equity through
+transactions with owner's equity
+Setoran modal dari kepentingan non-pengendali Stock subscription from non-controlling
+interests
+Perubahan kepentingan non-pengendali atas akuisisi entitas anak Changes in non-controlling interests due to
+acquisition of subsidiaries
+Perubahan kepentingan non-pengendali atas pendirian entitas anak Changes in non-controlling interests due to
+establishment of subsidiaries
+Perubahan kepentingan non-pengendali atas pelepasan entitas anak Changes in non-controlling interests due to
+disposal of subsidiaries
+Perubahan kepentingan non-pengendali atas pelepasan operasi yang Changes in non-controlling interests due to
+dihentikan disposal of a discontinued operation
+Perubahan kepentingan non-pengendali atas pelepasan sebagian Changes in non-controlling interests due to
+kepemilikan pada entitas anak yang tidak mengakibatkan hilangnya partial disposal of interests in subsidiaries
+pengendalian without loss of control
+Perubahan kepentingan non-pengendali atas transaksi lainnya dengan Changes in non-controlling interests due to
+kepentingan non-pengendali other transactions with non-controlling
+interests
+Eliminasi defisit dalam rangka kuasi reorganisasi Elimination of deficit in connection with
+quasi-reorganisation
+Pelaksanaan opsi saham Stock options exercised
+Dampak penerapan psak no. 70 atas aset pengampunan pajak Impact of psak no. 70 adoption on tax
+amnesty assets
+Saldo penyesuaian dampak penerapan retrospektif atas PSAK Retrospective adjustment of PSAK
+implementation
+Transaksi ekuitas lainnya 65,993 65,993 31,165 97,158 Other equity transactions
+Posisi ekuitas, akhir periode 9,054,807 17,010,254 16,711,395 (96,998) (1,431,633) 322,589 2,256,999 2,778,412 115,465,415 162,071,240 4,476,767 166,548,007 Equity position, end of the period

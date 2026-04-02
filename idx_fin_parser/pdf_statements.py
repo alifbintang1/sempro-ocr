@@ -4,7 +4,7 @@ import os
 import re
 import shutil
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import pdfplumber
 
@@ -18,6 +18,7 @@ from .utils import (
     split_label_amounts,
     token_to_int,
 )
+
 
 @dataclass
 class StatementResult:
@@ -34,6 +35,7 @@ class StatementResult:
             "sections": {k: [n.to_dict() for n in v] for k, v in self.sections.items()},
         }
 
+
 def _extract_page_text(page: pdfplumber.page.Page, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> str:
     text = page.extract_text() or ""
     if text.strip() or not use_ocr:
@@ -42,7 +44,7 @@ def _extract_page_text(page: pdfplumber.page.Page, use_ocr: bool = False, ocr_la
     try:
         import pytesseract
     except ImportError as exc:
-        raise ValueError("OCR mode but 'pytesseract' is not installed. Run: pip install pytesseract") from exc
+        raise ValueError("OCR mode requires 'pytesseract'. Run: pip install pytesseract") from exc
 
     if shutil.which("tesseract") is None:
         candidates = [
@@ -61,8 +63,7 @@ def _extract_page_text(page: pdfplumber.page.Page, use_ocr: bool = False, ocr_la
         return ocr_text or ""
     except pytesseract.pytesseract.TesseractNotFoundError as exc:
         raise ValueError(
-            "Tesseract engine not found. Install Tesseract OCR and ensure it is in PATH. "
-            "Windows example: install UB Mannheim Tesseract."
+            "Tesseract engine not found. Install Tesseract OCR and ensure it is in PATH."
         ) from exc
 
 
@@ -97,14 +98,8 @@ def _collect_pages_until(
         pages.append(i)
     return pages
 
-def _merge_wrapped_lines(lines: List[str], years: List[int]) -> List[str]:
-    """
-    Merge wrapped lines caused by PDF line breaking.
 
-    We handle:
-    1) Header/label wrapping: consecutive lines WITHOUT amounts where the next line looks like continuation.
-    2) Value-row wrapping: a line WITH amounts followed by tail lines WITHOUT amounts (qualifiers like 'pihak ketiga').
-    """
+def _merge_wrapped_lines(lines: List[str], years: List[int]) -> List[str]:
     merged: List[str] = []
     i = 0
     while i < len(lines):
@@ -115,7 +110,6 @@ def _merge_wrapped_lines(lines: List[str], years: List[int]) -> List[str]:
 
         cur_amt = extract_amount_tokens(cur, years)
 
-        # Case 2: value row + wrapped tail lines
         if cur_amt:
             buf = cur
             j = i + 1
@@ -138,7 +132,6 @@ def _merge_wrapped_lines(lines: List[str], years: List[int]) -> List[str]:
             i = j
             continue
 
-        # Case 1: label/header wrapping
         j = i + 1
         buf = cur
         while j < len(lines):
@@ -160,13 +153,8 @@ def _merge_wrapped_lines(lines: List[str], years: List[int]) -> List[str]:
         i = j
     return merged
 
-def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[ItemNode]]:
-    """
-    Conservative hierarchy:
-    - section headers reset parent
-    - "parent" is a no-amount line
-    - amount lines attach to current parent if prefix matches
-    """
+
+def _parse_merged_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[ItemNode]]:
     year_keys = [f"{y}-12-31" for y in years]
     sections: Dict[str, List[ItemNode]] = {}
     current_section = "unknown"
@@ -175,9 +163,7 @@ def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[I
     def add_root(node: ItemNode) -> None:
         sections.setdefault(current_section, []).append(node)
 
-    lines2 = _merge_wrapped_lines(lines, years)
-
-    for raw in lines2:
+    for raw in lines:
         ln = normalize_text(raw)
         if not ln:
             continue
@@ -186,14 +172,12 @@ def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[I
         amt_tokens = amt_tokens[-len(years):] if amt_tokens else []
         left, right = split_label_amounts(ln, amt_tokens)
 
-        # Section header
         sec = looks_like_section_header(left)
         if sec and not amt_tokens:
             current_section = sec
             current_parent = None
             continue
 
-        # Parent line (no amounts)
         if not amt_tokens:
             if not right:
                 left, right = split_bilingual_if_possible(left)
@@ -202,7 +186,6 @@ def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[I
             current_parent = node
             continue
 
-        # Value line
         values: Dict[str, Optional[int]] = {}
         padded = [None] * (len(years) - len(amt_tokens)) + amt_tokens
         for yk, tok in zip(year_keys, padded):
@@ -223,70 +206,154 @@ def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[I
         if not attached:
             add_root(ItemNode(label=node_label, label_right=right, values=values))
 
-        # Totals usually end a block
         if re.search(r"\b(jumlah|total|subtotal)\b", left.lower()):
             current_parent = None
 
     return sections
+
+
+def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[ItemNode]]:
+    merged = _merge_wrapped_lines(lines, years)
+    return _parse_merged_lines_to_tree(merged, years)
+
+
+def _extract_statement_generic(
+    pdf_path: str,
+    statement_type: str,
+    start_patterns: List[str],
+    stop_patterns: List[str],
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> StatementResult:
+    with pdfplumber.open(pdf_path) as pdf:
+        start = _find_page_index(pdf, start_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
+        if start is None:
+            raise ValueError(f"Could not find '{statement_type}' in PDF.")
+
+        pages = _collect_pages_until(pdf, start, stop_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
+
+        all_lines: List[str] = []
+        for i in pages:
+            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
+            all_lines.extend(txt.splitlines())
+
+        years = find_years_in_order(all_lines)
+        sections = _parse_lines_to_tree(all_lines, years)
+        return StatementResult(statement_type, years, pages, sections)
+
+
+def _extract_statement_with_stages(
+    pdf_path: str,
+    statement_type: str,
+    start_patterns: List[str],
+    stop_patterns: List[str],
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> Tuple[StatementResult, Dict[str, Any]]:
+    with pdfplumber.open(pdf_path) as pdf:
+        start = _find_page_index(pdf, start_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
+        if start is None:
+            raise ValueError(f"Could not find '{statement_type}' in PDF.")
+
+        pages = _collect_pages_until(pdf, start, stop_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
+
+        page_texts: List[Dict[str, Any]] = []
+        raw_lines: List[str] = []
+        for i in pages:
+            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
+            page_texts.append({"page": i, "text": txt})
+            raw_lines.extend(txt.splitlines())
+
+        normalized_lines = [normalize_text(ln) for ln in raw_lines if normalize_text(ln)]
+        years = find_years_in_order(normalized_lines)
+        merged_lines = _merge_wrapped_lines(normalized_lines, years)
+        sections = _parse_merged_lines_to_tree(merged_lines, years)
+
+        result = StatementResult(statement_type, years, pages, sections)
+        stages = {
+            "statement_type": statement_type,
+            "start_patterns": start_patterns,
+            "stop_patterns": stop_patterns,
+            "start_page": start,
+            "pages": pages,
+            "raw_text_by_page": page_texts,
+            "normalized_lines": normalized_lines,
+            "merged_lines": merged_lines,
+            "years": years,
+            "sections": {k: [n.to_dict() for n in v] for k, v in sections.items()},
+        }
+        return result, stages
+
 
 def extract_statement_financial_position(
     pdf_path: str,
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
 ) -> StatementResult:
-    with pdfplumber.open(pdf_path) as pdf:
-        start = _find_page_index(
-            pdf,
-            ["statement of financial position", "laporan posisi keuangan"],
-            use_ocr=use_ocr,
-            ocr_lang=ocr_lang,
-        )
-        if start is None:
-            raise ValueError("Could not find 'Statement of financial position' in PDF.")
-        pages = _collect_pages_until(
-            pdf,
-            start,
-            ["statement of profit or loss", "laporan laba rugi"],
-            use_ocr=use_ocr,
-            ocr_lang=ocr_lang,
-        )
+    return _extract_statement_generic(
+        pdf_path,
+        statement_type="financial_position",
+        start_patterns=["statement of financial position", "laporan posisi keuangan"],
+        stop_patterns=["statement of profit or loss", "laporan laba rugi"],
+        use_ocr=use_ocr,
+        ocr_lang=ocr_lang,
+    )
 
-        all_lines: List[str] = []
-        for i in pages:
-            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
-            all_lines.extend(txt.splitlines())
-
-        years = find_years_in_order(all_lines)
-        sections = _parse_lines_to_tree(all_lines, years)
-        return StatementResult("financial_position", years, pages, sections)
 
 def extract_statement_profit_loss(
     pdf_path: str,
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
 ) -> StatementResult:
-    with pdfplumber.open(pdf_path) as pdf:
-        start = _find_page_index(
-            pdf,
-            ["statement of profit or loss", "laporan laba rugi"],
-            use_ocr=use_ocr,
-            ocr_lang=ocr_lang,
-        )
-        if start is None:
-            raise ValueError("Could not find 'Statement of profit or loss' in PDF.")
-        pages = _collect_pages_until(
-            pdf,
-            start,
-            ["statement of cash flows", "laporan arus kas", "catatan atas laporan keuangan", "notes to the financial statements"],
-            use_ocr=use_ocr,
-            ocr_lang=ocr_lang,
-        )
+    return _extract_statement_generic(
+        pdf_path,
+        statement_type="profit_or_loss",
+        start_patterns=["statement of profit or loss", "laporan laba rugi"],
+        stop_patterns=[
+            "statement of cash flows",
+            "laporan arus kas",
+            "catatan atas laporan keuangan",
+            "notes to the financial statements",
+        ],
+        use_ocr=use_ocr,
+        ocr_lang=ocr_lang,
+    )
 
-        all_lines: List[str] = []
-        for i in pages:
-            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
-            all_lines.extend(txt.splitlines())
 
-        years = find_years_in_order(all_lines)
-        sections = _parse_lines_to_tree(all_lines, years)
-        return StatementResult("profit_or_loss", years, pages, sections)
+def extract_with_stages(
+    pdf_path: str,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+) -> Dict[str, Any]:
+    fp_result, fp_stage = _extract_statement_with_stages(
+        pdf_path,
+        statement_type="financial_position",
+        start_patterns=["statement of financial position", "laporan posisi keuangan"],
+        stop_patterns=["statement of profit or loss", "laporan laba rugi"],
+        use_ocr=use_ocr,
+        ocr_lang=ocr_lang,
+    )
+
+    pl_result, pl_stage = _extract_statement_with_stages(
+        pdf_path,
+        statement_type="profit_or_loss",
+        start_patterns=["statement of profit or loss", "laporan laba rugi"],
+        stop_patterns=[
+            "statement of cash flows",
+            "laporan arus kas",
+            "catatan atas laporan keuangan",
+            "notes to the financial statements",
+        ],
+        use_ocr=use_ocr,
+        ocr_lang=ocr_lang,
+    )
+
+    return {
+        "source_pdf": str(pdf_path),
+        "meta": {"use_ocr": use_ocr, "ocr_lang": ocr_lang},
+        "statements": [fp_result.to_dict(), pl_result.to_dict()],
+        "stages": {
+            "financial_position": fp_stage,
+            "profit_or_loss": pl_stage,
+        },
+    }

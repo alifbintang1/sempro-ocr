@@ -1,0 +1,971 @@
+{
+  "unknown": [
+    {
+      "label": "[",
+      "label_right": "] Statement of profit or loss and other comprehensive income, OCI components presented net of tax, by nature - Financial and Sharia Industry",
+      "values": {
+        "2025-12-31": null,
+        "2024-12-31": 4312000
+      }
+    },
+    {
+      "label": "Laporan laba rugi dan penghasilan Statement of profit or loss and other komprehensif lain comprehensive income"
+    },
+    {
+      "label": "",
+      "label_right": "December 2024",
+      "values": {
+        "2025-12-31": 31,
+        "2024-12-31": 31
+      }
+    },
+    {
+      "label": "Laporan laba rugi dan Statement of profit or loss penghasilan komprehensif and other comprehensive lain income"
+    },
+    {
+      "label": "Pendapatan dan beban Operating income and operasional expenses"
+    },
+    {
+      "label": "Pendapatan bunga",
+      "label_right": "Interest income",
+      "values": {
+        "2025-12-31": 69394154,
+        "2024-12-31": 66583110
+      }
+    },
+    {
+      "label": "Beban bunga",
+      "label_right": "Interest expenses",
+      "values": {
+        "2025-12-31": -29060959,
+        "2024-12-31": -26102905
+      }
+    },
+    {
+      "label": "Pendapatan pengelolaan Revenue from fund dana oleh bank sebagai management as mudharib mudharib"
+    },
+    {
+      "label": "Hak pihak ketiga atas Third parties share on bagi hasil dana syirkah return of temporary temporer syirkah funds"
+    },
+    {
+      "label": "Pendapatan asuransi",
+      "label_right": "Insurance income"
+    },
+    {
+      "label": "Pendapatan dari Revenue from premi asuransi insurance premiums Premi reasuransi",
+      "label_right": "Reinsurance premiums Premi retrosesi Retrocession premiums"
+    },
+    {
+      "label": "Penurunan (kenaikan) Decrease (increase) in premi yang belum unearned premiums merupakan pendapatan"
+    },
+    {
+      "label": "Penurunan (kenaikan) Decrease (increase) in pendapatan premi premium income disesikan kepada ceded to reinsurancer reasuradur"
+    },
+    {
+      "label": "Pendapatan komisi",
+      "label_right": "Insurance commission asuransi income"
+    },
+    {
+      "label": "Pendapatan bersih",
+      "label_right": "Net investment investasi income Penerimaan ujrah Ujrah received",
+      "values": {
+        "2025-12-31": 2029888,
+        "2024-12-31": 1255915
+      }
+    },
+    {
+      "label": "Pendapatan asuransi",
+      "label_right": "Other insurance lainnya income Beban asuransi Insurance expenses",
+      "values": {
+        "2025-12-31": 1881769,
+        "2024-12-31": 1992607
+      }
+    },
+    {
+      "label": "Beban klaim",
+      "label_right": "Claim expenses Klaim reasuransi Reinsurance claims Klaim retrosesi Retrocession claims",
+      "values": {
+        "2025-12-31": -1523,
+        "2024-12-31": -1752
+      }
+    },
+    {
+      "label": "Kenaikan (penurunan) Increase (decrease) in estimasi liabilitas estimated claims klaim liability"
+    },
+    {
+      "label": "Kenaikan (penurunan) Increase (decrease) in"
+    }
+  ],
+  "liabilities": [
+    {
+      "label": "Kenaikan (penurunan) Increase (decrease) in provisi yang timbul provision for losses dari tes kecukupan arising from liability"
+    },
+    {
+      "label": "Kenaikan (penurunan) Increase (decrease) in"
+    },
+    {
+      "label": "Kenaikan (penurunan) Increase (decrease) in"
+    },
+    {
+      "label": "Beban komisi asuransi",
+      "label_right": "Insurance commission expenses"
+    },
+    {
+      "label": "Ujrah dibayar Ujrah paid"
+    },
+    {
+      "label": "Beban akuisisi dari Acquisition costs of kontrak asuransi insurance contracts"
+    },
+    {
+      "label": "Beban asuransi",
+      "label_right": "Other insurance lainnya expenses Pendapatan dari Financing income pembiayaan Pendapatan dari Revenue from pembiayaan consumer financing konsumen",
+      "values": {
+        "2025-12-31": -3166941,
+        "2024-12-31": -2480478
+      }
+    },
+    {
+      "label": "Pendapatan dari sewa Revenue from finance pembiayaan lease"
+    },
+    {
+      "label": "Pendapatan dari sewa Revenue from operasi operating lease"
+    },
+    {
+      "label": "Pendapatan dari anjak Revenue from piutang factoring"
+    },
+    {
+      "label": "Pendapatan sekuritas",
+      "label_right": "Securities income"
+    },
+    {
+      "label": "Pendapatan kegiatan Revenue from penjamin emisi dan underwriting activities penjualan efek and selling fees Pendapatan Revenue from pembiayaan transaksi financing transactions nasabah"
+    },
+    {
+      "label": "Pendapatan jasa biro Revenue from administrasi efek securities administration service"
+    },
+    {
+      "label": "Pendapatan kegiatan Revenue from jasa manajer investasi investment management services"
+    },
+    {
+      "label": "Pendapatan kegiatan Revenue from jasa penasehat financial advisory keuangan services"
+    },
+    {
+      "label": "Keuntungan",
+      "label_right": "Realised gains",
+      "values": {
+        "2025-12-31": 2885819,
+        "2024-12-31": 1769243
+      }
+    },
+    {
+      "label": "(kerugian) dari (losses) on trading of transaksi marketable securities perdagangan efek yang telah direalisasi"
+    },
+    {
+      "label": "Keuntungan",
+      "label_right": "Gains (losses) on",
+      "values": {
+        "2025-12-31": 141576,
+        "2024-12-31": 144558
+      }
+    },
+    {
+      "label": "(kerugian) perubahan changes in fair value nilai wajar efek of marketable securities"
+    },
+    {
+      "label": "Pendapatan operasional",
+      "label_right": "Other operating income lainnya"
+    },
+    {
+      "label": "Pendapatan investasi",
+      "label_right": "Investments income",
+      "values": {
+        "2025-12-31": 1627444,
+        "2024-12-31": 1522798
+      }
+    },
+    {
+      "label": "Pendapatan provisi",
+      "label_right": "Provisions and dan komisi dari commissions income transaksi lainnya from transactions selain kredit other than loan",
+      "values": {
+        "2025-12-31": 11167675,
+        "2024-12-31": 10599228
+      }
+    },
+    {
+      "label": "Pendapatan transaksi Revenue from trading perdagangan transactions"
+    },
+    {
+      "label": "Pendapatan dividen Dividends income Keuntungan Realised gains"
+    },
+    {
+      "label": "(kerugian) yang telah (losses) from direalisasi atas derivative instruments instrumen derivatif"
+    },
+    {
+      "label": "Penerimaan kembali",
+      "label_right": "Revenue from",
+      "values": {
+        "2025-12-31": 5438988,
+        "2024-12-31": 6025183
+      }
+    }
+  ],
+  "assets": [
+    {
+      "label": "Keuntungan",
+      "label_right": "Gains (losses) on",
+      "values": {
+        "2025-12-31": 1037143,
+        "2024-12-31": 1259207
+      }
+    },
+    {
+      "label": "(kerugian) selisih kurs changes in foreign mata uang asing exchange rates"
+    },
+    {
+      "label": "Keuntungan Gains (losses) on"
+    },
+    {
+      "label": "(kerugian) pelepasan disposal of property"
+    },
+    {
+      "label": "Keuntungan Gains (losses) on"
+    },
+    {
+      "label": "(kerugian) pelepasan disposal of foreclosed agunan yang diambil assets alih"
+    },
+    {
+      "label": "Pendapatan",
+      "label_right": "Other operating operasional lainnya income",
+      "values": {
+        "2025-12-31": 1601317,
+        "2024-12-31": 1328962
+      }
+    },
+    {
+      "label": "Pemulihan penyisihan Recovery of impairment kerugian penurunan loss nilai"
+    },
+    {
+      "label": "Pemulihan penyisihan Recovery of kerugian penurunan impairment loss of nilai aset keuangan financial assets"
+    },
+    {
+      "label": "Pemulihan penyisihan Recovery of kerugian penurunan impairment loss of nilai aset keuangan - financial assets sewa pembiayaan finance lease"
+    },
+    {
+      "label": "Pemulihan penyisihan Recovery of kerugian penurunan impairment loss of nilai aset keuangan - financial assets piutang pembiayaan consumer financing konsumen receivables"
+    },
+    {
+      "label": "Pemulihan penyisihan Recovery of kerugian penurunan impairment loss of nilai aset non-financial assets non-keuangan"
+    },
+    {
+      "label": "Pemulihan penyisihan Recovery of kerugian penurunan impairment loss of nilai aset non-financial assets non-keuangan - repossessed agunan yang diambil collaterals alih"
+    },
+    {
+      "label": "Pemulihan penyisihan Recovery of estimated estimasi kerugian atas loss of commitments komitmen dan and contingency kontinjensi"
+    },
+    {
+      "label": "Pembentukan kerugian Allowances for penurunan nilai impairment losses"
+    },
+    {
+      "label": "Pembentukan",
+      "label_right": "Allowances for penyisihan kerugian impairment losses on penurunan nilai aset earnings assets produktif Pembentukan Allowances for penyisihan kerugian impairment losses on penurunan nilai aset non-earnings assets non-produktif",
+      "values": {
+        "2025-12-31": -9724370,
+        "2024-12-31": -8210562
+      }
+    },
+    {
+      "label": "Pembalikan (beban) Reversal (expense) of estimasi kerugian estimated losses on komitmen dan kontijensi commitments and contingencies"
+    },
+    {
+      "label": "Beban operasional",
+      "label_right": "Other operating lainnya expenses",
+      "children": [
+        {
+          "label": "Beban operasional",
+          "label_right": "Other operating lainnya expenses",
+          "values": {
+            "2025-12-31": -5049588,
+            "2024-12-31": -4522174
+          }
+        }
+      ]
+    },
+    {
+      "label": "Beban umum dan",
+      "label_right": "General and administrasi administrative expenses",
+      "values": {
+        "2025-12-31": -23923938,
+        "2024-12-31": -22806989
+      }
+    },
+    {
+      "label": "Beban penjualan",
+      "label_right": "Selling expenses",
+      "values": {
+        "2025-12-31": -1187693,
+        "2024-12-31": -1103491
+      }
+    },
+    {
+      "label": "Beban sewa,",
+      "label_right": "Rent, maintenance pemeliharaan, dan and improvement perbaikan expenses",
+      "values": {
+        "2025-12-31": -695137,
+        "2024-12-31": -679572
+      }
+    },
+    {
+      "label": "Beban provisi dan",
+      "label_right": "Other fees and komisi commissions expenses",
+      "values": {
+        "2025-12-31": 0,
+        "2024-12-31": 0
+      }
+    },
+    {
+      "label": "Jumlah laba operasional",
+      "label_right": "Total profit from operation",
+      "values": {
+        "2025-12-31": 24395624,
+        "2024-12-31": 26572888
+      }
+    },
+    {
+      "label": "Pendapatan dan beban Non-operating income and bukan operasional expense"
+    },
+    {
+      "label": "Pendapatan bukan",
+      "label_right": "Non-operating income operasional",
+      "values": {
+        "2025-12-31": 1839,
+        "2024-12-31": 0
+      }
+    },
+    {
+      "label": "Beban bukan operasional",
+      "label_right": "Non-operating expenses",
+      "values": {
+        "2025-12-31": 0,
+        "2024-12-31": -3797
+      }
+    },
+    {
+      "label": "Bagian atas laba (rugi) Share of profit (loss) of entitas asosiasi yang associates accounted for dicatat dengan using equity method menggunakan metode"
+    },
+    {
+      "label": "Keuntungan Gains (losses) on"
+    },
+    {
+      "label": "(kerugian) lindung nilai cash flow hedges, arus kas, setelah after tax pajak Penyesuaian Reclassification reklasifikasi atas adjustments on cash lindung nilai arus kas, flow hedges, after tax setelah pajak"
+    },
+    {
+      "label": "Nilai tercatat dari aset Carrying amount of (liabilitas) non-financial asset non-keuangan yang (liability) whose perolehan atau acquisition or keterjadiannya incurrence was merupakan suatu hedged on highly prakiraan transaksi probable forecast yang kemungkinan transaction, adjusted besar terjadi yang from equity, after tax dilindung nilai, setelah pajak"
+    },
+    {
+      "label": "Keuntungan Gains (losses) on"
+    },
+    {
+      "label": "(kerugian) lindung nilai hedges of net investasi bersih investments in foreign kegiatan usaha luar operations, after tax negeri, setelah pajak Penyesuaian Reclassification reklasifikasi atas adjustments on lindung nilai investasi hedges of net bersih kegiatan usaha investments in foreign luar negeri, setelah operations, after tax pajak"
+    },
+    {
+      "label": "Bagian pendapatan Share of other komprehensif lainnya comprehensive dari entitas asosiasi income of associates yang dicatat dengan accounted for using menggunakan metode equity method, after ekuitas, setelah pajak tax"
+    },
+    {
+      "label": "Bagian pendapatan Share of other komprehensif lainnya comprehensive dari entitas ventura income of joint bersama yang dicatat ventures accounted dengan menggunakan for using equity metode ekuitas, method, after tax setelah pajak"
+    },
+    {
+      "label": "Penyesuaian lainnya",
+      "label_right": "Other adjustments to atas pendapatan other comprehensive komprehensif lainnya income that may be yang akan reclassified to profit or direklasifikasi ke laba loss, after tax rugi, setelah pajak",
+      "values": {
+        "2025-12-31": -972629,
+        "2024-12-31": 152276
+      }
+    },
+    {
+      "label": "Jumlah pendapatan",
+      "label_right": "Total other komprehensif comprehensive lainnya yang akan income that may be direklasifikasi ke reclassified to profit laba rugi, setelah or loss, after tax pajak",
+      "values": {
+        "2025-12-31": 4084134,
+        "2024-12-31": -657192
+      }
+    },
+    {
+      "label": "Jumlah pendapatan",
+      "label_right": "Total other komprehensif lainnya, comprehensive income, setelah pajak after tax",
+      "values": {
+        "2025-12-31": 3605082,
+        "2024-12-31": 1030511
+      }
+    },
+    {
+      "label": "Jumlah laba rugi",
+      "label_right": "Total comprehensive komprehensif income",
+      "values": {
+        "2025-12-31": 23716122,
+        "2024-12-31": 22699908
+      }
+    },
+    {
+      "label": "Laba (rugi) yang dapat Profit (loss) attributable to diatribusikan"
+    },
+    {
+      "label": "Laba (rugi) yang dapat",
+      "label_right": "Profit (loss) attributable to diatribusikan ke entitas parent entity induk",
+      "values": {
+        "2025-12-31": 20040703,
+        "2024-12-31": 21463599
+      }
+    },
+    {
+      "label": "Laba (rugi) yang dapat",
+      "label_right": "Profit (loss) attributable to diatribusikan ke non-controlling interests kepentingan non-pengendali",
+      "values": {
+        "2025-12-31": 70337,
+        "2024-12-31": 205798
+      }
+    },
+    {
+      "label": "Laba rugi komprehensif Comprehensive income yang dapat diatribusikan attributable to"
+    },
+    {
+      "label": "Laba rugi komprehensif",
+      "label_right": "Comprehensive income yang dapat diatribusikan attributable to parent ke entitas induk entity",
+      "values": {
+        "2025-12-31": 23583665,
+        "2024-12-31": 22551316
+      }
+    },
+    {
+      "label": "Laba rugi komprehensif",
+      "label_right": "Comprehensive income yang dapat diatribusikan attributable to ke kepentingan non-controlling interests non-pengendali",
+      "values": {
+        "2025-12-31": 132457,
+        "2024-12-31": 148592
+      }
+    },
+    {
+      "label": "Laba (rugi) per saham Earnings (loss) per share"
+    },
+    {
+      "label": "Laba per saham dasar Basic earnings per diatribusikan kepada share attributable to pemilik entitas induk equity owners of the parent entity"
+    },
+    {
+      "label": "Laba (rugi) per saham",
+      "label_right": "Basic earnings (loss) dasar dari operasi per share from yang dilanjutkan continuing operations",
+      "values": {
+        "2025-12-31": 537,
+        "2024-12-31": 576
+      }
+    },
+    {
+      "label": "Laba (rugi) per saham Basic earnings (loss) dasar dari operasi per share from yang dihentikan discontinued operations"
+    },
+    {
+      "label": "Laba (rugi) per saham Diluted earnings (loss) dilusian per share"
+    },
+    {
+      "label": "Laba (rugi) per saham Diluted earnings (loss) dilusian dari operasi per share from yang dilanjutkan continuing operations"
+    },
+    {
+      "label": "Laba (rugi) per saham Diluted earnings (loss) dilusian dari operasi per share from yang dihentikan discontinued operations"
+    },
+    {
+      "label": "[",
+      "label_right": "] Statement of changes in equity - Financial and Sharia Industry",
+      "values": {
+        "2025-12-31": null,
+        "2024-12-31": 4410000
+      }
+    },
+    {
+      "label": "Laporan perubahan ekuitas Statement of changes in equity"
+    },
+    {
+      "label": "Additional Reserve of exchange Reserve for changes in fair value of fair value Reserve of gains (losses) from Reserve of Reserve of Reserve of",
+      "label_right": "Difference Due to Changes of Difference in value of equity Other transactions with Other components"
+    },
+    {
+      "label": "Common Preferred Treasury Advances in Stock Translation Revaluation",
+      "label_right": "Other Other equity Appropriated retained Appropriated retained Unappropriated retained Equity attributable to Proforma Non-controlling paid-in differences on through other comprehensive income financial investments in equity share-based cash flow remeasurements of Equity in transactions with non-controlling non-controlling of equity Equity stocks stocks stocks capital stock options adjustment reserves reserves interests earnings-general and legal reserves earnings-specific reserves earnings parent entity equity interests capital translation assets instruments payments hedges defined benefit plans Subsidiary/Associates interests interests transactions"
+    },
+    {
+      "label": "Tambahan Uang muka Penjabaran Cadangan perubahan nilai wajar aset keuangan Cadangan Cadangan Cadangan pengukuran Kepentingan Komponen Saldo laba yang telah ditentukan Saldo laba yang telah ditentukan Saldo laba yang belum Ekuitas yang dapat"
+    },
+    {
+      "label": "Saham Saham Saham Opsi Cadangan Cadangan selisih kurs Cadangan keuntungan (kerugian) Cadangan Selisih Transaksi Perubahan Selisih transaksi ekuitas dengan Transaksi dengan pihak Proforma Kepentingan modal setoran laporan nilai wajar melalui pendapatan komprehensif pembayaran lindung nilai kembali program imbalan ekuitas transaksi ekuitas penggunaannya-cadangan umum dan penggunaannya-cadangan ditentukan diatribusikan kepada Ekuitas biasa preferen treasuri saham revaluasi penjabaran investasi pada instrumen ekuitas lainnya Ekuitas Entitas Anak/Asosiasi pihak non-pengendali non-pengendali lainnya ekuitas non-pengendali disetor modal keuangan lainnya berbasis saham arus kas pasti lainnya lainnya wajib khusus penggunaannya entitas induk"
+    },
+    {
+      "label": "Laporan perubahan ekuitas [baris komponen] Statement of changes in equity [line items]"
+    },
+    {
+      "label": "Posisi ekuitas",
+      "label_right": "Equity position"
+    },
+    {
+      "label": "Saldo awal periode sebelum penyajian kembali 9,054,807 17,010,254 16,711,395 (96,998) (1,431,633) 322,589 2,256,999 2,778,412 115,465,415 162,071,240",
+      "label_right": "Balance before restatement at beginning of period Penyesuaian Adjustments",
+      "values": {
+        "2025-12-31": 4476767,
+        "2024-12-31": 166548007
+      }
+    },
+    {
+      "label": "Penerapan awal standar akuntansi baru dan revisi Initial adoption of new and revised accounting standards"
+    },
+    {
+      "label": "Perubahan kebijakan akuntansi secara sukarela Voluntary changes in accounting policies"
+    },
+    {
+      "label": "Koreksi kesalahan periode lalu Correction of prior period errors"
+    },
+    {
+      "label": "Penyesuaian lainnya",
+      "label_right": "Other adjustments"
+    },
+    {
+      "label": "Posisi ekuitas, awal periode 9,054,807 17,010,254 16,711,395 (96,998) (1,431,633) 322,589 2,256,999 2,778,412 115,465,415 162,071,240",
+      "label_right": "Equity position, beginning of the period",
+      "values": {
+        "2025-12-31": 4476767,
+        "2024-12-31": 166548007
+      }
+    },
+    {
+      "label": "Laba (rugi) 20,040,703 20,040,703",
+      "label_right": "Profit (loss)",
+      "values": {
+        "2025-12-31": 70337,
+        "2024-12-31": 20111040
+      }
+    },
+    {
+      "label": "Pendapatan komprehensif lainnya (27,347) 4,048,670 (478,361) 3,542,962",
+      "label_right": "Other comprehensive income",
+      "values": {
+        "2025-12-31": 62120,
+        "2024-12-31": 3605082
+      }
+    },
+    {
+      "label": "Penjabaran laporan keuangan Translation adjustment"
+    },
+    {
+      "label": "Pembentukan cadangan umum Allocation for general reserves"
+    },
+    {
+      "label": "Pembentukan cadangan khusus Allocation for specific reserves"
+    },
+    {
+      "label": "Distribusi dividen kas",
+      "label_right": "(Distributions of cash dividends",
+      "values": {
+        "2025-12-31": -13951339,
+        "2024-12-31": -13951339
+      }
+    },
+    {
+      "label": "",
+      "values": {
+        "2025-12-31": null,
+        "2024-12-31": 13951339
+      }
+    },
+    {
+      "label": "Distribusi dividen saham Distributions of stock dividends"
+    },
+    {
+      "label": "Penerbitan saham biasa Issuance of common stocks"
+    },
+    {
+      "label": "Penerbitan saham preferen Issuance of preferred stocks"
+    },
+    {
+      "label": "Biaya emisi efek Stock issuance costs"
+    },
+    {
+      "label": "Penerbitan instrumen yang dapat dikonversi Issuance of convertible instruments"
+    },
+    {
+      "label": "Kenaikan (penurunan) ekuitas melalui transaksi saham tresuri Increase (decrease) in equity through treasury stock transactions"
+    },
+    {
+      "label": "Kenaikan (penurunan) ekuitas melalui transaksi pembayaran berbasis saham",
+      "label_right": "Increase (decrease) in equity through share-based payment transactions",
+      "values": {
+        "2025-12-31": 26578,
+        "2024-12-31": 26578
+      }
+    },
+    {
+      "label": "Pelaksanaan instrumen yang dapat dikonversi Exercise of convertible instruments"
+    },
+    {
+      "label": "Pelaksanaan waran Exercise of warrants"
+    },
+    {
+      "label": "Kenaikan (penurunan) ekuitas melalui transaksi dengan pemilik ekuitas Increase (decrease) in equity through transactions with owner's equity"
+    },
+    {
+      "label": "Setoran modal dari kepentingan non-pengendali Stock subscription from non-controlling interests"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas akuisisi entitas anak Changes in non-controlling interests due to acquisition of subsidiaries"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas pendirian entitas anak Changes in non-controlling interests due to establishment of subsidiaries"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas pelepasan entitas anak Changes in non-controlling interests due to disposal of subsidiaries"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas pelepasan operasi yang Changes in non-controlling interests due to dihentikan disposal of a discontinued operation"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas pelepasan sebagian Changes in non-controlling interests due to kepemilikan pada entitas anak yang tidak mengakibatkan hilangnya partial disposal of interests in subsidiaries pengendalian without loss of control"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas transaksi lainnya dengan Changes in non-controlling interests due to kepentingan non-pengendali other transactions with non-controlling interests"
+    },
+    {
+      "label": "Eliminasi defisit dalam rangka kuasi reorganisasi Elimination of deficit in connection with quasi-reorganisation"
+    },
+    {
+      "label": "Pelaksanaan opsi saham Stock options exercised"
+    },
+    {
+      "label": "Dampak penerapan psak no.",
+      "label_right": "adoption on tax amnesty assets",
+      "values": {
+        "2025-12-31": 70,
+        "2024-12-31": 70
+      }
+    },
+    {
+      "label": "Saldo penyesuaian dampak penerapan retrospektif atas PSAK Retrospective adjustment of PSAK implementation"
+    },
+    {
+      "label": "Transaksi ekuitas lainnya",
+      "label_right": "Other equity transactions"
+    },
+    {
+      "label": "Posisi ekuitas, akhir periode 9,054,807 17,010,254 16,711,395 (124,345) 2,617,037 349,167 2,256,999 2,778,412 121,076,418 171,730,144",
+      "label_right": "Equity position, end of the period",
+      "values": {
+        "2025-12-31": 4609224,
+        "2024-12-31": 176339368
+      }
+    },
+    {
+      "label": "[",
+      "label_right": "] Statement of changes in equity - Financial and Sharia Industry - Prior Year",
+      "values": {
+        "2025-12-31": null,
+        "2024-12-31": 4410000
+      }
+    },
+    {
+      "label": "Laporan perubahan ekuitas Statement of changes in equity"
+    },
+    {
+      "label": "Additional Reserve of exchange Reserve for changes in fair value of fair value Reserve of gains (losses) from Reserve of Reserve of Reserve of",
+      "label_right": "Difference Due to Changes of Difference in value of equity Other transactions with Other components"
+    },
+    {
+      "label": "Common Preferred Treasury Advances in Stock Translation Revaluation",
+      "label_right": "Other Other equity Appropriated retained Appropriated retained Unappropriated retained Equity attributable to Proforma Non-controlling paid-in differences on through other comprehensive income financial investments in equity share-based cash flow remeasurements of Equity in transactions with non-controlling non-controlling of equity Equity stocks stocks stocks capital stock options adjustment reserves reserves interests earnings-general and legal reserves earnings-specific reserves earnings parent entity equity interests capital translation assets instruments payments hedges defined benefit plans Subsidiary/Associates interests interests transactions"
+    },
+    {
+      "label": "Tambahan Uang muka Penjabaran Cadangan perubahan nilai wajar aset keuangan Cadangan Cadangan Cadangan pengukuran Kepentingan Komponen Saldo laba yang telah ditentukan Saldo laba yang telah ditentukan Saldo laba yang belum Ekuitas yang dapat"
+    },
+    {
+      "label": "Saham Saham Saham Opsi Cadangan Cadangan selisih kurs Cadangan keuntungan (kerugian) Cadangan Selisih Transaksi Perubahan Selisih transaksi ekuitas dengan Transaksi dengan pihak Proforma Kepentingan modal setoran laporan nilai wajar melalui pendapatan komprehensif pembayaran lindung nilai kembali program imbalan ekuitas transaksi ekuitas penggunaannya-cadangan umum dan penggunaannya-cadangan ditentukan diatribusikan kepada Ekuitas biasa preferen treasuri saham revaluasi penjabaran investasi pada instrumen ekuitas lainnya Ekuitas Entitas Anak/Asosiasi pihak non-pengendali non-pengendali lainnya ekuitas non-pengendali disetor modal keuangan lainnya berbasis saham arus kas pasti lainnya lainnya wajib khusus penggunaannya entitas induk"
+    },
+    {
+      "label": "Laporan perubahan ekuitas [baris komponen] Statement of changes in equity [line items]"
+    },
+    {
+      "label": "Posisi ekuitas",
+      "label_right": "Equity position"
+    },
+    {
+      "label": "Saldo awal periode sebelum penyajian kembali 9,054,807 17,010,254 (15,447,829 (58,367) (896,178) 260,116 2,256,999 2,778,412 104,457,102 150,131,014",
+      "label_right": "Balance before restatement at beginning of",
+      "values": {
+        "2025-12-31": 4601506,
+        "2024-12-31": 154732520
+      }
+    },
+    {
+      "label": "",
+      "label_right": "period) Penyesuaian Adjustments",
+      "values": {
+        "2025-12-31": null,
+        "2024-12-31": 179960
+      }
+    },
+    {
+      "label": "Penerapan awal standar akuntansi baru dan revisi (45,011) (419,767) (464,778)",
+      "label_right": "Initial adoption of new and revised accounting standards",
+      "values": {
+        "2025-12-31": -304496,
+        "2024-12-31": -769274
+      }
+    },
+    {
+      "label": "Perubahan kebijakan akuntansi secara sukarela Voluntary changes in accounting policies"
+    },
+    {
+      "label": "Koreksi kesalahan periode lalu Correction of prior period errors"
+    },
+    {
+      "label": "Penyesuaian lainnya",
+      "label_right": "Other adjustments"
+    },
+    {
+      "label": "Posisi ekuitas, awal periode 9,054,807 17,010,254 (15,447,829 (58,367) (941,189) 260,116 2,256,999 2,778,412 104,037,335 149,666,236",
+      "label_right": "Equity position, beginning of the period",
+      "values": {
+        "2025-12-31": 4297010,
+        "2024-12-31": 153963246
+      }
+    },
+    {
+      "label": "",
+      "values": {
+        "2025-12-31": null,
+        "2024-12-31": 179960
+      }
+    },
+    {
+      "label": "Laba (rugi) 21,463,599 21,463,599",
+      "label_right": "Profit (loss)",
+      "values": {
+        "2025-12-31": 205798,
+        "2024-12-31": 21669397
+      }
+    },
+    {
+      "label": "Pendapatan komprehensif lainnya 1,263,566 (38,631) (490,444) 353,226 1,087,717",
+      "label_right": "Other comprehensive income",
+      "values": {
+        "2025-12-31": -57206,
+        "2024-12-31": 1030511
+      }
+    },
+    {
+      "label": "Penjabaran laporan keuangan Translation adjustment"
+    },
+    {
+      "label": "Pembentukan cadangan umum Allocation for general reserves"
+    },
+    {
+      "label": "Pembentukan cadangan khusus Allocation for specific reserves"
+    },
+    {
+      "label": "Distribusi dividen kas",
+      "label_right": "(Distributions of cash dividends",
+      "values": {
+        "2025-12-31": -10454738,
+        "2024-12-31": -10454738
+      }
+    },
+    {
+      "label": "",
+      "values": {
+        "2025-12-31": null,
+        "2024-12-31": 10454738
+      }
+    },
+    {
+      "label": "Distribusi dividen saham Distributions of stock dividends"
+    },
+    {
+      "label": "Penerbitan saham biasa Issuance of common stocks"
+    },
+    {
+      "label": "Penerbitan saham preferen Issuance of preferred stocks"
+    },
+    {
+      "label": "Biaya emisi efek Stock issuance costs"
+    },
+    {
+      "label": "Penerbitan instrumen yang dapat dikonversi Issuance of convertible instruments"
+    },
+    {
+      "label": "Kenaikan (penurunan) ekuitas melalui transaksi saham tresuri",
+      "label_right": "Increase (decrease) in equity through treasury stock transactions",
+      "values": {
+        "2025-12-31": 179960,
+        "2024-12-31": 179960
+      }
+    },
+    {
+      "label": "Kenaikan (penurunan) ekuitas melalui transaksi pembayaran berbasis saham",
+      "label_right": "Increase (decrease) in equity through share-based payment transactions",
+      "values": {
+        "2025-12-31": 62473,
+        "2024-12-31": 62473
+      }
+    },
+    {
+      "label": "Pelaksanaan instrumen yang dapat dikonversi Exercise of convertible instruments"
+    },
+    {
+      "label": "Pelaksanaan waran Exercise of warrants"
+    },
+    {
+      "label": "Kenaikan (penurunan) ekuitas melalui transaksi dengan pemilik ekuitas Increase (decrease) in equity through transactions with owner's equity"
+    },
+    {
+      "label": "Setoran modal dari kepentingan non-pengendali Stock subscription from non-controlling interests"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas akuisisi entitas anak Changes in non-controlling interests due to acquisition of subsidiaries"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas pendirian entitas anak Changes in non-controlling interests due to establishment of subsidiaries"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas pelepasan entitas anak Changes in non-controlling interests due to disposal of subsidiaries"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas pelepasan operasi yang Changes in non-controlling interests due to dihentikan disposal of a discontinued operation"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas pelepasan sebagian Changes in non-controlling interests due to kepemilikan pada entitas anak yang tidak mengakibatkan hilangnya partial disposal of interests in subsidiaries pengendalian without loss of control"
+    },
+    {
+      "label": "Perubahan kepentingan non-pengendali atas transaksi lainnya dengan Changes in non-controlling interests due to kepentingan non-pengendali other transactions with non-controlling interests"
+    },
+    {
+      "label": "Eliminasi defisit dalam rangka kuasi reorganisasi Elimination of deficit in connection with quasi-reorganisation"
+    },
+    {
+      "label": "Pelaksanaan opsi saham Stock options exercised"
+    },
+    {
+      "label": "Dampak penerapan psak no.",
+      "label_right": "adoption on tax amnesty assets",
+      "values": {
+        "2025-12-31": 70,
+        "2024-12-31": 70
+      }
+    },
+    {
+      "label": "Saldo penyesuaian dampak penerapan retrospektif atas PSAK Retrospective adjustment of PSAK implementation"
+    },
+    {
+      "label": "Transaksi ekuitas lainnya 65,993 65,993",
+      "label_right": "Other equity transactions",
+      "values": {
+        "2025-12-31": 31165,
+        "2024-12-31": 97158
+      }
+    },
+    {
+      "label": "Posisi ekuitas, akhir periode 9,054,807 17,010,254 16,711,395 (96,998) (1,431,633) 322,589 2,256,999 2,778,412 115,465,415 162,071,240",
+      "label_right": "Equity position, end of the period",
+      "values": {
+        "2025-12-31": 4476767,
+        "2024-12-31": 166548007
+      }
+    }
+  ],
+  "equity": [
+    {
+      "label": "Bagian atas laba (rugi) Share of profit (loss) of entitas ventura bersama joint ventures accounted yang dicatat for using equity method menggunakan metode"
+    },
+    {
+      "label": "Jumlah laba (rugi) sebelum",
+      "label_right": "Total profit (loss) before pajak penghasilan tax",
+      "values": {
+        "2025-12-31": 24397463,
+        "2024-12-31": 26569091
+      }
+    },
+    {
+      "label": "Pendapatan (beban) pajak",
+      "label_right": "Tax benefit (expenses)",
+      "values": {
+        "2025-12-31": -4286423,
+        "2024-12-31": -4899694
+      }
+    },
+    {
+      "label": "Jumlah laba (rugi) dari",
+      "label_right": "Total profit (loss) from operasi yang dilanjutkan continuing operations",
+      "values": {
+        "2025-12-31": 20111040,
+        "2024-12-31": 21669397
+      }
+    },
+    {
+      "label": "Laba (rugi) dari operasi yang Profit (loss) from dihentikan discontinued operations"
+    },
+    {
+      "label": "Jumlah laba (rugi)",
+      "label_right": "Total profit (loss) Pendapatan komprehensif Other comprehensive lainnya, setelah pajak income, after tax Pendapatan Other comprehensive komprehensif lainnya income that will not be yang tidak akan reclassified to profit or direklasifikasi ke laba loss, after tax rugi, setelah pajak",
+      "values": {
+        "2025-12-31": 20111040,
+        "2024-12-31": 21669397
+      }
+    },
+    {
+      "label": "Pendapatan",
+      "label_right": "Other comprehensive komprehensif lainnya income for gains atas keuntungan (losses) on revaluation",
+      "values": {
+        "2025-12-31": 0,
+        "2024-12-31": 1263566
+      }
+    },
+    {
+      "label": "(kerugian) hasil of property and revaluasi aset tetap, equipment, after tax setelah pajak"
+    },
+    {
+      "label": "Pendapatan",
+      "label_right": "Other comprehensive komprehensif lainnya income for atas pengukuran remeasurement of kembali kewajiban defined benefit manfaat pasti, setelah obligation, after tax pajak",
+      "values": {
+        "2025-12-31": -591455,
+        "2024-12-31": 523859
+      }
+    },
+    {
+      "label": "Penyesuaian lainnya",
+      "label_right": "Other adjustments to atas pendapatan other comprehensive komprehensif lainnya income that will not be reclassified to profit or loss, after tax yang tidak akan direklasifikasi ke laba rugi, setelah pajak",
+      "values": {
+        "2025-12-31": 112403,
+        "2024-12-31": -99722
+      }
+    },
+    {
+      "label": "Jumlah pendapatan",
+      "label_right": "Total other komprehensif comprehensive lainnya yang tidak income that will not akan direklasifikasi be reclassified to ke laba rugi, setelah profit or loss, after pajak tax Pendapatan Other comprehensive komprehensif lainnya income that may be yang akan reclassified to profit or direklasifikasi ke laba loss, after tax rugi, setelah pajak",
+      "values": {
+        "2025-12-31": -479052,
+        "2024-12-31": 1687703
+      }
+    },
+    {
+      "label": "Keuntungan",
+      "label_right": "Gains (losses) on",
+      "values": {
+        "2025-12-31": -27347,
+        "2024-12-31": -38631
+      }
+    },
+    {
+      "label": "(kerugian) selisih kurs exchange differences penjabaran, setelah on translation, after pajak tax Penyesuaian Reclassification reklasifikasi selisih adjustments on kurs penjabaran, exchange differences setelah pajak on translation, after tax"
+    },
+    {
+      "label": "Keuntungan",
+      "label_right": "Unrealised gains",
+      "values": {
+        "2025-12-31": 5084110,
+        "2024-12-31": -770837
+      }
+    },
+    {
+      "label": "(kerugian) yang belum (losses) on changes in direalisasi atas fair value through perubahan nilai wajar other comprehensive"
+    }
+  ]
+}

@@ -1,0 +1,915 @@
+{
+  "unknown": [
+    {
+      "label": "[",
+      "label_right": "] Statement of financial position presented using order of liquidity - Financial and Sharia Industry",
+      "values": {
+        "2025-12-31": null,
+        "2024-12-31": 4220000
+      }
+    },
+    {
+      "label": "Laporan posisi keuangan Statement of financial position"
+    },
+    {
+      "label": "",
+      "label_right": "December 2024",
+      "values": {
+        "2025-12-31": 31,
+        "2024-12-31": 31
+      }
+    },
+    {
+      "label": "Laporan posisi keuangan Statement of financial position"
+    }
+  ],
+  "assets": [
+    {
+      "label": "Kas",
+      "label_right": "Cash",
+      "values": {
+        "2025-12-31": 13352065,
+        "2024-12-31": 13709930
+      }
+    },
+    {
+      "label": "Dana yang dibatasi",
+      "label_right": "Restricted funds penggunaannya"
+    },
+    {
+      "label": "Giro pada Bank Indonesia",
+      "label_right": "Current accounts with Bank Indonesia",
+      "values": {
+        "2025-12-31": 79989122,
+        "2024-12-31": 51669054
+      }
+    },
+    {
+      "label": "Giro pada bank lain",
+      "label_right": "Current accounts with other banks",
+      "children": [
+        {
+          "label": "Giro pada bank lain",
+          "label_right": "Current accounts with pihak ketiga other banks third parties",
+          "values": {
+            "2025-12-31": 25858094,
+            "2024-12-31": 22031212
+          }
+        },
+        {
+          "label": "Giro pada bank lain",
+          "label_right": "Current accounts with pihak berelasi other banks related parties",
+          "values": {
+            "2025-12-31": 79999,
+            "2024-12-31": 42974
+          }
+        }
+      ]
+    },
+    {
+      "label": "Cadangan kerugian",
+      "label_right": "Allowance for impairment penurunan nilai pada losses for current giro pada bank lain accounts with other bank",
+      "values": {
+        "2025-12-31": -7,
+        "2024-12-31": -13
+      }
+    },
+    {
+      "label": "Penempatan pada Bank",
+      "label_right": "Placements with Bank"
+    },
+    {
+      "label": "Indonesia dan bank lain Indonesia and other banks"
+    },
+    {
+      "label": "Penempatan pada",
+      "label_right": "Placements with Bank",
+      "values": {
+        "2025-12-31": 31725849,
+        "2024-12-31": 15455444
+      }
+    },
+    {
+      "label": "Bank Indonesia dan Indonesia and other bank lain pihak ketiga banks third parties"
+    },
+    {
+      "label": "Penempatan pada",
+      "label_right": "Placements with Bank",
+      "values": {
+        "2025-12-31": 2054144,
+        "2024-12-31": 1620191
+      }
+    },
+    {
+      "label": "Bank Indonesia dan Indonesia and other bank lain pihak banks related parties berelasi"
+    },
+    {
+      "label": "Cadangan kerugian",
+      "label_right": "Allowance for impairment penurunan nilai pada losses for placements penempatan pada with other banks bank lain Piutang asuransi Insurance receivables",
+      "values": {
+        "2025-12-31": -78,
+        "2024-12-31": -194
+      }
+    },
+    {
+      "label": "Piutang asuransi pihak",
+      "label_right": "Insurance receivables ketiga third parties"
+    },
+    {
+      "label": "Piutang asuransi pihak",
+      "label_right": "Insurance receivables berelasi related parties"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for insurance piutang asuransi receivables"
+    },
+    {
+      "label": "Biaya akuisisi tangguhan",
+      "label_right": "Deferred acquisition costs"
+    },
+    {
+      "label": "Deposito pada lembaga",
+      "label_right": "Deposits to clearing and kliring dan penjaminan settlement guarantee institution"
+    },
+    {
+      "label": "Efek-efek yang",
+      "label_right": "Marketable securities diperdagangkan",
+      "children": [
+        {
+          "label": "Efek-efek yang",
+          "label_right": "Marketable securities diperdagangkan pihak third parties ketiga",
+          "values": {
+            "2025-12-31": 50783955,
+            "2024-12-31": 38376931
+          }
+        },
+        {
+          "label": "Efek-efek yang",
+          "label_right": "Marketable securities diperdagangkan pihak related parties berelasi",
+          "values": {
+            "2025-12-31": 12232740,
+            "2024-12-31": 10157415
+          }
+        }
+      ]
+    },
+    {
+      "label": "Cadangan kerugian",
+      "label_right": "Allowance for impairment penurunan nilai pada losses for marketable efek-efek yang securities diperdagangkan",
+      "values": {
+        "2025-12-31": -15,
+        "2024-12-31": -273
+      }
+    },
+    {
+      "label": "Investasi pemegang polis",
+      "label_right": "Investments of policyholder pada kontrak unit-linked in unit-linked contracts"
+    },
+    {
+      "label": "Efek yang dibeli dengan",
+      "label_right": "Securities purchased under janji dijual kembali agreement to resale",
+      "values": {
+        "2025-12-31": 6910606,
+        "2024-12-31": 7971923
+      }
+    },
+    {
+      "label": "Wesel ekspor dan Bills and other receivables tagihan lainnya"
+    },
+    {
+      "label": "Wesel ekspor dan",
+      "label_right": "Bills and other tagihan lainnya pihak receivables third parties ketiga",
+      "values": {
+        "2025-12-31": 8181871,
+        "2024-12-31": 7087118
+      }
+    },
+    {
+      "label": "Wesel ekspor dan",
+      "label_right": "Bills and other tagihan lainnya pihak receivables related berelasi parties",
+      "values": {
+        "2025-12-31": 5338937,
+        "2024-12-31": 6208736
+      }
+    },
+    {
+      "label": "Cadangan kerugian",
+      "label_right": "Allowance for impairment penurunan nilai pada losses for bills and other wesel ekspor dan receivables tagihan lainnya Tagihan akseptasi Acceptance receivables",
+      "values": {
+        "2025-12-31": -67962,
+        "2024-12-31": -52828
+      }
+    },
+    {
+      "label": "Tagihan akseptasi",
+      "label_right": "Acceptance receivables pihak ketiga third parties",
+      "values": {
+        "2025-12-31": 13528919,
+        "2024-12-31": 13193510
+      }
+    },
+    {
+      "label": "Tagihan akseptasi",
+      "label_right": "Acceptance receivables pihak berelasi related parties",
+      "values": {
+        "2025-12-31": 6053827,
+        "2024-12-31": 2825260
+      }
+    },
+    {
+      "label": "Cadangan kerugian",
+      "label_right": "Allowance for impairment penurunan nilai pada losses for acceptance tagihan akseptasi receivables Tagihan derivatif Derivative receivables",
+      "values": {
+        "2025-12-31": -133986,
+        "2024-12-31": -93249
+      }
+    },
+    {
+      "label": "Tagihan derivatif pihak",
+      "label_right": "Derivative receivables ketiga third parties",
+      "values": {
+        "2025-12-31": 4654266,
+        "2024-12-31": 1451146
+      }
+    },
+    {
+      "label": "Tagihan derivatif pihak",
+      "label_right": "Derivative receivables berelasi related parties Pinjaman yang Loans diberikan",
+      "values": {
+        "2025-12-31": 768083,
+        "2024-12-31": 341832
+      }
+    },
+    {
+      "label": "Pinjaman yang",
+      "label_right": "Loans third parties diberikan pihak ketiga",
+      "values": {
+        "2025-12-31": 660513890,
+        "2024-12-31": 616469089
+      }
+    },
+    {
+      "label": "Pinjaman yang",
+      "label_right": "Loans related parties diberikan pihak berelasi",
+      "values": {
+        "2025-12-31": 239016801,
+        "2024-12-31": 159402689
+      }
+    },
+    {
+      "label": "Cadangan kerugian",
+      "label_right": "Allowance for impairment penurunan nilai pada losses for loans pinjaman yang diberikan",
+      "values": {
+        "2025-12-31": -35860626,
+        "2024-12-31": -38684520
+      }
+    },
+    {
+      "label": "Piutang dari lembaga Receivables from clearing kliring dan penjaminan and settlement guarantee institution"
+    },
+    {
+      "label": "Piutang nasabah Receivables from customers"
+    },
+    {
+      "label": "Piutang nasabah Receivables from pihak ketiga customers third parties"
+    },
+    {
+      "label": "Piutang nasabah Receivables from pihak berelasi customers related parties"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for receivables piutang nasabah from customers"
+    },
+    {
+      "label": "Piutang murabahah Murabahah receivables"
+    },
+    {
+      "label": "Piutang murabahah Murabahah receivables pihak ketiga third parties"
+    },
+    {
+      "label": "Piutang murabahah Murabahah receivables pihak berelasi related parties"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for murabahah piutang murabahah receivables"
+    },
+    {
+      "label": "Piutang istishna Istishna receivables"
+    },
+    {
+      "label": "Piutang istishna pihak Istishna receivables third ketiga parties"
+    },
+    {
+      "label": "Piutang istishna pihak Istishna receivables berelasi related parties"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for istishna piutang istishna receivables"
+    },
+    {
+      "label": "Piutang ijarah Ijarah receivables"
+    },
+    {
+      "label": "Piutang ijarah pihak Ijarah receivables third ketiga parties"
+    },
+    {
+      "label": "Piutang ijarah pihak Ijarah receivables related berelasi parties"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for ijarah piutang ijarah receivables"
+    },
+    {
+      "label": "Piutang pembiayaan Consumer financing konsumen receivables"
+    },
+    {
+      "label": "Piutang pembiayaan Consumer financing konsumen pihak receivables third parties ketiga"
+    },
+    {
+      "label": "Piutang pembiayaan Consumer financing konsumen pihak receivables related berelasi parties"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for consumer piutang pembiayaan financing receivables konsumen"
+    },
+    {
+      "label": "Pinjaman qardh Qardh funds"
+    },
+    {
+      "label": "Pinjaman qardh pihak Qardh funds third parties ketiga"
+    },
+    {
+      "label": "Pinjaman qardh pihak Qardh funds related berelasi parties"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for qardh funds pinjaman qardh Pembiayaan Mudharabah financing mudharabah Pembiayaan Mudharabah financing mudharabah pihak third parties ketiga Pembiayaan Mudharabah financing mudharabah pihak related parties berelasi"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for mudharabah pembiayaan financing mudharabah Pembiayaan Musyarakah financing musyarakah Pembiayaan Musyarakah financing musyarakah pihak third parties ketiga Pembiayaan Musyarakah financing musyarakah pihak related parties berelasi"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for musyarakah pembiayaan financing musyarakah"
+    },
+    {
+      "label": "Investasi sewa Lease investments"
+    },
+    {
+      "label": "Investasi sewa pihak Lease investments third ketiga parties"
+    },
+    {
+      "label": "Investasi sewa pihak Lease investments berelasi related parties"
+    },
+    {
+      "label": "Investasi sewa nilai Lease investments residu yang terjamin guaranteed residual value"
+    },
+    {
+      "label": "Investasi sewa Lease investments pendapatan deferred financing pembiayaan income tangguhan"
+    },
+    {
+      "label": "Investasi sewa Lease investments simpanan jaminan guarantee deposits"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for lease investasi sewa investments"
+    },
+    {
+      "label": "Tagihan anjak piutang Factoring receivables"
+    },
+    {
+      "label": "Tagihan anjak piutang Factoring receivables pihak ketiga third parties"
+    },
+    {
+      "label": "Tagihan anjak piutang Factoring receivables pihak berelasi related parties"
+    },
+    {
+      "label": "Tagihan anjak piutang Factoring receivables on pada pendapatan deferred factoring anjak piutang income tangguhan"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for factoring tagihan anjak piutang receivables"
+    },
+    {
+      "label": "Piutang lainnya",
+      "label_right": "Other receivables"
+    },
+    {
+      "label": "Piutang lainnya pihak",
+      "label_right": "Other receivables third ketiga parties"
+    },
+    {
+      "label": "Piutang lainnya pihak",
+      "label_right": "Other receivables related berelasi parties"
+    },
+    {
+      "label": "Cadangan kerugian Allowance for impairment penurunan nilai pada losses for other piutang lainnya receivables"
+    },
+    {
+      "label": "Obligasi pemerintah",
+      "label_right": "Government bonds",
+      "values": {
+        "2025-12-31": 163510426,
+        "2024-12-31": 132068581
+      }
+    },
+    {
+      "label": "Biaya dibayar dimuka",
+      "label_right": "Prepaid expenses Jaminan Guarantees",
+      "values": {
+        "2025-12-31": 2274762,
+        "2024-12-31": 2941109
+      }
+    },
+    {
+      "label": "Pajak dibayar dimuka",
+      "label_right": "Prepaid taxes",
+      "values": {
+        "2025-12-31": 3090304,
+        "2024-12-31": 18950
+      }
+    },
+    {
+      "label": "Klaim atas pengembalian",
+      "label_right": "Claims for tax refund pajak"
+    },
+    {
+      "label": "Aset pajak tangguhan",
+      "label_right": "Deferred tax assets",
+      "values": {
+        "2025-12-31": 2315772,
+        "2024-12-31": 7145286
+      }
+    },
+    {
+      "label": "Investasi yang dicatat",
+      "label_right": "Investments accounted for dengan menggunakan using equity method metode ekuitas",
+      "values": {
+        "2025-12-31": 652311,
+        "2024-12-31": 637280
+      }
+    },
+    {
+      "label": "Investasi pada ventura",
+      "label_right": "Investments in joint bersama dan entitas ventures and associates asosiasi"
+    },
+    {
+      "label": "Investasi pada entitas",
+      "label_right": "Investments in joint ventura bersama ventures",
+      "children": [
+        {
+          "label": "Investasi pada entitas",
+          "label_right": "Investments in asosiasi associates",
+          "values": {
+            "2025-12-31": 14354281,
+            "2024-12-31": 12748127
+          }
+        }
+      ]
+    },
+    {
+      "label": "Goodwill",
+      "label_right": "Goodwill",
+      "values": {
+        "2025-12-31": 727789,
+        "2024-12-31": 727786
+      }
+    },
+    {
+      "label": "Aset takberwujud selain",
+      "label_right": "Intangible assets other than goodwill goodwill Properti investasi Investment properties",
+      "values": {
+        "2025-12-31": 14416,
+        "2024-12-31": 15528
+      }
+    },
+    {
+      "label": "Aset tetap",
+      "label_right": "Property, plant, and equipment",
+      "values": {
+        "2025-12-31": 31112635,
+        "2024-12-31": 30408236
+      }
+    },
+    {
+      "label": "Agunan yang diambil alih",
+      "label_right": "Foreclosed assets",
+      "values": {
+        "2025-12-31": 864637,
+        "2024-12-31": 914825
+      }
+    },
+    {
+      "label": "Aset lainnya",
+      "label_right": "Other assets",
+      "values": {
+        "2025-12-31": 18156904,
+        "2024-12-31": 13319777
+      }
+    },
+    {
+      "label": "Jumlah aset",
+      "label_right": "Total assets",
+      "values": {
+        "2025-12-31": 1362054731,
+        "2024-12-31": 1130128862
+      }
+    },
+    {
+      "label": "Liabilitas, dana syirkah",
+      "label_right": "Liabilities, temporary syirkah temporer dan ekuitas funds and equity"
+    }
+  ],
+  "liabilities": [
+    {
+      "label": "Liabilitas segera",
+      "label_right": "Obligations due immediately",
+      "values": {
+        "2025-12-31": 5761037,
+        "2024-12-31": 5514720
+      }
+    },
+    {
+      "label": "Bagi hasil yang belum Undistributed profit dibagikan sharing"
+    },
+    {
+      "label": "Dana simpanan Sharia deposits syariah"
+    },
+    {
+      "label": "Simpanan nasabah Customers deposits Giro",
+      "label_right": "Current accounts"
+    },
+    {
+      "label": "Giro pihak",
+      "label_right": "Current accounts ketiga third parties",
+      "values": {
+        "2025-12-31": 275664821,
+        "2024-12-31": 229995309
+      }
+    },
+    {
+      "label": "Giro pihak",
+      "label_right": "Current accounts berelasi related parties Giro wadiah Wadiah demand deposits Giro wadiah Wadiah demand pihak ketiga deposits third parties Giro wadiah Wadiah demand pihak berelasi deposits related parties Tabungan Savings",
+      "values": {
+        "2025-12-31": 163834043,
+        "2024-12-31": 75738219
+      }
+    },
+    {
+      "label": "Tabungan",
+      "label_right": "Savings third pihak ketiga parties",
+      "values": {
+        "2025-12-31": 286152305,
+        "2024-12-31": 257431407
+      }
+    },
+    {
+      "label": "Tabungan",
+      "label_right": "Savings related pihak berelasi parties Tabungan wadiah Wadiah savings Tabungan Wadiah savings wadiah pihak third parties ketiga Tabungan Wadiah savings wadiah pihak related parties berelasi Deposito Time deposits berjangka",
+      "values": {
+        "2025-12-31": 307846,
+        "2024-12-31": 112946
+      }
+    },
+    {
+      "label": "Deposito",
+      "label_right": "Time deposits berjangka pihak third parties ketiga",
+      "values": {
+        "2025-12-31": 188209389,
+        "2024-12-31": 205250321
+      }
+    },
+    {
+      "label": "Deposito",
+      "label_right": "Time deposits berjangka pihak related parties berelasi Deposito wakalah Wakalah deposits Deposito Wakalah deposits wakalah pihak third parties ketiga Deposito Wakalah deposits wakalah pihak related parties berelasi",
+      "values": {
+        "2025-12-31": 126666020,
+        "2024-12-31": 36982646
+      }
+    },
+    {
+      "label": "Simpanan dari bank",
+      "label_right": "Other banks deposits lain"
+    },
+    {
+      "label": "Simpanan dari",
+      "label_right": "Other banks deposits bank lain pihak related parties berelasi",
+      "values": {
+        "2025-12-31": 2945332,
+        "2024-12-31": 4164697
+      }
+    },
+    {
+      "label": "Simpanan dari",
+      "label_right": "Other banks deposits bank lain pihak third parties ketiga",
+      "values": {
+        "2025-12-31": 8617451,
+        "2024-12-31": 14383767
+      }
+    },
+    {
+      "label": "Efek yang dijual",
+      "label_right": "Securities sold with dengan janji untuk repurchase agreement dibeli kembali",
+      "values": {
+        "2025-12-31": 7251381,
+        "2024-12-31": 15890945
+      }
+    },
+    {
+      "label": "Liabilitas derivatif",
+      "label_right": "Derivative payables pihak ketiga third parties",
+      "values": {
+        "2025-12-31": 977119,
+        "2024-12-31": 154840
+      }
+    },
+    {
+      "label": "Liabilitas derivatif",
+      "label_right": "Derivative payables pihak berelasi related parties Utang asuransi Insurance payables Utang koasuransi Coinsurance liabilities",
+      "values": {
+        "2025-12-31": 4421780,
+        "2024-12-31": 1324345
+      }
+    },
+    {
+      "label": "Utang bunga Interest payables"
+    },
+    {
+      "label": "Liabilitas akseptasi",
+      "label_right": "Acceptance liabilities pihak berelasi related parties",
+      "values": {
+        "2025-12-31": 501612,
+        "2024-12-31": 900755
+      }
+    },
+    {
+      "label": "Liabilitas akseptasi",
+      "label_right": "Acceptance liabilities pihak ketiga third parties Utang usaha Accounts payable",
+      "values": {
+        "2025-12-31": 1822893,
+        "2024-12-31": 3328729
+      }
+    },
+    {
+      "label": "Uang muka dan Advances and angsuran installments"
+    },
+    {
+      "label": "Utang dividen Dividends payable"
+    },
+    {
+      "label": "Utang dealer Dealer payables Pinjaman yang Borrowings diterima"
+    },
+    {
+      "label": "Pinjaman yang",
+      "label_right": "Borrowings third diterima pihak parties ketiga",
+      "values": {
+        "2025-12-31": 37612374,
+        "2024-12-31": 41357233
+      }
+    },
+    {
+      "label": "Pinjaman yang",
+      "label_right": "Borrowings related diterima pihak parties berelasi Pinjaman yang Borrowings payables diterima utang to clearing and pada lembaga settlement guarantee kliring dan institution penjaminan",
+      "values": {
+        "2025-12-31": 1428013,
+        "2024-12-31": 1574211
+      }
+    },
+    {
+      "label": "Efek yang diterbitkan",
+      "label_right": "Securities issued"
+    },
+    {
+      "label": "Utang obligasi Bonds payable Sukuk Sukuk"
+    },
+    {
+      "label": "Obligasi",
+      "label_right": "Subordinated bonds subordinasi",
+      "values": {
+        "2025-12-31": 18339988,
+        "2024-12-31": 17699183
+      }
+    },
+    {
+      "label": "Surat utang jangka Medium term notes menengah"
+    },
+    {
+      "label": "Efek yang",
+      "label_right": "Others securities diterbitkan lainnya issued",
+      "values": {
+        "2025-12-31": 14253190,
+        "2024-12-31": 12974497
+      }
+    },
+    {
+      "label": "Utang perusahaan",
+      "label_right": "Securities company efek payables Provisi Provisions"
+    },
+    {
+      "label": "Estimasi kerugian",
+      "label_right": "Estimated losses on komitmen dan commitments and kontinjensi contingencies",
+      "values": {
+        "2025-12-31": 1463072,
+        "2024-12-31": 2283222
+      }
+    },
+    {
+      "label": "Beban akrual",
+      "label_right": "Accrued expenses",
+      "values": {
+        "2025-12-31": 941816,
+        "2024-12-31": 1529305
+      }
+    },
+    {
+      "label": "Utang pajak",
+      "label_right": "Taxes payable",
+      "values": {
+        "2025-12-31": 414884,
+        "2024-12-31": 317569
+      }
+    },
+    {
+      "label": "Liabilitas lainnya",
+      "label_right": "Other liabilities",
+      "values": {
+        "2025-12-31": 29290002,
+        "2024-12-31": 27525272
+      }
+    },
+    {
+      "label": "Kewajiban imbalan",
+      "label_right": "Post-employment benefit pasca kerja obligations Pinjaman Subordinated loans subordinasi Pinjaman Subordinated loans subordinasi pihak third parties ketiga Pinjaman Subordinated loans subordinasi pihak related parties berelasi",
+      "values": {
+        "2025-12-31": 8838995,
+        "2024-12-31": 7146717
+      }
+    },
+    {
+      "label": "Jumlah liabilitas",
+      "label_right": "Total liabilities",
+      "values": {
+        "2025-12-31": 1185715363,
+        "2024-12-31": 963580855
+      }
+    }
+  ],
+  "temporary_syirkah_funds": [
+    {
+      "label": "Giro mudharabah Mudharabah current account Giro Mudharabah mudharabah current account pihak ketiga third parties Giro berjangka Mudharabah mudharabah current account pihak berelasi related parties Tabungan Mudharabah saving mudharabah deposits Tabungan Mudharabah mudharabah saving deposits pihak ketiga third parties Tabungan Mudharabah mudharabah saving deposits pihak berelasi related parties Deposito Mudharabah time berjangka deposits mudharabah Deposito Mudharabah time berjangka deposits third mudharabah parties pihak ketiga Deposito Mudharabah time berjangka deposits related mudharabah parties pihak berelasi Bank Bank"
+    },
+    {
+      "label": "Giro mudharabah Mudharabah current account Tabungan Mudharabah saving mudharabah deposits (ummat) (ummat)"
+    },
+    {
+      "label": "Deposito berjangka Mudharabah time mudharabah deposits"
+    },
+    {
+      "label": "Efek yang diterbitkan Bank securities issued bank Investasi Interbank mudharabah antar mudharabah bank investments"
+    },
+    {
+      "label": "Sukuk mudharabah Mudharabah sukuk Sukuk mudharabah",
+      "label_right": "Subordinated subordinasi mudharabah sukuk"
+    },
+    {
+      "label": "Jumlah dana syirkah",
+      "label_right": "Total temporary temporer syirkah funds"
+    },
+    {
+      "label": "Jumlah akumulasi dana",
+      "label_right": "Total accumulated tabarru's tabarru funds"
+    }
+  ],
+  "equity": [
+    {
+      "label": "Saham biasa",
+      "label_right": "Common stocks Saham preferen Preferred stocks",
+      "values": {
+        "2025-12-31": 9054807,
+        "2024-12-31": 9054807
+      }
+    },
+    {
+      "label": "Tambahan modal",
+      "label_right": "Additional paid-in disetor capital",
+      "values": {
+        "2025-12-31": 17010254,
+        "2024-12-31": 17010254
+      }
+    },
+    {
+      "label": "Saham treasuri",
+      "label_right": "Treasury stocks",
+      "values": {
+        "2025-12-31": 0,
+        "2024-12-31": 0
+      }
+    },
+    {
+      "label": "Uang muka Advances in capital setoran modal stock"
+    },
+    {
+      "label": "Opsi saham Stock options Penjabaran Translation laporan keuangan adjustment"
+    },
+    {
+      "label": "Cadangan",
+      "label_right": "Revaluation reserves revaluasi",
+      "values": {
+        "2025-12-31": 16711395,
+        "2024-12-31": 16711395
+      }
+    },
+    {
+      "label": "Cadangan selisih",
+      "label_right": "Reserve of exchange kurs penjabaran differences on translation",
+      "values": {
+        "2025-12-31": -124345,
+        "2024-12-31": -96998
+      }
+    },
+    {
+      "label": "Cadangan",
+      "label_right": "Reserve for changes perubahan nilai in fair value of fair wajar aset value through other keuangan nilai comprehensive wajar melalui income financial pendapatan assets komprehensif lainnya Cadangan Reserve of gains keuntungan (losses) from",
+      "values": {
+        "2025-12-31": 2617037,
+        "2024-12-31": -1465059
+      }
+    },
+    {
+      "label": "(kerugian) investasi investments in equity pada instrumen instruments"
+    },
+    {
+      "label": "Cadangan",
+      "label_right": "Reserve of pembayaran share-based berbasis saham payments",
+      "values": {
+        "2025-12-31": 349167,
+        "2024-12-31": 322589
+      }
+    },
+    {
+      "label": "Cadangan lindung",
+      "label_right": "Reserve of cash flow nilai arus kas hedges Cadangan Reserve of pengukuran remeasurements of kembali program defined benefit plans imbalan pasti"
+    },
+    {
+      "label": "Cadangan lainnya",
+      "label_right": "Other reserves",
+      "values": {
+        "2025-12-31": 2256999,
+        "2024-12-31": 2256999
+      }
+    },
+    {
+      "label": "Selisih Transaksi",
+      "label_right": "Difference Due to"
+    },
+    {
+      "label": "Perubahan Ekuitas Changes of",
+      "label_right": "Equity in Entitas Subsidiary/Associates Anak/Asosiasi"
+    },
+    {
+      "label": "Komponen ekuitas",
+      "label_right": "Other components of lainnya equity"
+    },
+    {
+      "label": "Saldo laba Retained earnings (akumulasi (deficit) kerugian) Saldo laba Appropriated yang telah retained ditentukan earnings penggunaanya"
+    },
+    {
+      "label": "Cadangan",
+      "label_right": "General and umum dan legal reserves wajib Cadangan Specific khusus reserves",
+      "values": {
+        "2025-12-31": 2778412,
+        "2024-12-31": 2778412
+      }
+    },
+    {
+      "label": "Saldo laba",
+      "label_right": "Unappropriated yang belum retained earnings ditentukan penggunaannya",
+      "values": {
+        "2025-12-31": 121076418,
+        "2024-12-31": 115465415
+      }
+    },
+    {
+      "label": "Jumlah ekuitas",
+      "label_right": "Total equity yang attributable to diatribusikan equity owners of kepada pemilik parent entity entitas induk Proforma ekuitas Proforma equity",
+      "values": {
+        "2025-12-31": 171730144,
+        "2024-12-31": 162071240
+      }
+    },
+    {
+      "label": "Kepentingan",
+      "label_right": "Non-controlling interests non-pengendali",
+      "values": {
+        "2025-12-31": 4609224,
+        "2024-12-31": 4476767
+      }
+    },
+    {
+      "label": "Jumlah ekuitas",
+      "label_right": "Total equity",
+      "values": {
+        "2025-12-31": 176339368,
+        "2024-12-31": 166548007
+      }
+    },
+    {
+      "label": "Jumlah liabilitas, dana",
+      "label_right": "Total liabilities, temporary syirkah temporer dan syirkah funds and equity",
+      "values": {
+        "2025-12-31": 1362054731,
+        "2024-12-31": 1130128862
+      }
+    }
+  ]
+}

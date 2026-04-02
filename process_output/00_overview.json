@@ -1,0 +1,11 @@
+{
+  "source_pdf": ".\\docs\\FinancialStatement-2025-Tahunan-BBNI.pdf",
+  "meta": {
+    "use_ocr": true,
+    "ocr_lang": "ind+eng"
+  },
+  "statement_types": [
+    "financial_position",
+    "profit_or_loss"
+  ]
+}
