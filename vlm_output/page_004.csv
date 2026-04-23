@@ -1,0 +1,19 @@
+page,level,account,row_type,YEAR1,YEAR2,parent_account
+4,0,Aset,group,Cash,Restricted funds,
+4,1,Giro pada Bank Indonesia,item,"79,989,122","51,669,054",Aset
+4,1,Giro pada bank lain,item,"25,858,094","22,031,212",Aset
+4,1,Cadangan kerugian penurunan nilai pada giro pada bank lain,item,( 7 ),( 13 ),Aset
+4,0,Penempatan pada Bank Indonesia dan bank lain,group,"31,725,849","15,455,444",
+4,1,Penempatan pada Bank Indonesia dan bank lain pihak ketiga,item,"31,725,849","15,455,444",Penempatan pada Bank Indonesia dan bank lain
+4,1,Penempatan pada Bank Indonesia dan bank lain pihak berelasi,item,"2,054,144","1,620,191",Penempatan pada Bank Indonesia dan bank lain
+4,1,Cadangan kerugian penurunan nilai pada penempatan pada bank lain,item,( 78 ),( 194 ),Penempatan pada Bank Indonesia dan bank lain
+4,0,Piutang asuransi,group,Insurance receivables,Insurance receivables,
+4,1,Piutang asuransi pihak ketiga,item,Insurance receivables third parties,Insurance receivables third parties,Piutang asuransi
+4,1,Piutang asuransi pihak berelasi,item,Insurance receivables related parties,Insurance receivables related parties,Piutang asuransi
+4,1,Cadangan kerugian penurunan nilai pada piutang asuransi,item,Allowance for impairment losses for insurance receivables,Allowance for impairment losses for insurance receivables,Piutang asuransi
+4,1,Biaya akuisisi tangguhan,item,Deferred acquisition costs,Deferred acquisition costs,Piutang asuransi
+4,1,Deposito pada lembaga kliring dan penjaminan,item,Deposits to clearing and settlement guarantee institution,Deposits to clearing and settlement guarantee institution,Piutang asuransi
+4,0,Efek-efek yang diperdagangkan,group,Marketable securities,Marketable securities,
+4,1,Efek-efek yang diperdagangkan pihak ketiga,item,"50,783,955","38,376,931",Efek-efek yang diperdagangkan
+4,1,Efek-efek yang diperdagangkan pihak berelasi,item,"12,232,740","10,157,415",Efek-efek yang diperdagangkan
+4,1,Cadangan kerugian penurunan nilai pada,item,( 15 ),( 273 ),Efek-efek yang diperdagangkan

@@ -10,7 +10,9 @@ import pdfplumber
 
 from .utils import (
     ItemNode,
+    assign_levels,
     extract_amount_tokens,
+    extract_rows_by_column,
     find_years_in_order,
     looks_like_section_header,
     normalize_text,
@@ -98,6 +100,8 @@ def _collect_pages_until(
         pages.append(i)
     return pages
 
+
+# ── Text-based parsing (used as OCR fallback) ─────────────────────────────
 
 def _merge_wrapped_lines(lines: List[str], years: List[int]) -> List[str]:
     merged: List[str] = []
@@ -212,10 +216,63 @@ def _parse_merged_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str,
     return sections
 
 
-def _parse_lines_to_tree(lines: List[str], years: List[int]) -> Dict[str, List[ItemNode]]:
-    merged = _merge_wrapped_lines(lines, years)
-    return _parse_merged_lines_to_tree(merged, years)
+# ── Column-based parsing (default for native PDFs) ────────────────────────
 
+def _parse_structured_rows_to_tree(
+    rows: List[Dict[str, Any]], years: List[int]
+) -> Dict[str, List[ItemNode]]:
+    """
+    Build an ItemNode tree from structured rows produced by extract_rows_by_column().
+    Uses a level-based stack so nesting follows x0 indentation, not prefix matching.
+    """
+    year_keys = [f"{y}-12-31" for y in years]
+    sections: Dict[str, List[ItemNode]] = {}
+    current_section = "unknown"
+    # Stack entries: (level, ItemNode)
+    stack: List[tuple] = []
+
+    def attach(node: ItemNode, level: int) -> None:
+        # Pop all stack entries at the same or deeper level
+        while stack and stack[-1][0] >= level:
+            stack.pop()
+        if stack:
+            stack[-1][1].children.append(node)
+        else:
+            sections.setdefault(current_section, []).append(node)
+        stack.append((level, node))
+
+    for row in rows:
+        id_label = row.get("id_label", "").strip()
+        en_label = row.get("en_label", "").strip()
+        amounts = row.get("amounts", [])
+        level = row.get("level", 0)
+
+        if not id_label and not amounts:
+            continue
+
+        sec = looks_like_section_header(id_label)
+        if sec and not amounts:
+            current_section = sec
+            stack = []
+            continue
+
+        if not amounts:
+            node = ItemNode(label=id_label, label_right=en_label, level=level)
+            attach(node, level)
+            continue
+
+        values: Dict[str, Optional[int]] = {}
+        padded = [None] * (len(years) - len(amounts)) + amounts
+        for yk, tok in zip(year_keys, padded):
+            values[yk] = token_to_int(tok) if tok is not None else None
+
+        node = ItemNode(label=id_label, label_right=en_label, values=values, level=level)
+        attach(node, level)
+
+    return sections
+
+
+# ── Generic extractor ─────────────────────────────────────────────────────
 
 def _extract_statement_generic(
     pdf_path: str,
@@ -224,7 +281,7 @@ def _extract_statement_generic(
     stop_patterns: List[str],
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
-) -> StatementResult:
+) -> "StatementResult":
     with pdfplumber.open(pdf_path) as pdf:
         start = _find_page_index(pdf, start_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
         if start is None:
@@ -232,13 +289,26 @@ def _extract_statement_generic(
 
         pages = _collect_pages_until(pdf, start, stop_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
 
-        all_lines: List[str] = []
+        # Always extract raw text for year detection
+        raw_lines: List[str] = []
         for i in pages:
             txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
-            all_lines.extend(txt.splitlines())
+            raw_lines.extend(txt.splitlines())
 
-        years = find_years_in_order(all_lines)
-        sections = _parse_lines_to_tree(all_lines, years)
+        normalized_lines = [normalize_text(ln) for ln in raw_lines if normalize_text(ln)]
+        years = find_years_in_order(normalized_lines)
+
+        if use_ocr:
+            merged = _merge_wrapped_lines(normalized_lines, years)
+            sections = _parse_merged_lines_to_tree(merged, years)
+        else:
+            years_set = set(years)
+            all_rows: List[Dict] = []
+            for i in pages:
+                all_rows.extend(extract_rows_by_column(pdf.pages[i], years_set))
+            all_rows = assign_levels(all_rows)
+            sections = _parse_structured_rows_to_tree(all_rows, years)
+
         return StatementResult(statement_type, years, pages, sections)
 
 
@@ -249,7 +319,7 @@ def _extract_statement_with_stages(
     stop_patterns: List[str],
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
-) -> Tuple[StatementResult, Dict[str, Any]]:
+) -> Tuple["StatementResult", Dict[str, Any]]:
     with pdfplumber.open(pdf_path) as pdf:
         start = _find_page_index(pdf, start_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
         if start is None:
@@ -257,6 +327,7 @@ def _extract_statement_with_stages(
 
         pages = _collect_pages_until(pdf, start, stop_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
 
+        # Raw text (for stages + year detection)
         page_texts: List[Dict[str, Any]] = []
         raw_lines: List[str] = []
         for i in pages:
@@ -266,8 +337,19 @@ def _extract_statement_with_stages(
 
         normalized_lines = [normalize_text(ln) for ln in raw_lines if normalize_text(ln)]
         years = find_years_in_order(normalized_lines)
-        merged_lines = _merge_wrapped_lines(normalized_lines, years)
-        sections = _parse_merged_lines_to_tree(merged_lines, years)
+
+        if use_ocr:
+            merged_lines = _merge_wrapped_lines(normalized_lines, years)
+            sections = _parse_merged_lines_to_tree(merged_lines, years)
+            structured_rows: List[Dict] = []
+        else:
+            years_set = set(years)
+            structured_rows = []
+            for i in pages:
+                structured_rows.extend(extract_rows_by_column(pdf.pages[i], years_set))
+            structured_rows = assign_levels(structured_rows)
+            sections = _parse_structured_rows_to_tree(structured_rows, years)
+            merged_lines = []
 
         result = StatementResult(statement_type, years, pages, sections)
         stages = {
@@ -279,11 +361,14 @@ def _extract_statement_with_stages(
             "raw_text_by_page": page_texts,
             "normalized_lines": normalized_lines,
             "merged_lines": merged_lines,
+            "structured_rows": structured_rows,
             "years": years,
             "sections": {k: [n.to_dict() for n in v] for k, v in sections.items()},
         }
         return result, stages
 
+
+# ── Public API ────────────────────────────────────────────────────────────
 
 def extract_statement_financial_position(
     pdf_path: str,
@@ -310,6 +395,8 @@ def extract_statement_profit_loss(
         statement_type="profit_or_loss",
         start_patterns=["statement of profit or loss", "laporan laba rugi"],
         stop_patterns=[
+            "statement of changes in equity",
+            "laporan perubahan ekuitas",
             "statement of cash flows",
             "laporan arus kas",
             "catatan atas laporan keuangan",
@@ -339,6 +426,8 @@ def extract_with_stages(
         statement_type="profit_or_loss",
         start_patterns=["statement of profit or loss", "laporan laba rugi"],
         stop_patterns=[
+            "statement of changes in equity",
+            "laporan perubahan ekuitas",
             "statement of cash flows",
             "laporan arus kas",
             "catatan atas laporan keuangan",

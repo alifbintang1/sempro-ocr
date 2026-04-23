@@ -1,0 +1,155 @@
+{
+  "page": 4,
+  "table_title": "Statement of financial position presented using order of liquidity - Financial and Sharia Industry",
+  "columns": [
+    "account",
+    "YEAR1",
+    "YEAR2"
+  ],
+  "rows": [
+    {
+      "level": 0,
+      "account": "Aset",
+      "row_type": "group",
+      "YEAR1": "Cash",
+      "YEAR2": "Restricted funds",
+      "parent_account": null
+    },
+    {
+      "level": 1,
+      "account": "Giro pada Bank Indonesia",
+      "row_type": "item",
+      "YEAR1": "79,989,122",
+      "YEAR2": "51,669,054",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 1,
+      "account": "Giro pada bank lain",
+      "row_type": "item",
+      "YEAR1": "25,858,094",
+      "YEAR2": "22,031,212",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 1,
+      "account": "Cadangan kerugian penurunan nilai pada giro pada bank lain",
+      "row_type": "item",
+      "YEAR1": "( 7 )",
+      "YEAR2": "( 13 )",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 0,
+      "account": "Penempatan pada Bank Indonesia dan bank lain",
+      "row_type": "group",
+      "YEAR1": "31,725,849",
+      "YEAR2": "15,455,444",
+      "parent_account": null
+    },
+    {
+      "level": 1,
+      "account": "Penempatan pada Bank Indonesia dan bank lain pihak ketiga",
+      "row_type": "item",
+      "YEAR1": "31,725,849",
+      "YEAR2": "15,455,444",
+      "parent_account": "Penempatan pada Bank Indonesia dan bank lain"
+    },
+    {
+      "level": 1,
+      "account": "Penempatan pada Bank Indonesia dan bank lain pihak berelasi",
+      "row_type": "item",
+      "YEAR1": "2,054,144",
+      "YEAR2": "1,620,191",
+      "parent_account": "Penempatan pada Bank Indonesia dan bank lain"
+    },
+    {
+      "level": 1,
+      "account": "Cadangan kerugian penurunan nilai pada penempatan pada bank lain",
+      "row_type": "item",
+      "YEAR1": "( 78 )",
+      "YEAR2": "( 194 )",
+      "parent_account": "Penempatan pada Bank Indonesia dan bank lain"
+    },
+    {
+      "level": 0,
+      "account": "Piutang asuransi",
+      "row_type": "group",
+      "YEAR1": "Insurance receivables",
+      "YEAR2": "Insurance receivables",
+      "parent_account": null
+    },
+    {
+      "level": 1,
+      "account": "Piutang asuransi pihak ketiga",
+      "row_type": "item",
+      "YEAR1": "Insurance receivables third parties",
+      "YEAR2": "Insurance receivables third parties",
+      "parent_account": "Piutang asuransi"
+    },
+    {
+      "level": 1,
+      "account": "Piutang asuransi pihak berelasi",
+      "row_type": "item",
+      "YEAR1": "Insurance receivables related parties",
+      "YEAR2": "Insurance receivables related parties",
+      "parent_account": "Piutang asuransi"
+    },
+    {
+      "level": 1,
+      "account": "Cadangan kerugian penurunan nilai pada piutang asuransi",
+      "row_type": "item",
+      "YEAR1": "Allowance for impairment losses for insurance receivables",
+      "YEAR2": "Allowance for impairment losses for insurance receivables",
+      "parent_account": "Piutang asuransi"
+    },
+    {
+      "level": 1,
+      "account": "Biaya akuisisi tangguhan",
+      "row_type": "item",
+      "YEAR1": "Deferred acquisition costs",
+      "YEAR2": "Deferred acquisition costs",
+      "parent_account": "Piutang asuransi"
+    },
+    {
+      "level": 1,
+      "account": "Deposito pada lembaga kliring dan penjaminan",
+      "row_type": "item",
+      "YEAR1": "Deposits to clearing and settlement guarantee institution",
+      "YEAR2": "Deposits to clearing and settlement guarantee institution",
+      "parent_account": "Piutang asuransi"
+    },
+    {
+      "level": 0,
+      "account": "Efek-efek yang diperdagangkan",
+      "row_type": "group",
+      "YEAR1": "Marketable securities",
+      "YEAR2": "Marketable securities",
+      "parent_account": null
+    },
+    {
+      "level": 1,
+      "account": "Efek-efek yang diperdagangkan pihak ketiga",
+      "row_type": "item",
+      "YEAR1": "50,783,955",
+      "YEAR2": "38,376,931",
+      "parent_account": "Efek-efek yang diperdagangkan"
+    },
+    {
+      "level": 1,
+      "account": "Efek-efek yang diperdagangkan pihak berelasi",
+      "row_type": "item",
+      "YEAR1": "12,232,740",
+      "YEAR2": "10,157,415",
+      "parent_account": "Efek-efek yang diperdagangkan"
+    },
+    {
+      "level": 1,
+      "account": "Cadangan kerugian penurunan nilai pada",
+      "row_type": "item",
+      "YEAR1": "( 15 )",
+      "YEAR2": "( 273 )",
+      "parent_account": "Efek-efek yang diperdagangkan"
+    }
+  ]
+}

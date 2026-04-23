@@ -8,10 +8,7 @@ from pathlib import Path
 
 from flask import Flask, jsonify, redirect, render_template, request, url_for
 
-from idx_fin_parser.pdf_statements import (
-    extract_statement_financial_position,
-    extract_statement_profit_loss,
-)
+from idx_fin_parser.pdf_statements import extract_with_stages
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50 MB max upload
@@ -32,11 +29,10 @@ def format_number(value):
 
 
 def _build_result(pdf_path: str, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> dict:
-    fp = extract_statement_financial_position(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
-    pl = extract_statement_profit_loss(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
+    data = extract_with_stages(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
     return {
         "source_pdf": Path(pdf_path).name,
-        "statements": [fp.to_dict(), pl.to_dict()],
+        "statements": data["statements"],
     }
 
 

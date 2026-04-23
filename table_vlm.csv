@@ -1,0 +1,23 @@
+level,account,2025,2024,row_type,parent_account
+0,Aset,,,group,
+1,Kas,"13,352,065","13,709,930",item,Aset
+1,Dana yang dibatasi penggunaannya,,,item,Aset
+1,Giro pada Bank Indonesia,"79,989,122","51,669,054",item,Aset
+1,Giro pada bank lain,,,group,Aset
+2,Giro pada bank lain pihak ketiga,"25,858,094","22,031,212",item,Giro pada bank lain
+2,Giro pada bank lain pihak berelasi,"79,999","42,974",item,Giro pada bank lain
+2,Cadangan kerugian penurunan nilai pada giro pada bank lain,( 7 ),( 13 ),item,Giro pada bank lain
+1,Penempatan pada Bank Indonesia dan bank lain,,,group,Aset
+2,Penempatan pada Bank Indonesia dan bank lain pihak ketiga,"31,725,849","15,455,444",item,Penempatan pada Bank Indonesia dan bank lain
+2,Penempatan pada Bank Indonesia dan bank lain pihak berelasi,"2,054,144","1,620,191",item,Penempatan pada Bank Indonesia dan bank lain
+2,Cadangan kerugian penurunan nilai pada penempatan pada bank lain,( 78 ),( 194 ),item,Penempatan pada Bank Indonesia dan bank lain
+1,Piutang asuransi,,,group,Aset
+2,Piutang asuransi pihak ketiga,,,item,Piutang asuransi
+2,Piutang asuransi pihak berelasi,,,item,Piutang asuransi
+2,Cadangan kerugian penurunan nilai pada piutang asuransi,,,item,Piutang asuransi
+1,Biaya akuisisi tangguhan,,,item,Aset
+1,Deposito pada lembaga kliring dan penjaminan,,,item,Aset
+1,Efek-efek yang diperdagangkan,,,group,Aset
+2,Efek-efek yang diperdagangkan pihak ketiga,"50,783,955","38,376,931",item,Efek-efek yang diperdagangkan
+2,Efek-efek yang diperdagangkan pihak berelasi,"12,232,740","10,157,415",item,Efek-efek yang diperdagangkan
+2,Cadangan kerugian penurunan nilai pada,( 15 ),( 273 ),item,Efek-efek yang diperdagangkan

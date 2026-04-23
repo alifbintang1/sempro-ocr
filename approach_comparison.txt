@@ -1,0 +1,133 @@
+PERBANDINGAN APPROACH PEMROSESAN LAPORAN KEUANGAN (SEMPro)
+===========================================================
+
+Quick summary:
+- Sejauh ini ada 3 approach utama:
+  1) Native PDF structured parsing (rule-based, koordinat kolom)
+  2) OCR (fallback parser + OCR table HTML converter)
+  3) VLM (Qwen2-VL) image-to-structured-JSON
+
+
+1) NATIVE PDF STRUCTURED PARSING (RULE-BASED KOORDINAT)
+--------------------------------------------------------
+Goal:
+- Extract laporan posisi keuangan dan laba rugi secara deterministik dari PDF yang text layer-nya rapi.
+
+Main files:
+- idx_fin_parser/pdf_statements.py
+- idx_fin_parser/utils.py
+- main_extract.py
+- main_extract_staged.py
+
+Flow utama:
+- Deteksi halaman awal statement via keyword bilingual (Indonesia/English).
+- Kumpulkan halaman sampai ditemukan stop pattern.
+- Ambil words dengan koordinat x/y (pdfplumber).
+- Split row jadi id_label, amounts, en_label berdasarkan posisi kolom.
+- Rapikan continuation row (baris terpotong).
+- Assign level berdasarkan clustering indentation x0_first.
+- Bangun tree ItemNode via stack level.
+
+Pros:
+- Deterministik dan relatif stabil untuk PDF native.
+- Struktur hierarki akun cukup akurat (berbasis indentasi fisik).
+- Parsing nominal lebih dapat dikontrol.
+
+Cons:
+- Sensitif ke layout yang berubah jauh.
+- Bergantung kualitas text layer PDF.
+- Heuristik section header perlu update jika format dokumen baru.
+
+Best use case:
+- Ini default path buat annual report berbasis text PDF.
+
+
+2) OCR (FALLBACK PARSER + OCR TABLE CONVERTER)
+------------------------------------------------
+Goal:
+- Handle PDF scan/gambar saat text layer kosong, plus utility buat convert hasil OCR tabel ke CSV.
+
+Main files:
+- idx_fin_parser/pdf_statements.py (_extract_page_text, _merge_wrapped_lines, _parse_merged_lines_to_tree)
+- main_extract.py (--ocr, --ocr-lang)
+- app.py (toggle use_ocr di web)
+- converter.py
+- table_extractor.py
+- folder ocr_table_output/json/
+
+Flow utama:
+- Mode A (OCR fallback parser):
+- Jika extract_text kosong dan use_ocr=true -> render page image -> Tesseract OCR.
+- Normalisasi text line.
+- Deteksi token angka (skip tahun).
+- Merge wrapped lines (baris terputus).
+- Split label dan angka, deteksi section, bentuk tree.
+- Mode B (OCR table converter):
+- Baca JSON OCR output yang berisi pred_html.
+- Parse HTML table via pandas.read_html.
+- Simpan/tampilkan sebagai DataFrame/CSV untuk inspeksi cepat.
+
+Pros:
+- Bisa memproses scan PDF yang tidak bisa di-parse native.
+- Integrasi sudah menyatu dengan pipeline utama (CLI + Web).
+- Ada jalur utilitas cepat untuk inspeksi hasil OCR tabel.
+
+Cons:
+- Akurasi parser fallback tergantung kualitas OCR (noise/blur/rotasi).
+- Heuristik text merge bisa salah pada layout kompleks.
+- Converter OCR tabel bersifat flat (tidak membentuk tree hierarki penuh).
+
+Best use case:
+- Saat PDF scan, hasil native kosong, atau text layer rusak.
+- Saat perlu cek cepat hasil OCR berbentuk tabel tanpa proses hierarki penuh.
+
+
+3) VLM IMAGE-TO-TABLE (QWEN2-VL)
+---------------------------------
+Goal:
+- Ekstraksi tabel secara semantik dari gambar halaman PDF dengan vision-language model.
+
+Main files:
+- vlm_image_to_table.py
+- vlm_colab.ipynb
+
+Flow utama:
+- Render PDF page -> image.
+- Prompt system + user untuk memaksa output STRICT JSON.
+- Inference model Qwen2-VL.
+- Parse JSON output, normalisasi rows, rebuild parent-child via level.
+- Simpan per halaman (json/csv) + combined output.
+
+Pros:
+- Lebih fleksibel terhadap variasi layout tabel.
+- Bisa menangkap struktur semantik (group/item/label_only) lewat prompt.
+- Cocok untuk eksperimen dokumen yang sulit diparse rule-based.
+
+Cons:
+- Butuh resource besar (GPU/memory) dan dependency model.
+- Output bisa non-deterministik jika prompt/model berubah.
+- Tetap perlu validasi pasca ekstraksi.
+
+Best use case:
+- Untuk eksperimen atau dokumen dengan layout sangat kompleks/bervariasi.
+- Saat pendekatan rule-based gagal menjaga struktur.
+
+
+ORKESTRASI YANG SUDAH DIBANGUN
+==============================
+- Web app (app.py): upload PDF, toggle OCR, tampilkan hasil terstruktur + JSON.
+- CLI normal (main_extract.py): output final JSON, optional stages/process files.
+- CLI staged (main_extract_staged.py): observability detail per tahap parsing.
+
+Intinya, ini bukan single path, tapi multi-strategy:
+- Primary deterministic parser (native PDF)
+- OCR parser + OCR table converter
+- Experimental AI parser (VLM)
+
+
+REKOMENDASI PEMAKAIAN PRAKTIS
+=============================
+- Prioritas 1: Native PDF structured parser.
+- Prioritas 2: OCR fallback kalau text layer tidak memadai.
+- Prioritas 3: VLM untuk case sulit/eksperimental dan cross-check.
+- Di dalam OCR, converter lebih cocok buat inspeksi hasil OCR HTML, bukan final production path.

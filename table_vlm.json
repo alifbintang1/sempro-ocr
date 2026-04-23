@@ -1,0 +1,186 @@
+{
+  "table_title": "Statement of financial position presented using order of liquidity - Financial and Sharia Industry",
+  "columns": [
+    "account",
+    "2025",
+    "2024"
+  ],
+  "rows": [
+    {
+      "level": 0,
+      "account": "Aset",
+      "2025": null,
+      "2024": null,
+      "row_type": "group",
+      "parent_account": null
+    },
+    {
+      "level": 1,
+      "account": "Kas",
+      "2025": "13,352,065",
+      "2024": "13,709,930",
+      "row_type": "item",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 1,
+      "account": "Dana yang dibatasi penggunaannya",
+      "2025": null,
+      "2024": null,
+      "row_type": "item",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 1,
+      "account": "Giro pada Bank Indonesia",
+      "2025": "79,989,122",
+      "2024": "51,669,054",
+      "row_type": "item",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 1,
+      "account": "Giro pada bank lain",
+      "2025": null,
+      "2024": null,
+      "row_type": "group",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 2,
+      "account": "Giro pada bank lain pihak ketiga",
+      "2025": "25,858,094",
+      "2024": "22,031,212",
+      "row_type": "item",
+      "parent_account": "Giro pada bank lain"
+    },
+    {
+      "level": 2,
+      "account": "Giro pada bank lain pihak berelasi",
+      "2025": "79,999",
+      "2024": "42,974",
+      "row_type": "item",
+      "parent_account": "Giro pada bank lain"
+    },
+    {
+      "level": 2,
+      "account": "Cadangan kerugian penurunan nilai pada giro pada bank lain",
+      "2025": "( 7 )",
+      "2024": "( 13 )",
+      "row_type": "item",
+      "parent_account": "Giro pada bank lain"
+    },
+    {
+      "level": 1,
+      "account": "Penempatan pada Bank Indonesia dan bank lain",
+      "2025": null,
+      "2024": null,
+      "row_type": "group",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 2,
+      "account": "Penempatan pada Bank Indonesia dan bank lain pihak ketiga",
+      "2025": "31,725,849",
+      "2024": "15,455,444",
+      "row_type": "item",
+      "parent_account": "Penempatan pada Bank Indonesia dan bank lain"
+    },
+    {
+      "level": 2,
+      "account": "Penempatan pada Bank Indonesia dan bank lain pihak berelasi",
+      "2025": "2,054,144",
+      "2024": "1,620,191",
+      "row_type": "item",
+      "parent_account": "Penempatan pada Bank Indonesia dan bank lain"
+    },
+    {
+      "level": 2,
+      "account": "Cadangan kerugian penurunan nilai pada penempatan pada bank lain",
+      "2025": "( 78 )",
+      "2024": "( 194 )",
+      "row_type": "item",
+      "parent_account": "Penempatan pada Bank Indonesia dan bank lain"
+    },
+    {
+      "level": 1,
+      "account": "Piutang asuransi",
+      "2025": null,
+      "2024": null,
+      "row_type": "group",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 2,
+      "account": "Piutang asuransi pihak ketiga",
+      "2025": null,
+      "2024": null,
+      "row_type": "item",
+      "parent_account": "Piutang asuransi"
+    },
+    {
+      "level": 2,
+      "account": "Piutang asuransi pihak berelasi",
+      "2025": null,
+      "2024": null,
+      "row_type": "item",
+      "parent_account": "Piutang asuransi"
+    },
+    {
+      "level": 2,
+      "account": "Cadangan kerugian penurunan nilai pada piutang asuransi",
+      "2025": null,
+      "2024": null,
+      "row_type": "item",
+      "parent_account": "Piutang asuransi"
+    },
+    {
+      "level": 1,
+      "account": "Biaya akuisisi tangguhan",
+      "2025": null,
+      "2024": null,
+      "row_type": "item",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 1,
+      "account": "Deposito pada lembaga kliring dan penjaminan",
+      "2025": null,
+      "2024": null,
+      "row_type": "item",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 1,
+      "account": "Efek-efek yang diperdagangkan",
+      "2025": null,
+      "2024": null,
+      "row_type": "group",
+      "parent_account": "Aset"
+    },
+    {
+      "level": 2,
+      "account": "Efek-efek yang diperdagangkan pihak ketiga",
+      "2025": "50,783,955",
+      "2024": "38,376,931",
+      "row_type": "item",
+      "parent_account": "Efek-efek yang diperdagangkan"
+    },
+    {
+      "level": 2,
+      "account": "Efek-efek yang diperdagangkan pihak berelasi",
+      "2025": "12,232,740",
+      "2024": "10,157,415",
+      "row_type": "item",
+      "parent_account": "Efek-efek yang diperdagangkan"
+    },
+    {
+      "level": 2,
+      "account": "Cadangan kerugian penurunan nilai pada",
+      "2025": "( 15 )",
+      "2024": "( 273 )",
+      "row_type": "item",
+      "parent_account": "Efek-efek yang diperdagangkan"
+    }
+  ]
+}

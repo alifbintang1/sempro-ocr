@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hasil – {{ data.source_pdf }}</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .nd0 { padding-left: 24px; } .nd1 { padding-left: 40px; }
+    .nd2 { padding-left: 56px; } .nd3 { padding-left: 72px; }
+    .nd4 { padding-left: 88px; }
+  </style>
 </head>
 <body class="min-h-screen bg-slate-900 text-slate-200">
 
@@ -68,6 +73,45 @@
           </span>
         </div>
 
+        <!-- Recursive node renderer -->
+        {% macro render_node(node, years, yr0, yr1, depth) %}
+        {% set node_values = node.get('values', {}) %}
+        {% set dc = "nd" ~ (depth if depth < 5 else 4) %}
+        {% if node_values %}
+        <tr class="border-t border-slate-700/30 bg-slate-800/80 hover:bg-slate-700/30 transition-colors">
+          <td class="py-2.5 pr-6 text-slate-300 {{ dc }}">
+            {% if depth > 0 %}<span class="text-slate-600 mr-1">└</span>{% endif %}{{ node.label }}
+          </td>
+          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_right or "" }}</td>
+          <td class="px-6 py-2.5 text-right font-mono tabular-nums text-slate-200 text-xs">
+            {{ node_values.get(yr0) | format_number if node_values.get(yr0) is not none else "" }}
+          </td>
+          {% if yr1 %}
+          <td class="px-6 py-2.5 text-right font-mono tabular-nums text-slate-400 text-xs">
+            {{ node_values.get(yr1) | format_number if node_values.get(yr1) is not none else "" }}
+          </td>
+          {% endif %}
+        </tr>
+        {% elif depth == 0 %}
+        <tr class="border-t border-slate-700/30 bg-slate-700/20">
+          <td class="py-2.5 pr-6 font-semibold text-slate-200 {{ dc }}">{{ node.label }}</td>
+          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_right or "" }}</td>
+          <td class="px-6 py-2.5" colspan="{{ years | length }}"></td>
+        </tr>
+        {% else %}
+        <tr class="border-t border-slate-700/30 bg-slate-800/50 hover:bg-slate-700/20 transition-colors">
+          <td class="py-2.5 pr-6 text-slate-400 {{ dc }}">
+            <span class="text-slate-600 mr-1">└</span>{{ node.label }}
+          </td>
+          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_right or "" }}</td>
+          <td class="px-6 py-2.5" colspan="{{ years | length }}"></td>
+        </tr>
+        {% endif %}
+        {% for child in node.get('children', []) %}
+          {{ render_node(child, years, yr0, yr1, depth + 1) }}
+        {% endfor %}
+        {% endmacro %}
+
         <!-- Sections -->
         {% for section_name, nodes in stmt.sections.items() %}
         <div class="border-t border-slate-700">
@@ -91,48 +135,10 @@
                 </tr>
               </thead>
               <tbody>
+                {% set yr0 = stmt.years[0] ~ "-12-31" %}
+                {% set yr1 = stmt.years[1] ~ "-12-31" if stmt.years|length > 1 else "" %}
                 {% for node in nodes %}
-                  {% set node_values = node.get('values', {}) %}
-                  {% set yr0 = stmt.years[0] ~ "-12-31" %}
-                  {% set yr1 = stmt.years[1] ~ "-12-31" if stmt.years|length > 1 else "" %}
-                  {# Parent / header row #}
-                  <tr class="border-t border-slate-700/50
-                    {% if node_values %} bg-slate-800/80 hover:bg-slate-700/30 {% else %} bg-slate-700/20 {% endif %}">
-                    <td class="px-6 py-2.5 {% if not node_values %}font-semibold text-slate-200{% else %}text-slate-300{% endif %}">
-                      {{ node.label }}
-                    </td>
-                    <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_right or "" }}</td>
-                    {% if node_values %}
-                      <td class="px-6 py-2.5 text-right font-mono tabular-nums text-slate-200">
-                        {{ node_values.get(yr0) | format_number if node_values.get(yr0) is not none else "" }}
-                      </td>
-                      {% if yr1 %}
-                      <td class="px-6 py-2.5 text-right font-mono tabular-nums text-slate-400">
-                        {{ node_values.get(yr1) | format_number if node_values.get(yr1) is not none else "" }}
-                      </td>
-                      {% endif %}
-                    {% else %}
-                      <td class="px-6 py-2.5" colspan="{{ stmt.years | length }}"></td>
-                    {% endif %}
-                  </tr>
-                  {# Children #}
-                  {% for child in node.get('children', []) %}
-                  {% set child_values = child.get('values', {}) %}
-                  <tr class="border-t border-slate-700/30 bg-slate-800/50 hover:bg-slate-700/20 transition-colors">
-                    <td class="pl-10 pr-6 py-2 text-slate-400">
-                      <span class="text-slate-600 mr-1">└</span> {{ child.label }}
-                    </td>
-                    <td class="px-4 py-2 text-slate-600 text-xs">{{ child.label_right or "" }}</td>
-                    <td class="px-6 py-2 text-right font-mono tabular-nums text-slate-300 text-xs">
-                      {{ child_values.get(yr0) | format_number if child_values.get(yr0) is not none else "" }}
-                    </td>
-                    {% if yr1 %}
-                    <td class="px-6 py-2 text-right font-mono tabular-nums text-slate-500 text-xs">
-                      {{ child_values.get(yr1) | format_number if child_values.get(yr1) is not none else "" }}
-                    </td>
-                    {% endif %}
-                  </tr>
-                  {% endfor %}
+                  {{ render_node(node, stmt.years, yr0, yr1, 0) }}
                 {% endfor %}
               </tbody>
             </table>
