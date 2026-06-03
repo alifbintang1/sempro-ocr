@@ -93,28 +93,50 @@ def split_label_amounts(line: str, amount_tokens: List[str]) -> Tuple[str, str]:
     return normalize_text(left), normalize_text(right)
 
 
+_SECTION_EXACT = {
+    # ── Financial Position ──
+    "aset": "assets", "assets": "assets",
+    "liabilitas": "liabilities", "liabilities": "liabilities",
+    "ekuitas": "equity", "equity": "equity",
+    "dana syirkah temporer": "temporary_syirkah_funds",
+    "temporary syirkah funds": "temporary_syirkah_funds",
+    # ── Profit or Loss ──
+    "pendapatan dan beban operasional": "operating",
+    "operating income and expenses": "operating",
+    "operating income and expense": "operating",
+    "pendapatan dan beban bukan operasional": "non_operating",
+    "non-operating income and expense": "non_operating",
+    "non-operating income and expenses": "non_operating",
+    "pendapatan komprehensif lainnya, setelah pajak": "other_comprehensive_income",
+    "penghasilan komprehensif lain": "other_comprehensive_income",
+    "other comprehensive income": "other_comprehensive_income",
+    "other comprehensive income, after tax": "other_comprehensive_income",
+    "laba per saham": "earnings_per_share",
+    "laba (rugi) per saham": "earnings_per_share",
+    "earnings per share": "earnings_per_share",
+    "earnings (loss) per share": "earnings_per_share",
+}
+
+# Combined / non-section labels that previously matched via prefix and need
+# to be explicitly excluded (e.g. "Liabilitas, dana syirkah temporer dan ekuitas"
+# is a header for THREE sections combined, not the syirkah section itself).
+_SECTION_NEGATIVE = {
+    "liabilitas, dana syirkah temporer dan ekuitas",
+    "liabilities, temporary syirkah funds and equity",
+}
+
+
 def looks_like_section_header(label_left: str) -> Optional[str]:
-    """Map section labels to canonical section names."""
-    l = label_left.lower().strip()
-    # Financial Position sections
-    if l == "aset" or l == "assets" or l.startswith("aset "):
-        return "assets"
-    if l == "liabilitas" or l == "liabilities" or l.startswith("liabilitas "):
-        return "liabilities"
-    if l == "ekuitas" or l == "equity" or l.startswith("ekuitas "):
-        return "equity"
-    if l.startswith("dana syirkah temporer") or "liabilitas, dana syirkah" in l:
-        return "temporary_syirkah_funds"
-    # Profit & Loss sections
-    if "pendapatan dan beban operasional" in l or "operating income and" in l:
-        return "operating"
-    if "penghasilan komprehensif lain" in l or "other comprehensive income" in l:
-        return "other_comprehensive_income"
-    if "pendapatan dan beban bukan operasional" in l or "non-operating income" in l:
-        return "non_operating"
-    if l.startswith("laba per saham") or l.startswith("laba (rugi) per saham") or l.startswith("earnings per share") or l.startswith("earnings (loss) per share"):
-        return "earnings_per_share"
-    return None
+    """Map a label to a canonical section name.
+
+    Uses an exact-match whitelist plus a small negative list. Strict matching
+    avoids false positives like "Liabilitas derivatif" being classified as
+    the liabilities section header.
+    """
+    l = (label_left or "").lower().strip()
+    if not l or l in _SECTION_NEGATIVE:
+        return None
+    return _SECTION_EXACT.get(l)
 
 
 @dataclass
@@ -126,14 +148,22 @@ class ItemNode:
     level: int = 0
 
     def to_dict(self) -> Dict[str, Any]:
-        d: Dict[str, Any] = {"level": self.level, "label": self.label}
-        if self.label_right:
-            d["label_right"] = self.label_right
-        if self.values:
-            d["values"] = self.values
-        if self.children:
-            d["children"] = [c.to_dict() for c in self.children]
-        return d
+        values = dict(self.values) if self.values else {}
+        children = [c.to_dict() for c in self.children]
+        if any(v is not None for v in values.values()):
+            row_type = "item"
+        elif children:
+            row_type = "group"
+        else:
+            row_type = "label_only"
+        return {
+            "level": self.level,
+            "label": self.label,
+            "label_en": self.label_right or "",
+            "row_type": row_type,
+            "values": values,
+            "children": children,
+        }
 
 
 _EN_STARTERS = [
@@ -274,6 +304,51 @@ def merge_continuation_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return result
 
 
+def _split_bilingual_row(
+    row_words: List[Dict[str, Any]],
+    en_x_threshold: float,
+    min_gap_pt: float = 30.0,
+) -> Tuple[str, str]:
+    """Split a label-only (no-amounts) row into (id_text, en_text).
+
+    Strategy:
+      1. Find the largest horizontal whitespace gap between consecutive words.
+      2. If that gap is sufficiently large (> min_gap_pt and > 3× the median
+         intra-word gap), split there — left part = ID, right = EN.
+      3. Otherwise fall back to the page-wide en_x_threshold.
+
+    Why: en_x_threshold = min(en_x_starts) is derived from amount-bearing
+    rows. Label-only rows (especially section headers) sometimes have their
+    EN text starting a few points LEFT of that threshold, causing English
+    words to bleed into id_label. Gap-based detection picks up the real
+    column boundary regardless of per-row variation.
+    """
+    if len(row_words) < 2:
+        text = normalize_text(" ".join(w["text"] for w in row_words))
+        return text, ""
+
+    sorted_words = sorted(row_words, key=lambda w: w["x0"])
+    gaps: List[Tuple[float, int]] = []
+    for i in range(len(sorted_words) - 1):
+        gap = sorted_words[i + 1]["x0"] - sorted_words[i]["x1"]
+        gaps.append((gap, i))
+
+    max_gap, max_idx = max(gaps, key=lambda g: g[0])
+    sorted_gap_values = sorted(g for g, _ in gaps)
+    median_gap = sorted_gap_values[len(sorted_gap_values) // 2]
+
+    if max_gap > min_gap_pt and max_gap > max(median_gap * 3, 1):
+        id_words = sorted_words[: max_idx + 1]
+        en_words = sorted_words[max_idx + 1 :]
+    else:
+        id_words = [w for w in sorted_words if w["x0"] < en_x_threshold]
+        en_words = [w for w in sorted_words if w["x0"] >= en_x_threshold]
+
+    id_text = normalize_text(" ".join(w["text"] for w in id_words))
+    en_text = normalize_text(" ".join(w["text"] for w in en_words))
+    return id_text, en_text
+
+
 def extract_rows_by_column(page: Any, years_set: set) -> List[Dict[str, Any]]:
     """
     Extract structured rows from a pdfplumber page using word x-coordinates.
@@ -316,11 +391,13 @@ def extract_rows_by_column(page: Any, years_set: set) -> List[Dict[str, Any]]:
         x0_first = row_words[0]["x0"] if row_words else 0.0
 
         if not amt_indices:
-            # No amounts — split into ID / EN columns by x threshold
-            id_words = [w for w in row_words if w["x0"] < en_x_threshold]
-            en_words = [w for w in row_words if w["x0"] >= en_x_threshold]
-            id_text = normalize_text(" ".join(w["text"] for w in id_words))
-            en_text = normalize_text(" ".join(w["text"] for w in en_words))
+            # No amounts — split into ID / EN columns.
+            # Prefer geometric gap detection (biggest horizontal whitespace =
+            # column boundary); fall back to en_x_threshold if no obvious gap.
+            # This fixes EN-bleed on label-only rows where the EN text happens
+            # to start at an x slightly LEFT of en_x_threshold derived from
+            # amount-bearing rows.
+            id_text, en_text = _split_bilingual_row(row_words, en_x_threshold)
             if id_text or en_text:
                 result.append({"id_label": id_text, "amounts": [], "en_label": en_text, "x0_first": x0_first})
             continue

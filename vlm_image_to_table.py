@@ -11,6 +11,16 @@ import torch
 from PIL import Image
 from transformers import AutoProcessor, Qwen2VLForConditionalGeneration
 
+from idx_fin_parser.unified import (
+    APPROACH_VLM,
+    build_statement,
+    build_unified_output,
+    detect_statement_type,
+    flat_rows_to_tree,
+    split_into_sections,
+    years_from_columns,
+)
+
 
 # =========================================
 # CONFIG
@@ -290,6 +300,53 @@ def save_combined_output(all_results: list, output_dir: Path):
     return json_path, csv_path
 
 
+def save_unified_output(all_results: list, pdf_path: str, output_dir: Path) -> Path:
+    """Emit unified-schema JSON aggregated across pages.
+
+    Pages with the same detected statement type are merged into one statement.
+    """
+    by_type: dict[str, dict] = {}
+    for result in all_results:
+        if not result.get("rows"):
+            continue
+        columns = result.get("columns", [])
+        years = years_from_columns(columns)
+        nodes = flat_rows_to_tree(
+            result["rows"],
+            years,
+            level_key="level",
+            label_key="account",
+            label_en_key=None,
+        )
+        stmt_type = detect_statement_type(result.get("table_title") or "")
+        bucket = by_type.setdefault(stmt_type, {"years": years, "pages": [], "nodes": []})
+        if not bucket["years"]:
+            bucket["years"] = years
+        bucket["pages"].append(result.get("page"))
+        bucket["nodes"].extend(nodes)
+
+    statements = [
+        build_statement(
+            statement_type=stmt_type,
+            years=b["years"],
+            pages=b["pages"],
+            sections=split_into_sections(b["nodes"]),
+        )
+        for stmt_type, b in by_type.items()
+    ]
+
+    unified = build_unified_output(
+        source_pdf=str(pdf_path),
+        approach=APPROACH_VLM,
+        statements=statements,
+        meta={"model": MODEL_NAME},
+    )
+
+    out_path = output_dir / "unified.json"
+    out_path.write_text(json.dumps(unified, ensure_ascii=False, indent=2), encoding="utf-8")
+    return out_path
+
+
 # =========================================
 # MAIN
 # =========================================
@@ -375,6 +432,7 @@ def main():
 
     print("\nMenyimpan output gabungan...")
     json_path, csv_path = save_combined_output(all_results, output_dir)
+    unified_path = save_unified_output(all_results, str(pdf_path), output_dir)
 
     success = sum(1 for r in all_results if not r.get("error"))
     failed = len(all_results) - success
@@ -383,6 +441,7 @@ def main():
     print(f"  Per halaman : {output_dir}/page_XXX.json / .csv")
     print(f"  Combined    : {json_path}")
     print(f"               {csv_path}")
+    print(f"  Unified     : {unified_path}")
 
 
 if __name__ == "__main__":

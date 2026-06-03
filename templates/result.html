@@ -82,7 +82,7 @@
           <td class="py-2.5 pr-6 text-slate-300 {{ dc }}">
             {% if depth > 0 %}<span class="text-slate-600 mr-1">└</span>{% endif %}{{ node.label }}
           </td>
-          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_right or "" }}</td>
+          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_en or "" }}</td>
           <td class="px-6 py-2.5 text-right font-mono tabular-nums text-slate-200 text-xs">
             {{ node_values.get(yr0) | format_number if node_values.get(yr0) is not none else "" }}
           </td>
@@ -95,7 +95,7 @@
         {% elif depth == 0 %}
         <tr class="border-t border-slate-700/30 bg-slate-700/20">
           <td class="py-2.5 pr-6 font-semibold text-slate-200 {{ dc }}">{{ node.label }}</td>
-          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_right or "" }}</td>
+          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_en or "" }}</td>
           <td class="px-6 py-2.5" colspan="{{ years | length }}"></td>
         </tr>
         {% else %}
@@ -103,7 +103,7 @@
           <td class="py-2.5 pr-6 text-slate-400 {{ dc }}">
             <span class="text-slate-600 mr-1">└</span>{{ node.label }}
           </td>
-          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_right or "" }}</td>
+          <td class="px-4 py-2.5 text-slate-500 text-xs">{{ node.label_en or "" }}</td>
           <td class="px-6 py-2.5" colspan="{{ years | length }}"></td>
         </tr>
         {% endif %}

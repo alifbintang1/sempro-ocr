@@ -31,7 +31,10 @@ def format_number(value):
 def _build_result(pdf_path: str, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> dict:
     data = extract_with_stages(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
     return {
+        "schema_version": data.get("schema_version", "1.0"),
         "source_pdf": Path(pdf_path).name,
+        "approach": data.get("approach"),
+        "meta": data.get("meta", {}),
         "statements": data["statements"],
     }
 

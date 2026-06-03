@@ -1,0 +1,52 @@
+# ── Secrets ─────────────────────────────────────────────────────
+.env
+*.pem
+*.key
+
+# ── Python ──────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ── Virtual environments ────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Editor / IDE / OS ───────────────────────────────────────────
+.idea/
+.vscode/
+.claude/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.ipynb_checkpoints/
+
+# ── Pipeline outputs (regeneratable via run_all.py) ────────────
+runs/
+pred_*.json
+report_*.json
+
+# ── Intermediate / cache from early dev ─────────────────────────
+ocr_table_output/
+vlm_output/
+process_output/
+
+# ── Stale test outputs at project root ──────────────────────────
+output.json
+staged_output.json
+bbni.json
+extracted_table.csv
+table_vlm.csv
+table_vlm.json
+all_python_files.txt
+approach_comparison.txt
+
+# ── Draft / generated docs ──────────────────────────────────────
+BAB_4_DRAFT.md

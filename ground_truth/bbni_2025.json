@@ -1,0 +1,3871 @@
+{
+  "schema_version": "1.0",
+  "source_pdf": "FinancialStatement-2025-Tahunan-BBNI.pdf",
+  "approach": "ground_truth",
+  "meta": {
+    "issuer": "BBNI",
+    "issuer_full": "PT Bank Negara Indonesia (Persero) Tbk",
+    "fiscal_year": 2025,
+    "rounding": "in_million_idr",
+    "transcribed_pages": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "transcribed_by": "manual"
+  },
+  "statements": [
+    {
+      "type": "financial_position",
+      "years": [
+        2025,
+        2024
+      ],
+      "pages": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "sections": {
+        "assets": [
+          {
+            "level": 0,
+            "label": "Kas",
+            "label_en": "Cash",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 13352065,
+              "2024-12-31": 13709930
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Dana yang dibatasi penggunaannya",
+            "label_en": "Restricted funds",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Giro pada Bank Indonesia",
+            "label_en": "Current accounts with Bank Indonesia",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 79989122,
+              "2024-12-31": 51669054
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Giro pada bank lain",
+            "label_en": "Current accounts with other banks",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Giro pada bank lain pihak ketiga",
+                "label_en": "Current accounts with other banks third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 25858094,
+                  "2024-12-31": 22031212
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Giro pada bank lain pihak berelasi",
+                "label_en": "Current accounts with other banks related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 79999,
+                  "2024-12-31": 42974
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada giro pada bank lain",
+                "label_en": "Allowance for impairment losses for current accounts with other bank",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -7,
+                  "2024-12-31": -13
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Penempatan pada Bank Indonesia dan bank lain",
+            "label_en": "Placements with Bank Indonesia and other banks",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Penempatan pada Bank Indonesia dan bank lain pihak ketiga",
+                "label_en": "Placements with Bank Indonesia and other banks third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 31725849,
+                  "2024-12-31": 15455444
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penempatan pada Bank Indonesia dan bank lain pihak berelasi",
+                "label_en": "Placements with Bank Indonesia and other banks related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 2054144,
+                  "2024-12-31": 1620191
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada penempatan pada bank lain",
+                "label_en": "Allowance for impairment losses for placements with other banks",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -78,
+                  "2024-12-31": -194
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Piutang asuransi",
+            "label_en": "Insurance receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Piutang asuransi pihak ketiga",
+                "label_en": "Insurance receivables third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Piutang asuransi pihak berelasi",
+                "label_en": "Insurance receivables related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada piutang asuransi",
+                "label_en": "Allowance for impairment losses for insurance receivables",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Biaya akuisisi tangguhan",
+            "label_en": "Deferred acquisition costs",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Deposito pada lembaga kliring dan penjaminan",
+            "label_en": "Deposits to clearing and settlement guarantee institution",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Efek-efek yang diperdagangkan",
+            "label_en": "Marketable securities",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Efek-efek yang diperdagangkan pihak ketiga",
+                "label_en": "Marketable securities third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 50783955,
+                  "2024-12-31": 38376931
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Efek-efek yang diperdagangkan pihak berelasi",
+                "label_en": "Marketable securities related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 12232740,
+                  "2024-12-31": 10157415
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada efek-efek yang diperdagangkan",
+                "label_en": "Allowance for impairment losses for marketable securities",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -15,
+                  "2024-12-31": -273
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Investasi pemegang polis pada kontrak unit-linked",
+            "label_en": "Investments of policyholder in unit-linked contracts",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Efek yang dibeli dengan janji dijual kembali",
+            "label_en": "Securities purchased under agreement to resale",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 6910606,
+              "2024-12-31": 7971923
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Wesel ekspor dan tagihan lainnya",
+            "label_en": "Bills and other receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Wesel ekspor dan tagihan lainnya pihak ketiga",
+                "label_en": "Bills and other receivables third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 8181871,
+                  "2024-12-31": 7087118
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Wesel ekspor dan tagihan lainnya pihak berelasi",
+                "label_en": "Bills and other receivables related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 5338937,
+                  "2024-12-31": 6208736
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada wesel ekspor dan tagihan lainnya",
+                "label_en": "Allowance for impairment losses for bills and other receivables",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -67962,
+                  "2024-12-31": -52828
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Tagihan akseptasi",
+            "label_en": "Acceptance receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Tagihan akseptasi pihak ketiga",
+                "label_en": "Acceptance receivables third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 13528919,
+                  "2024-12-31": 13193510
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Tagihan akseptasi pihak berelasi",
+                "label_en": "Acceptance receivables related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 6053827,
+                  "2024-12-31": 2825260
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada tagihan akseptasi",
+                "label_en": "Allowance for impairment losses for acceptance receivables",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -133986,
+                  "2024-12-31": -93249
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Tagihan derivatif",
+            "label_en": "Derivative receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Tagihan derivatif pihak ketiga",
+                "label_en": "Derivative receivables third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 4654266,
+                  "2024-12-31": 1451146
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Tagihan derivatif pihak berelasi",
+                "label_en": "Derivative receivables related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 768083,
+                  "2024-12-31": 341832
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pinjaman yang diberikan",
+            "label_en": "Loans",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pinjaman yang diberikan pihak ketiga",
+                "label_en": "Loans third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 660513890,
+                  "2024-12-31": 616469089
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pinjaman yang diberikan pihak berelasi",
+                "label_en": "Loans related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 239016801,
+                  "2024-12-31": 159402689
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada pinjaman yang diberikan",
+                "label_en": "Allowance for impairment losses for loans",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -35860626,
+                  "2024-12-31": -38684520
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Piutang dari lembaga kliring dan penjaminan",
+            "label_en": "Receivables from clearing and settlement guarantee institution",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Piutang nasabah",
+            "label_en": "Receivables from customers",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Piutang nasabah pihak ketiga",
+                "label_en": "Receivables from customers third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Piutang nasabah pihak berelasi",
+                "label_en": "Receivables from customers related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada piutang nasabah",
+                "label_en": "Allowance for impairment losses for receivables from customers",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Piutang murabahah",
+            "label_en": "Murabahah receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Piutang murabahah pihak ketiga",
+                "label_en": "Murabahah receivables third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Piutang murabahah pihak berelasi",
+                "label_en": "Murabahah receivables related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada piutang murabahah",
+                "label_en": "Allowance for impairment losses for murabahah receivables",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Piutang istishna",
+            "label_en": "Istishna receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Piutang istishna pihak ketiga",
+                "label_en": "Istishna receivables third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Piutang istishna pihak berelasi",
+                "label_en": "Istishna receivables related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada piutang istishna",
+                "label_en": "Allowance for impairment losses for istishna receivables",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Piutang ijarah",
+            "label_en": "Ijarah receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Piutang ijarah pihak ketiga",
+                "label_en": "Ijarah receivables third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Piutang ijarah pihak berelasi",
+                "label_en": "Ijarah receivables related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada piutang ijarah",
+                "label_en": "Allowance for impairment losses for ijarah receivables",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Piutang pembiayaan konsumen",
+            "label_en": "Consumer financing receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Piutang pembiayaan konsumen pihak ketiga",
+                "label_en": "Consumer financing receivables third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Piutang pembiayaan konsumen pihak berelasi",
+                "label_en": "Consumer financing receivables related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada piutang pembiayaan konsumen",
+                "label_en": "Allowance for impairment losses for consumer financing receivables",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pinjaman qardh",
+            "label_en": "Qardh funds",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pinjaman qardh pihak ketiga",
+                "label_en": "Qardh funds third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pinjaman qardh pihak berelasi",
+                "label_en": "Qardh funds related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada pinjaman qardh",
+                "label_en": "Allowance for impairment losses for qardh funds",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pembiayaan mudharabah",
+            "label_en": "Mudharabah financing",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pembiayaan mudharabah pihak ketiga",
+                "label_en": "Mudharabah financing third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pembiayaan mudharabah pihak berelasi",
+                "label_en": "Mudharabah financing related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada pembiayaan mudharabah",
+                "label_en": "Allowance for impairment losses for mudharabah financing",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pembiayaan musyarakah",
+            "label_en": "Musyarakah financing",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pembiayaan musyarakah pihak ketiga",
+                "label_en": "Musyarakah financing third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pembiayaan musyarakah pihak berelasi",
+                "label_en": "Musyarakah financing related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada pembiayaan musyarakah",
+                "label_en": "Allowance for impairment losses for musyarakah financing",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Investasi sewa",
+            "label_en": "Lease investments",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Investasi sewa pihak ketiga",
+                "label_en": "Lease investments third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Investasi sewa pihak berelasi",
+                "label_en": "Lease investments related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Investasi sewa nilai residu yang terjamin",
+                "label_en": "Lease investments guaranteed residual value",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Investasi sewa pendapatan pembiayaan tangguhan",
+                "label_en": "Lease investments deferred financing income",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Investasi sewa simpanan jaminan",
+                "label_en": "Lease investments guarantee deposits",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada investasi sewa",
+                "label_en": "Allowance for impairment losses for lease investments",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Tagihan anjak piutang",
+            "label_en": "Factoring receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Tagihan anjak piutang pihak ketiga",
+                "label_en": "Factoring receivables third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Tagihan anjak piutang pihak berelasi",
+                "label_en": "Factoring receivables related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Tagihan anjak piutang pada pendapatan anjak piutang tangguhan",
+                "label_en": "Factoring receivables on deferred factoring income",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada tagihan anjak piutang",
+                "label_en": "Allowance for impairment losses for factoring receivables",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Piutang lainnya",
+            "label_en": "Other receivables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Piutang lainnya pihak ketiga",
+                "label_en": "Other receivables third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Piutang lainnya pihak berelasi",
+                "label_en": "Other receivables related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan kerugian penurunan nilai pada piutang lainnya",
+                "label_en": "Allowance for impairment losses for other receivables",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Aset keuangan lainnya",
+            "label_en": "Other financial assets",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Obligasi pemerintah",
+            "label_en": "Government bonds",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 163510426,
+              "2024-12-31": 132068581
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset tidak lancar atau kelompok lepasan diklasifikasikan sebagai dimiliki untuk dijual",
+            "label_en": "Non-current assets or disposal groups classified as held-for-sale",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset tidak lancar atau kelompok lepasan diklasifikasikan sebagai dimiliki untuk didistribusikan kepada pemilik",
+            "label_en": "Non-current assets or disposal groups classified as held-for-distribution to owners",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Uang muka",
+            "label_en": "Advances",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Biaya dibayar dimuka",
+            "label_en": "Prepaid expenses",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 2274762,
+              "2024-12-31": 2941109
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jaminan",
+            "label_en": "Guarantees",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Pajak dibayar dimuka",
+            "label_en": "Prepaid taxes",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 3090304,
+              "2024-12-31": 18950
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Klaim atas pengembalian pajak",
+            "label_en": "Claims for tax refund",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset pajak tangguhan",
+            "label_en": "Deferred tax assets",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 2315772,
+              "2024-12-31": 7145286
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Investasi yang dicatat dengan menggunakan metode ekuitas",
+            "label_en": "Investments accounted for using equity method",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 652311,
+              "2024-12-31": 637280
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Investasi pada ventura bersama dan entitas asosiasi",
+            "label_en": "Investments in joint ventures and associates",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Investasi pada entitas ventura bersama",
+                "label_en": "Investments in joint ventures",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Investasi pada entitas asosiasi",
+                "label_en": "Investments in associates",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 14354281,
+                  "2024-12-31": 12748127
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Aset reasuransi",
+            "label_en": "Reinsurance assets",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset imbalan pasca kerja",
+            "label_en": "Post-employment benefit assets",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Goodwill",
+            "label_en": "Goodwill",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 727789,
+              "2024-12-31": 727786
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset takberwujud selain goodwill",
+            "label_en": "Intangible assets other than goodwill",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 14416,
+              "2024-12-31": 15528
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Properti investasi",
+            "label_en": "Investment properties",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset ijarah",
+            "label_en": "Ijarah assets",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset tetap",
+            "label_en": "Property, plant, and equipment",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 31112635,
+              "2024-12-31": 30408236
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset hak guna",
+            "label_en": "Right of use assets",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset pengampunan pajak",
+            "label_en": "Tax amnesty assets",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Agunan yang diambil alih",
+            "label_en": "Foreclosed assets",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 864637,
+              "2024-12-31": 914825
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Aset lainnya",
+            "label_en": "Other assets",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 18156904,
+              "2024-12-31": 13319777
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jumlah aset",
+            "label_en": "Total assets",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 1362054731,
+              "2024-12-31": 1130128862
+            },
+            "children": []
+          }
+        ],
+        "liabilities": [
+          {
+            "level": 0,
+            "label": "Liabilitas segera",
+            "label_en": "Obligations due immediately",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 5761037,
+              "2024-12-31": 5514720
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Bagi hasil yang belum dibagikan",
+            "label_en": "Undistributed profit sharing",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Dana simpanan syariah",
+            "label_en": "Sharia deposits",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Simpanan nasabah",
+            "label_en": "Customers deposits",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Giro",
+                "label_en": "Current accounts",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Giro pihak ketiga",
+                    "label_en": "Current accounts third parties",
+                    "row_type": "item",
+                    "values": {
+                      "2025-12-31": 275664821,
+                      "2024-12-31": 229995309
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Giro pihak berelasi",
+                    "label_en": "Current accounts related parties",
+                    "row_type": "item",
+                    "values": {
+                      "2025-12-31": 163834043,
+                      "2024-12-31": 75738219
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 1,
+                "label": "Giro wadiah",
+                "label_en": "Wadiah demand deposits",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Giro wadiah pihak ketiga",
+                    "label_en": "Wadiah demand deposits third parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Giro wadiah pihak berelasi",
+                    "label_en": "Wadiah demand deposits related parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 1,
+                "label": "Tabungan",
+                "label_en": "Savings",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Tabungan pihak ketiga",
+                    "label_en": "Savings third parties",
+                    "row_type": "item",
+                    "values": {
+                      "2025-12-31": 286152305,
+                      "2024-12-31": 257431407
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Tabungan pihak berelasi",
+                    "label_en": "Savings related parties",
+                    "row_type": "item",
+                    "values": {
+                      "2025-12-31": 307846,
+                      "2024-12-31": 112946
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 1,
+                "label": "Tabungan wadiah",
+                "label_en": "Wadiah savings",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Tabungan wadiah pihak ketiga",
+                    "label_en": "Wadiah savings third parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Tabungan wadiah pihak berelasi",
+                    "label_en": "Wadiah savings related parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 1,
+                "label": "Deposito berjangka",
+                "label_en": "Time deposits",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Deposito berjangka pihak ketiga",
+                    "label_en": "Time deposits third parties",
+                    "row_type": "item",
+                    "values": {
+                      "2025-12-31": 188209389,
+                      "2024-12-31": 205250321
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Deposito berjangka pihak berelasi",
+                    "label_en": "Time deposits related parties",
+                    "row_type": "item",
+                    "values": {
+                      "2025-12-31": 126666020,
+                      "2024-12-31": 36982646
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 1,
+                "label": "Deposito wakalah",
+                "label_en": "Wakalah deposits",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Deposito wakalah pihak ketiga",
+                    "label_en": "Wakalah deposits third parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Deposito wakalah pihak berelasi",
+                    "label_en": "Wakalah deposits related parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Simpanan dari bank lain",
+            "label_en": "Other banks deposits",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Simpanan dari bank lain pihak berelasi",
+                "label_en": "Other banks deposits related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 2945332,
+                  "2024-12-31": 4164697
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Simpanan dari bank lain pihak ketiga",
+                "label_en": "Other banks deposits third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 8617451,
+                  "2024-12-31": 14383767
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Efek yang dijual dengan janji untuk dibeli kembali",
+            "label_en": "Securities sold with repurchase agreement",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 7251381,
+              "2024-12-31": 15890945
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas derivatif",
+            "label_en": "Derivative payables",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Liabilitas derivatif pihak ketiga",
+                "label_en": "Derivative payables third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 977119,
+                  "2024-12-31": 154840
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Liabilitas derivatif pihak berelasi",
+                "label_en": "Derivative payables related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 4421780,
+                  "2024-12-31": 1324345
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Utang asuransi",
+            "label_en": "Insurance payables",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Utang koasuransi",
+            "label_en": "Coinsurance liabilities",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas kepada pemegang polis unit-linked",
+            "label_en": "Liabilities to policyholder in unit-linked contracts",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Utang bunga",
+            "label_en": "Interest payables",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas akseptasi",
+            "label_en": "Acceptance liabilities",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Liabilitas akseptasi pihak berelasi",
+                "label_en": "Acceptance liabilities related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 501612,
+                  "2024-12-31": 900755
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Liabilitas akseptasi pihak ketiga",
+                "label_en": "Acceptance liabilities third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 1822893,
+                  "2024-12-31": 3328729
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Utang usaha",
+            "label_en": "Accounts payable",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Uang muka dan angsuran",
+            "label_en": "Advances and installments",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Utang dividen",
+            "label_en": "Dividends payable",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Utang dealer",
+            "label_en": "Dealer payables",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Pinjaman yang diterima",
+            "label_en": "Borrowings",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pinjaman yang diterima pihak ketiga",
+                "label_en": "Borrowings third parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 37612374,
+                  "2024-12-31": 41357233
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pinjaman yang diterima pihak berelasi",
+                "label_en": "Borrowings related parties",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 1428013,
+                  "2024-12-31": 1574211
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pinjaman yang diterima utang pada lembaga kliring dan penjaminan",
+                "label_en": "Borrowings payables to clearing and settlement guarantee institution",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Efek yang diterbitkan",
+            "label_en": "Securities issued",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Utang obligasi",
+                "label_en": "Bonds payable",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Sukuk",
+                "label_en": "Sukuk",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Obligasi subordinasi",
+                "label_en": "Subordinated bonds",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 18339988,
+                  "2024-12-31": 17699183
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Surat utang jangka menengah",
+                "label_en": "Medium term notes",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Efek yang diterbitkan lainnya",
+                "label_en": "Others securities issued",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 14253190,
+                  "2024-12-31": 12974497
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas kontrak asuransi",
+            "label_en": "Insurance contract liabilities",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Utang perusahaan efek",
+            "label_en": "Securities company payables",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Provisi",
+            "label_en": "Provisions",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas atas kontrak",
+            "label_en": "Contract liabilities",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Pendapatan ditangguhkan",
+            "label_en": "Deferred income",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas sewa pembiayaan",
+            "label_en": "Finance lease liabilities",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Estimasi kerugian komitmen dan kontinjensi",
+            "label_en": "Estimated losses on commitments and contingencies",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 1463072,
+              "2024-12-31": 2283222
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Beban akrual",
+            "label_en": "Accrued expenses",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 941816,
+              "2024-12-31": 1529305
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Utang pajak",
+            "label_en": "Taxes payable",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 414884,
+              "2024-12-31": 317569
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas pajak tangguhan",
+            "label_en": "Deferred tax liabilities",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas pengampunan pajak",
+            "label_en": "Tax amnesty liabilities",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Liabilitas lainnya",
+            "label_en": "Other liabilities",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 29290002,
+              "2024-12-31": 27525272
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Kewajiban imbalan pasca kerja",
+            "label_en": "Post-employment benefit obligations",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 8838995,
+              "2024-12-31": 7146717
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Pinjaman subordinasi",
+            "label_en": "Subordinated loans",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pinjaman subordinasi pihak ketiga",
+                "label_en": "Subordinated loans third parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pinjaman subordinasi pihak berelasi",
+                "label_en": "Subordinated loans related parties",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Jumlah liabilitas",
+            "label_en": "Total liabilities",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 1185715363,
+              "2024-12-31": 963580855
+            },
+            "children": []
+          }
+        ],
+        "temporary_syirkah_funds": [
+          {
+            "level": 0,
+            "label": "Bukan bank",
+            "label_en": "Non-banks",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Giro mudharabah",
+                "label_en": "Mudharabah current account",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Giro mudharabah pihak ketiga",
+                    "label_en": "Mudharabah current account third parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Giro berjangka mudharabah pihak berelasi",
+                    "label_en": "Mudharabah current account related parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 1,
+                "label": "Tabungan mudharabah",
+                "label_en": "Mudharabah saving deposits",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Tabungan mudharabah pihak ketiga",
+                    "label_en": "Mudharabah saving deposits third parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Tabungan mudharabah pihak berelasi",
+                    "label_en": "Mudharabah saving deposits related parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 1,
+                "label": "Deposito berjangka mudharabah",
+                "label_en": "Mudharabah time deposits",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Deposito berjangka mudharabah pihak ketiga",
+                    "label_en": "Mudharabah time deposits third parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  },
+                  {
+                    "level": 2,
+                    "label": "Deposito berjangka mudharabah pihak berelasi",
+                    "label_en": "Mudharabah time deposits related parties",
+                    "row_type": "label_only",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Bank",
+            "label_en": "Bank",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Giro mudharabah",
+                "label_en": "Mudharabah current account",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Tabungan mudharabah (ummat)",
+                "label_en": "Mudharabah saving deposits (ummat)",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Deposito berjangka mudharabah",
+                "label_en": "Mudharabah time deposits",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Efek yang diterbitkan bank",
+            "label_en": "Bank securities issued",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Investasi mudharabah antar bank",
+                "label_en": "Interbank mudharabah investments",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Sukuk mudharabah",
+                "label_en": "Mudharabah sukuk",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Sukuk mudharabah subordinasi",
+                "label_en": "Subordinated mudharabah sukuk",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Jumlah dana syirkah temporer",
+            "label_en": "Total temporary syirkah funds",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jumlah akumulasi dana tabarru",
+            "label_en": "Total accumulated tabarru's funds",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          }
+        ],
+        "equity": [
+          {
+            "level": 0,
+            "label": "Ekuitas yang diatribusikan kepada pemilik entitas induk",
+            "label_en": "Equity attributable to equity owners of parent entity",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Saham biasa",
+                "label_en": "Common stocks",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 9054807,
+                  "2024-12-31": 9054807
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Saham preferen",
+                "label_en": "Preferred stocks",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Tambahan modal disetor",
+                "label_en": "Additional paid-in capital",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 17010254,
+                  "2024-12-31": 17010254
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Saham treasuri",
+                "label_en": "Treasury stocks",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 0,
+                  "2024-12-31": 0
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Uang muka setoran modal",
+                "label_en": "Advances in capital stock",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Opsi saham",
+                "label_en": "Stock options",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penjabaran laporan keuangan",
+                "label_en": "Translation adjustment",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan revaluasi",
+                "label_en": "Revaluation reserves",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 16711395,
+                  "2024-12-31": 16711395
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan selisih kurs penjabaran",
+                "label_en": "Reserve of exchange differences on translation",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -124345,
+                  "2024-12-31": -96998
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan perubahan nilai wajar aset keuangan nilai wajar melalui pendapatan komprehensif lainnya",
+                "label_en": "Reserve for changes in fair value of fair value through other comprehensive income financial assets",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 2617037,
+                  "2024-12-31": -1465059
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan keuntungan (kerugian) investasi pada instrumen ekuitas",
+                "label_en": "Reserve of gains (losses) from investments in equity instruments",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan pembayaran berbasis saham",
+                "label_en": "Reserve of share-based payments",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 349167,
+                  "2024-12-31": 322589
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan lindung nilai arus kas",
+                "label_en": "Reserve of cash flow hedges",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan pengukuran kembali program imbalan pasti",
+                "label_en": "Reserve of remeasurements of defined benefit plans",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Cadangan lainnya",
+                "label_en": "Other reserves",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 2256999,
+                  "2024-12-31": 2256999
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Selisih Transaksi Perubahan Ekuitas Entitas Anak/Asosiasi",
+                "label_en": "Difference Due to Changes of Equity in Subsidiary/Associates",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Komponen ekuitas lainnya",
+                "label_en": "Other components of equity",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Saldo laba (akumulasi kerugian)",
+                "label_en": "Retained earnings (deficit)",
+                "row_type": "group",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": [
+                  {
+                    "level": 2,
+                    "label": "Saldo laba yang telah ditentukan penggunaanya",
+                    "label_en": "Appropriated retained earnings",
+                    "row_type": "group",
+                    "values": {
+                      "2025-12-31": null,
+                      "2024-12-31": null
+                    },
+                    "children": [
+                      {
+                        "level": 3,
+                        "label": "Cadangan umum dan wajib",
+                        "label_en": "General and legal reserves",
+                        "row_type": "item",
+                        "values": {
+                          "2025-12-31": 2778412,
+                          "2024-12-31": 2778412
+                        },
+                        "children": []
+                      },
+                      {
+                        "level": 3,
+                        "label": "Cadangan khusus",
+                        "label_en": "Specific reserves",
+                        "row_type": "label_only",
+                        "values": {
+                          "2025-12-31": null,
+                          "2024-12-31": null
+                        },
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "level": 2,
+                    "label": "Saldo laba yang belum ditentukan penggunaannya",
+                    "label_en": "Unappropriated retained earnings",
+                    "row_type": "item",
+                    "values": {
+                      "2025-12-31": 121076418,
+                      "2024-12-31": 115465415
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 1,
+                "label": "Jumlah ekuitas yang diatribusikan kepada pemilik entitas induk",
+                "label_en": "Total equity attributable to equity owners of parent entity",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 171730144,
+                  "2024-12-31": 162071240
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Proforma ekuitas",
+            "label_en": "Proforma equity",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Kepentingan non-pengendali",
+            "label_en": "Non-controlling interests",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 4609224,
+              "2024-12-31": 4476767
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jumlah ekuitas",
+            "label_en": "Total equity",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 176339368,
+              "2024-12-31": 166548007
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jumlah liabilitas, dana syirkah temporer dan ekuitas",
+            "label_en": "Total liabilities, temporary syirkah funds and equity",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 1362054731,
+              "2024-12-31": 1130128862
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "type": "profit_or_loss",
+      "years": [
+        2025,
+        2024
+      ],
+      "pages": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "sections": {
+        "operating": [
+          {
+            "level": 0,
+            "label": "Pendapatan bunga",
+            "label_en": "Interest income",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 69394154,
+              "2024-12-31": 66583110
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Beban bunga",
+            "label_en": "Interest expenses",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": -29060959,
+              "2024-12-31": -26102905
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Pendapatan pengelolaan dana oleh bank sebagai mudharib",
+            "label_en": "Revenue from fund management as mudharib",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Hak pihak ketiga atas bagi hasil dana syirkah temporer",
+            "label_en": "Third parties share on return of temporary syirkah funds",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Pendapatan asuransi",
+            "label_en": "Insurance income",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pendapatan dari premi asuransi",
+                "label_en": "Revenue from insurance premiums",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Premi reasuransi",
+                "label_en": "Reinsurance premiums",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Premi retrosesi",
+                "label_en": "Retrocession premiums",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penurunan (kenaikan) premi yang belum merupakan pendapatan",
+                "label_en": "Decrease (increase) in unearned premiums",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penurunan (kenaikan) pendapatan premi disesikan kepada reasuradur",
+                "label_en": "Decrease (increase) in premium income ceded to reinsurancer",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan komisi asuransi",
+                "label_en": "Insurance commission income",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan bersih investasi",
+                "label_en": "Net investment income",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 2029888,
+                  "2024-12-31": 1255915
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penerimaan ujrah",
+                "label_en": "Ujrah received",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan asuransi lainnya",
+                "label_en": "Other insurance income",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 1881769,
+                  "2024-12-31": 1992607
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Beban asuransi",
+            "label_en": "Insurance expenses",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Beban klaim",
+                "label_en": "Claim expenses",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -1523,
+                  "2024-12-31": -1752
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Klaim reasuransi",
+                "label_en": "Reinsurance claims",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Klaim retrosesi",
+                "label_en": "Retrocession claims",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Kenaikan (penurunan) estimasi liabilitas klaim",
+                "label_en": "Increase (decrease) in estimated claims liability",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Kenaikan (penurunan) liabilitas manfaat polis masa depan",
+                "label_en": "Increase (decrease) in liability for future policy benefit",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Kenaikan (penurunan) provisi yang timbul dari tes kecukupan liabilitas",
+                "label_en": "Increase (decrease) in provision for losses arising from liability adequacy test",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Kenaikan (penurunan) liabilitas asuransi yang disesikan kepada reasuradur",
+                "label_en": "Increase (decrease) in insurance liabilities ceded to reinsurers",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Kenaikan (penurunan) liabilitas pemegang polis pada kontrak unit-linked",
+                "label_en": "Increase (decrease) in liabilities to policyholder in unit-linked contracts",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Beban komisi asuransi",
+                "label_en": "Insurance commission expenses",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Ujrah dibayar",
+                "label_en": "Ujrah paid",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Beban akuisisi dari kontrak asuransi",
+                "label_en": "Acquisition costs of insurance contracts",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Beban asuransi lainnya",
+                "label_en": "Other insurance expenses",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -3166941,
+                  "2024-12-31": -2480478
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pendapatan dari pembiayaan",
+            "label_en": "Financing income",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pendapatan dari pembiayaan konsumen",
+                "label_en": "Revenue from consumer financing",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan dari sewa pembiayaan",
+                "label_en": "Revenue from finance lease",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan dari sewa operasi",
+                "label_en": "Revenue from operating lease",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan dari anjak piutang",
+                "label_en": "Revenue from factoring",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pendapatan sekuritas",
+            "label_en": "Securities income",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pendapatan kegiatan penjamin emisi dan penjualan efek",
+                "label_en": "Revenue from underwriting activities and selling fees",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan pembiayaan transaksi nasabah",
+                "label_en": "Revenue from financing transactions",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan jasa biro administrasi efek",
+                "label_en": "Revenue from securities administration service",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan kegiatan jasa manajer investasi",
+                "label_en": "Revenue from investment management services",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan kegiatan jasa penasehat keuangan",
+                "label_en": "Revenue from financial advisory services",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) dari transaksi perdagangan efek yang telah direalisasi",
+                "label_en": "Realised gains (losses) on trading of marketable securities",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 2885819,
+                  "2024-12-31": 1769243
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) perubahan nilai wajar efek",
+                "label_en": "Gains (losses) on changes in fair value of marketable securities",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 141576,
+                  "2024-12-31": 144558
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pendapatan operasional lainnya",
+            "label_en": "Other operating income",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pendapatan investasi",
+                "label_en": "Investments income",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 1627444,
+                  "2024-12-31": 1522798
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan provisi dan komisi dari transaksi lainnya selain kredit",
+                "label_en": "Provisions and commissions income from transactions other than loan",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 11167675,
+                  "2024-12-31": 10599228
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan transaksi perdagangan",
+                "label_en": "Revenue from trading transactions",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan dividen",
+                "label_en": "Dividends income",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) yang telah direalisasi atas instrumen derivatif",
+                "label_en": "Realised gains (losses) from derivative instruments",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penerimaan kembali aset yang telah dihapusbukukan",
+                "label_en": "Revenue from recovery of written-off assets",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 5438988,
+                  "2024-12-31": 6025183
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) selisih kurs mata uang asing",
+                "label_en": "Gains (losses) on changes in foreign exchange rates",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 1037143,
+                  "2024-12-31": 1259207
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) pelepasan aset tetap",
+                "label_en": "Gains (losses) on disposal of property and equipment",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) pelepasan agunan yang diambil alih",
+                "label_en": "Gains (losses) on disposal of foreclosed assets",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan operasional lainnya",
+                "label_en": "Other operating income",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 1601317,
+                  "2024-12-31": 1328962
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pemulihan penyisihan kerugian penurunan nilai",
+            "label_en": "Recovery of impairment loss",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pemulihan penyisihan kerugian penurunan nilai aset keuangan",
+                "label_en": "Recovery of impairment loss of financial assets",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pemulihan penyisihan kerugian penurunan nilai aset keuangan - sewa pembiayaan",
+                "label_en": "Recovery of impairment loss of financial assets finance lease",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pemulihan penyisihan kerugian penurunan nilai aset keuangan - piutang pembiayaan konsumen",
+                "label_en": "Recovery of impairment loss of financial assets consumer financing receivables",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pemulihan penyisihan kerugian penurunan nilai aset non-keuangan",
+                "label_en": "Recovery of impairment loss of non-financial assets",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pemulihan penyisihan kerugian penurunan nilai aset non-keuangan - agunan yang diambil alih",
+                "label_en": "Recovery of impairment loss of non-financial assets repossessed collaterals",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pemulihan penyisihan estimasi kerugian atas komitmen dan kontinjensi",
+                "label_en": "Recovery of estimated loss of commitments and contingency",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pembentukan kerugian penurunan nilai",
+            "label_en": "Allowances for impairment losses",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pembentukan penyisihan kerugian penurunan nilai aset produktif",
+                "label_en": "Allowances for impairment losses on earnings assets",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -9724370,
+                  "2024-12-31": -8210562
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pembentukan penyisihan kerugian penurunan nilai aset non-produktif",
+                "label_en": "Allowances for impairment losses on non-earnings assets",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pembalikan (beban) estimasi kerugian komitmen dan kontijensi",
+            "label_en": "Reversal (expense) of estimated losses on commitments and contingencies",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Beban operasional lainnya",
+            "label_en": "Other operating expenses",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Beban umum dan administrasi",
+                "label_en": "General and administrative expenses",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -23923938,
+                  "2024-12-31": -22806989
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Beban penjualan",
+                "label_en": "Selling expenses",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -1187693,
+                  "2024-12-31": -1103491
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Beban sewa, pemeliharaan, dan perbaikan",
+                "label_en": "Rent, maintenance and improvement expenses",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -695137,
+                  "2024-12-31": -679572
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Beban provisi dan komisi",
+                "label_en": "Other fees and commissions expenses",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 0,
+                  "2024-12-31": 0
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Beban operasional lainnya",
+                "label_en": "Other operating expenses",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -5049588,
+                  "2024-12-31": -4522174
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Jumlah laba operasional",
+            "label_en": "Total profit from operation",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 24395624,
+              "2024-12-31": 26572888
+            },
+            "children": []
+          }
+        ],
+        "non_operating": [
+          {
+            "level": 0,
+            "label": "Pendapatan bukan operasional",
+            "label_en": "Non-operating income",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 1839,
+              "2024-12-31": 0
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Beban bukan operasional",
+            "label_en": "Non-operating expenses",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 0,
+              "2024-12-31": -3797
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Bagian atas laba (rugi) entitas asosiasi yang dicatat dengan menggunakan metode ekuitas",
+            "label_en": "Share of profit (loss) of associates accounted for using equity method",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Bagian atas laba (rugi) entitas ventura bersama yang dicatat menggunakan metode ekuitas",
+            "label_en": "Share of profit (loss) of joint ventures accounted for using equity method",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jumlah laba (rugi) sebelum pajak penghasilan",
+            "label_en": "Total profit (loss) before tax",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 24397463,
+              "2024-12-31": 26569091
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Pendapatan (beban) pajak",
+            "label_en": "Tax benefit (expenses)",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": -4286423,
+              "2024-12-31": -4899694
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jumlah laba (rugi) dari operasi yang dilanjutkan",
+            "label_en": "Total profit (loss) from continuing operations",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 20111040,
+              "2024-12-31": 21669397
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Laba (rugi) dari operasi yang dihentikan",
+            "label_en": "Profit (loss) from discontinued operations",
+            "row_type": "label_only",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jumlah laba (rugi)",
+            "label_en": "Total profit (loss)",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 20111040,
+              "2024-12-31": 21669397
+            },
+            "children": []
+          }
+        ],
+        "other_comprehensive_income": [
+          {
+            "level": 0,
+            "label": "Pendapatan komprehensif lainnya yang tidak akan direklasifikasi ke laba rugi, setelah pajak",
+            "label_en": "Other comprehensive income that will not be reclassified to profit or loss, after tax",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Pendapatan komprehensif lainnya atas keuntungan (kerugian) hasil revaluasi aset tetap, setelah pajak",
+                "label_en": "Other comprehensive income for gains (losses) on revaluation of property and equipment, after tax",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 0,
+                  "2024-12-31": 1263566
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Pendapatan komprehensif lainnya atas pengukuran kembali kewajiban manfaat pasti, setelah pajak",
+                "label_en": "Other comprehensive income for remeasurement of defined benefit obligation, after tax",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -591455,
+                  "2024-12-31": 523859
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penyesuaian lainnya atas pendapatan komprehensif lainnya yang tidak akan direklasifikasi ke laba rugi, setelah pajak",
+                "label_en": "Other adjustments to other comprehensive income that will not be reclassified to profit or loss, after tax",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 112403,
+                  "2024-12-31": -99722
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Jumlah pendapatan komprehensif lainnya yang tidak akan direklasifikasi ke laba rugi, setelah pajak",
+                "label_en": "Total other comprehensive income that will not be reclassified to profit or loss, after tax",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -479052,
+                  "2024-12-31": 1687703
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Pendapatan komprehensif lainnya yang akan direklasifikasi ke laba rugi, setelah pajak",
+            "label_en": "Other comprehensive income that may be reclassified to profit or loss, after tax",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) selisih kurs penjabaran, setelah pajak",
+                "label_en": "Gains (losses) on exchange differences on translation, after tax",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -27347,
+                  "2024-12-31": -38631
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penyesuaian reklasifikasi selisih kurs penjabaran, setelah pajak",
+                "label_en": "Reclassification adjustments on exchange differences on translation, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) yang belum direalisasi atas perubahan nilai wajar aset keuangan melalui penghasilan komprehensif lain, setelah pajak",
+                "label_en": "Unrealised gains (losses) on changes in fair value through other comprehensive income financial assets, after tax",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 5084110,
+                  "2024-12-31": -770837
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penyesuaian reklasifikasi atas aset keuangan nilai wajar melalui pendapatan komprehensif lainnya, setelah pajak",
+                "label_en": "Reclassification adjustments on fair value through other comprehensive income financial assets, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) lindung nilai arus kas, setelah pajak",
+                "label_en": "Gains (losses) on cash flow hedges, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penyesuaian reklasifikasi atas lindung nilai arus kas, setelah pajak",
+                "label_en": "Reclassification adjustments on cash flow hedges, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Nilai tercatat dari aset (liabilitas) non-keuangan yang perolehan atau keterjadiannya merupakan suatu prakiraan transaksi yang kemungkinan besar terjadi yang dilindung nilai, setelah pajak",
+                "label_en": "Carrying amount of non-financial asset (liability) whose acquisition or incurrence was hedged on highly probable forecast transaction, adjusted from equity, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Keuntungan (kerugian) lindung nilai investasi bersih kegiatan usaha luar negeri, setelah pajak",
+                "label_en": "Gains (losses) on hedges of net investments in foreign operations, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penyesuaian reklasifikasi atas lindung nilai investasi bersih kegiatan usaha luar negeri, setelah pajak",
+                "label_en": "Reclassification adjustments on hedges of net investments in foreign operations, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Bagian pendapatan komprehensif lainnya dari entitas asosiasi yang dicatat dengan menggunakan metode ekuitas, setelah pajak",
+                "label_en": "Share of other comprehensive income of associates accounted for using equity method, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Bagian pendapatan komprehensif lainnya dari entitas ventura bersama yang dicatat dengan menggunakan metode ekuitas, setelah pajak",
+                "label_en": "Share of other comprehensive income of joint ventures accounted for using equity method, after tax",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Penyesuaian lainnya atas pendapatan komprehensif lainnya yang akan direklasifikasi ke laba rugi, setelah pajak",
+                "label_en": "Other adjustments to other comprehensive income that may be reclassified to profit or loss, after tax",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": -972629,
+                  "2024-12-31": 152276
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Jumlah pendapatan komprehensif lainnya yang akan direklasifikasi ke laba rugi, setelah pajak",
+                "label_en": "Total other comprehensive income that may be reclassified to profit or loss, after tax",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 4084134,
+                  "2024-12-31": -657192
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Jumlah pendapatan komprehensif lainnya, setelah pajak",
+            "label_en": "Total other comprehensive income, after tax",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 3605082,
+              "2024-12-31": 1030511
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Jumlah laba rugi komprehensif",
+            "label_en": "Total comprehensive income",
+            "row_type": "item",
+            "values": {
+              "2025-12-31": 23716122,
+              "2024-12-31": 22699908
+            },
+            "children": []
+          },
+          {
+            "level": 0,
+            "label": "Laba (rugi) yang dapat diatribusikan",
+            "label_en": "Profit (loss) attributable to",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Laba (rugi) yang dapat diatribusikan ke entitas induk",
+                "label_en": "Profit (loss) attributable to parent entity",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 20040703,
+                  "2024-12-31": 21463599
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Laba (rugi) yang dapat diatribusikan ke kepentingan non-pengendali",
+                "label_en": "Profit (loss) attributable to non-controlling interests",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 70337,
+                  "2024-12-31": 205798
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Laba rugi komprehensif yang dapat diatribusikan",
+            "label_en": "Comprehensive income attributable to",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Laba rugi komprehensif yang dapat diatribusikan ke entitas induk",
+                "label_en": "Comprehensive income attributable to parent entity",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 23583665,
+                  "2024-12-31": 22551316
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Laba rugi komprehensif yang dapat diatribusikan ke kepentingan non-pengendali",
+                "label_en": "Comprehensive income attributable to non-controlling interests",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 132457,
+                  "2024-12-31": 148592
+                },
+                "children": []
+              }
+            ]
+          }
+        ],
+        "earnings_per_share": [
+          {
+            "level": 0,
+            "label": "Laba per saham dasar diatribusikan kepada pemilik entitas induk",
+            "label_en": "Basic earnings per share attributable to equity owners of the parent entity",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Laba (rugi) per saham dasar dari operasi yang dilanjutkan",
+                "label_en": "Basic earnings (loss) per share from continuing operations",
+                "row_type": "item",
+                "values": {
+                  "2025-12-31": 537,
+                  "2024-12-31": 576
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Laba (rugi) per saham dasar dari operasi yang dihentikan",
+                "label_en": "Basic earnings (loss) per share from discontinued operations",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 0,
+            "label": "Laba (rugi) per saham dilusian",
+            "label_en": "Diluted earnings (loss) per share",
+            "row_type": "group",
+            "values": {
+              "2025-12-31": null,
+              "2024-12-31": null
+            },
+            "children": [
+              {
+                "level": 1,
+                "label": "Laba (rugi) per saham dilusian dari operasi yang dilanjutkan",
+                "label_en": "Diluted earnings (loss) per share from continuing operations",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              },
+              {
+                "level": 1,
+                "label": "Laba (rugi) per saham dilusian dari operasi yang dihentikan",
+                "label_en": "Diluted earnings (loss) per share from discontinued operations",
+                "row_type": "label_only",
+                "values": {
+                  "2025-12-31": null,
+                  "2024-12-31": null
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

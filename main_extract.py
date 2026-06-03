@@ -11,6 +11,7 @@ from idx_fin_parser.pdf_statements import (
     extract_statement_financial_position,
     extract_statement_profit_loss,
 )
+from idx_fin_parser.unified import build_unified_output
 
 
 def _write_process_files(data: Dict[str, Any], out_dir: Path) -> None:
@@ -42,21 +43,40 @@ def _write_process_files(data: Dict[str, Any], out_dir: Path) -> None:
             encoding="utf-8",
         )
 
-def build_output(pdf_path: str, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> Dict[str, Any]:
-    fp = extract_statement_financial_position(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
-    pl = extract_statement_profit_loss(pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang)
-
-    return {
-        "source_pdf": str(pdf_path),
-        "meta": {"use_ocr": use_ocr, "ocr_lang": ocr_lang},
-        "statements": [fp.to_dict(), pl.to_dict()],
-    }
+def build_output(
+    pdf_path: str,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
+) -> Dict[str, Any]:
+    fp = extract_statement_financial_position(
+        pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang, force_ocr=force_ocr,
+    )
+    pl = extract_statement_profit_loss(
+        pdf_path, use_ocr=use_ocr, ocr_lang=ocr_lang, force_ocr=force_ocr,
+    )
+    if force_ocr:
+        approach = "ocr_full"
+    elif use_ocr:
+        approach = "ocr_fallback"
+    else:
+        approach = "native_pdf"
+    return build_unified_output(
+        source_pdf=str(pdf_path),
+        approach=approach,
+        statements=[fp.to_dict(), pl.to_dict()],
+        meta={"use_ocr": use_ocr, "ocr_lang": ocr_lang, "force_ocr": force_ocr},
+    )
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Extract IDX financial statements into JSON.")
     ap.add_argument("pdf", help="Path to IDX PDF file")
     ap.add_argument("-o", "--out", default="output.json", help="Output JSON path")
-    ap.add_argument("--ocr", action="store_true", help="Use OCR fallback when PDF text layer is empty")
+    ap.add_argument("--ocr", action="store_true",
+                    help="Use OCR fallback when PDF text layer is empty")
+    ap.add_argument("--force-ocr", action="store_true",
+                    help="Always rasterize + OCR every page (ignore text layer). "
+                         "Use this to benchmark OCR pipeline against native parser.")
     ap.add_argument("--ocr-lang", default="ind+eng", help="Tesseract OCR language (default: ind+eng)")
     ap.add_argument("--process-dir", default="", help="Optional folder to write per-stage process files")
     ap.add_argument(
@@ -66,13 +86,17 @@ def main() -> None:
     )
     args = ap.parse_args()
 
-    data = build_output(args.pdf, use_ocr=args.ocr, ocr_lang=args.ocr_lang)
+    data = build_output(
+        args.pdf, use_ocr=args.ocr, ocr_lang=args.ocr_lang, force_ocr=args.force_ocr,
+    )
     out_path = Path(args.out)
     out_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote: {out_path.resolve()}")
 
     if args.stages_out:
-        stages_data = extract_with_stages(args.pdf, use_ocr=args.ocr, ocr_lang=args.ocr_lang)
+        stages_data = extract_with_stages(
+            args.pdf, use_ocr=args.ocr, ocr_lang=args.ocr_lang, force_ocr=args.force_ocr,
+        )
         stages_path = Path(args.stages_out)
         stages_path.write_text(json.dumps(stages_data, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"Wrote stages: {stages_path.resolve()}")
@@ -82,7 +106,9 @@ def main() -> None:
             _write_process_files(stages_data, process_dir)
             print(f"Wrote process files: {process_dir.resolve()}")
     elif args.process_dir:
-        stages_data = extract_with_stages(args.pdf, use_ocr=args.ocr, ocr_lang=args.ocr_lang)
+        stages_data = extract_with_stages(
+            args.pdf, use_ocr=args.ocr, ocr_lang=args.ocr_lang, force_ocr=args.force_ocr,
+        )
         process_dir = Path(args.process_dir)
         _write_process_files(stages_data, process_dir)
         print(f"Wrote process files: {process_dir.resolve()}")

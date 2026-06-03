@@ -38,10 +38,24 @@ class StatementResult:
         }
 
 
-def _extract_page_text(page: pdfplumber.page.Page, use_ocr: bool = False, ocr_lang: str = "ind+eng") -> str:
-    text = page.extract_text() or ""
-    if text.strip() or not use_ocr:
-        return text
+def _extract_page_text(
+    page: pdfplumber.page.Page,
+    use_ocr: bool = False,
+    ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
+) -> str:
+    """Return page text.
+
+    - default                : use text layer
+    - use_ocr=True           : OCR fallback only when text layer is empty
+    - force_ocr=True         : ALWAYS rasterize + OCR (ignores text layer);
+                               used to benchmark OCR pipeline against native parser
+                               on PDFs that *do* have a text layer
+    """
+    if not force_ocr:
+        text = page.extract_text() or ""
+        if text.strip() or not use_ocr:
+            return text
 
     try:
         import pytesseract
@@ -75,10 +89,13 @@ def _find_page_index(
     start: int = 0,
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
 ) -> Optional[int]:
     pats = [p.lower() for p in patterns]
     for i in range(start, len(pdf.pages)):
-        text = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang).lower()
+        text = _extract_page_text(
+            pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang, force_ocr=force_ocr,
+        ).lower()
         if any(p in text for p in pats):
             return i
     return None
@@ -90,11 +107,14 @@ def _collect_pages_until(
     stop_patterns: List[str],
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
 ) -> List[int]:
     stop_pats = [p.lower() for p in stop_patterns]
     pages: List[int] = []
     for i in range(start_idx, len(pdf.pages)):
-        text = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang).lower()
+        text = _extract_page_text(
+            pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang, force_ocr=force_ocr,
+        ).lower()
         if i != start_idx and any(p in text for p in stop_pats):
             break
         pages.append(i)
@@ -281,24 +301,31 @@ def _extract_statement_generic(
     stop_patterns: List[str],
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
 ) -> "StatementResult":
+    text_based = use_ocr or force_ocr
+    # Page detection always uses text-layer (with OCR fallback). Even in force_ocr
+    # mode, we don't OCR every page just to find statement boundaries — that
+    # would dominate runtime. force_ocr only affects *content* extraction.
     with pdfplumber.open(pdf_path) as pdf:
-        start = _find_page_index(pdf, start_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
+        start = _find_page_index(pdf, start_patterns, use_ocr=True, ocr_lang=ocr_lang)
         if start is None:
             raise ValueError(f"Could not find '{statement_type}' in PDF.")
 
-        pages = _collect_pages_until(pdf, start, stop_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
+        pages = _collect_pages_until(pdf, start, stop_patterns, use_ocr=True, ocr_lang=ocr_lang)
 
         # Always extract raw text for year detection
         raw_lines: List[str] = []
         for i in pages:
-            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
+            txt = _extract_page_text(
+                pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang, force_ocr=force_ocr,
+            )
             raw_lines.extend(txt.splitlines())
 
         normalized_lines = [normalize_text(ln) for ln in raw_lines if normalize_text(ln)]
         years = find_years_in_order(normalized_lines)
 
-        if use_ocr:
+        if text_based:
             merged = _merge_wrapped_lines(normalized_lines, years)
             sections = _parse_merged_lines_to_tree(merged, years)
         else:
@@ -319,26 +346,31 @@ def _extract_statement_with_stages(
     stop_patterns: List[str],
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
 ) -> Tuple["StatementResult", Dict[str, Any]]:
+    text_based = use_ocr or force_ocr
+    # See _extract_statement_generic — page detection always uses text-layer.
     with pdfplumber.open(pdf_path) as pdf:
-        start = _find_page_index(pdf, start_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
+        start = _find_page_index(pdf, start_patterns, use_ocr=True, ocr_lang=ocr_lang)
         if start is None:
             raise ValueError(f"Could not find '{statement_type}' in PDF.")
 
-        pages = _collect_pages_until(pdf, start, stop_patterns, use_ocr=use_ocr, ocr_lang=ocr_lang)
+        pages = _collect_pages_until(pdf, start, stop_patterns, use_ocr=True, ocr_lang=ocr_lang)
 
         # Raw text (for stages + year detection)
         page_texts: List[Dict[str, Any]] = []
         raw_lines: List[str] = []
         for i in pages:
-            txt = _extract_page_text(pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang)
+            txt = _extract_page_text(
+                pdf.pages[i], use_ocr=use_ocr, ocr_lang=ocr_lang, force_ocr=force_ocr,
+            )
             page_texts.append({"page": i, "text": txt})
             raw_lines.extend(txt.splitlines())
 
         normalized_lines = [normalize_text(ln) for ln in raw_lines if normalize_text(ln)]
         years = find_years_in_order(normalized_lines)
 
-        if use_ocr:
+        if text_based:
             merged_lines = _merge_wrapped_lines(normalized_lines, years)
             sections = _parse_merged_lines_to_tree(merged_lines, years)
             structured_rows: List[Dict] = []
@@ -374,6 +406,7 @@ def extract_statement_financial_position(
     pdf_path: str,
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
 ) -> StatementResult:
     return _extract_statement_generic(
         pdf_path,
@@ -382,6 +415,7 @@ def extract_statement_financial_position(
         stop_patterns=["statement of profit or loss", "laporan laba rugi"],
         use_ocr=use_ocr,
         ocr_lang=ocr_lang,
+        force_ocr=force_ocr,
     )
 
 
@@ -389,6 +423,7 @@ def extract_statement_profit_loss(
     pdf_path: str,
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
 ) -> StatementResult:
     return _extract_statement_generic(
         pdf_path,
@@ -404,6 +439,7 @@ def extract_statement_profit_loss(
         ],
         use_ocr=use_ocr,
         ocr_lang=ocr_lang,
+        force_ocr=force_ocr,
     )
 
 
@@ -411,6 +447,7 @@ def extract_with_stages(
     pdf_path: str,
     use_ocr: bool = False,
     ocr_lang: str = "ind+eng",
+    force_ocr: bool = False,
 ) -> Dict[str, Any]:
     fp_result, fp_stage = _extract_statement_with_stages(
         pdf_path,
@@ -419,6 +456,7 @@ def extract_with_stages(
         stop_patterns=["statement of profit or loss", "laporan laba rugi"],
         use_ocr=use_ocr,
         ocr_lang=ocr_lang,
+        force_ocr=force_ocr,
     )
 
     pl_result, pl_stage = _extract_statement_with_stages(
@@ -435,11 +473,21 @@ def extract_with_stages(
         ],
         use_ocr=use_ocr,
         ocr_lang=ocr_lang,
+        force_ocr=force_ocr,
     )
 
+    if force_ocr:
+        approach = "ocr_full"
+    elif use_ocr:
+        approach = "ocr_fallback"
+    else:
+        approach = "native_pdf"
+
     return {
+        "schema_version": "1.0",
         "source_pdf": str(pdf_path),
-        "meta": {"use_ocr": use_ocr, "ocr_lang": ocr_lang},
+        "approach": approach,
+        "meta": {"use_ocr": use_ocr, "ocr_lang": ocr_lang, "force_ocr": force_ocr},
         "statements": [fp_result.to_dict(), pl_result.to_dict()],
         "stages": {
             "financial_position": fp_stage,
