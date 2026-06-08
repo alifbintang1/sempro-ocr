@@ -3,100 +3,212 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IDX Financial Statement Parser</title>
+  <title>IDX Financial Extractor — Prototype</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .approach-card { transition: all 0.15s ease; }
+    .approach-card:has(input:checked) {
+      border-color: #4f46e5;
+      background: #eef2ff;
+    }
+    .approach-card.disabled { opacity: 0.45; cursor: not-allowed; }
+    .approach-card.disabled input { cursor: not-allowed; }
+    .category-rule-based { color: #2563eb; }
+    .category-ocr        { color: #ea580c; }
+    .category-vlm        { color: #dc2626; }
+  </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center p-6">
-  <div class="w-full max-w-xl">
-    <div class="text-center mb-8">
-      <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
+<body class="min-h-screen bg-slate-50 text-slate-800">
+
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold text-slate-900">
+          Sistem Ekstraksi Laporan Keuangan IDX
+        </h1>
+        <p class="text-sm text-slate-500">
+          Prototype perbandingan multi-approach untuk PDF emiten IDX
+        </p>
       </div>
-      <h1 class="text-3xl font-bold text-white">IDX Statement Parser</h1>
-      <p class="text-slate-400 mt-2">Ekstrak laporan keuangan IDX dari PDF ke tabel terstruktur</p>
+      <span class="text-xs px-2 py-1 bg-indigo-50 text-indigo-700 rounded font-medium">
+        Skripsi Prototype
+      </span>
     </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-8">
 
     {% if error %}
-    <div class="bg-red-500/20 border border-red-500/50 text-red-300 rounded-xl px-4 py-3 mb-6 text-sm flex items-center gap-2">
-      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-      </svg>
-      {{ error }}
+    <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+      <strong>Error:</strong> {{ error }}
     </div>
     {% endif %}
 
-    <form id="uploadForm" action="/extract" method="POST" enctype="multipart/form-data">
-      <div id="dropzone"
-        class="relative border-2 border-dashed border-slate-600 rounded-2xl p-10 text-center cursor-pointer
-               hover:border-indigo-500 hover:bg-indigo-500/5 transition-all duration-200 group">
-        <input id="fileInput" name="pdf" type="file" accept=".pdf"
-          class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required />
+    <form action="/run" method="POST" enctype="multipart/form-data" id="runForm">
 
-        <div id="dropContent">
-          <svg class="w-12 h-12 text-slate-500 group-hover:text-indigo-400 mx-auto mb-4 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-          </svg>
-          <p class="text-slate-300 text-lg font-medium">Drag & drop file PDF</p>
-          <p class="text-slate-500 text-sm mt-1">atau klik untuk memilih file</p>
-          <p class="text-slate-600 text-xs mt-3">Maks. 50 MB · Format: .pdf</p>
+      <section class="bg-white rounded-xl border border-slate-200 p-6 mb-6">
+        <h2 class="text-lg font-semibold text-slate-900 mb-1">
+          1. Pilih PDF Laporan Keuangan
+        </h2>
+        <p class="text-sm text-slate-500 mb-4">
+          Upload PDF dari Bursa Efek Indonesia (IDX), atau pakai demo PDF BBNI 2025
+          yang sudah ada di repositori.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="border-2 border-dashed border-slate-300 hover:border-indigo-400
+                        rounded-lg p-6 cursor-pointer transition-colors flex flex-col
+                        items-center justify-center gap-2">
+            <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+            <span class="text-sm font-medium text-slate-700">Upload PDF Anda</span>
+            <span class="text-xs text-slate-500">Maksimal 50 MB</span>
+            <input type="file" name="pdf" accept=".pdf" class="text-xs mt-2 w-full" />
+          </label>
+
+          {% if demo_available %}
+          <label id="demoBtn"
+                 class="border-2 border-slate-200 hover:border-indigo-400 bg-slate-50
+                        hover:bg-indigo-50 rounded-lg p-6 cursor-pointer
+                        transition-colors flex flex-col items-center justify-center gap-2
+                        has-[input:checked]:ring-2 has-[input:checked]:ring-indigo-500
+                        has-[input:checked]:border-indigo-500 has-[input:checked]:bg-indigo-50">
+            <svg class="w-8 h-8 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-sm font-medium text-slate-700">Gunakan Demo BBNI 2025</span>
+            <span class="text-xs text-slate-500">Ground truth tersedia — metrik dihitung otomatis</span>
+            <input type="checkbox" name="demo" value="true" class="hidden" />
+          </label>
+          {% endif %}
+        </div>
+      </section>
+
+      <section class="bg-white rounded-xl border border-slate-200 p-6 mb-6">
+        <h2 class="text-lg font-semibold text-slate-900 mb-1">2. Pilih Approach Ekstraksi</h2>
+        <p class="text-sm text-slate-500 mb-4">
+          Pilih satu atau lebih pendekatan untuk dijalankan. Approach lebih lambat
+          (OCR / VLM) memerlukan waktu lebih lama dan—untuk VLM—biaya API.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {% for name, meta in approaches.items() %}
+          <label class="approach-card {{ 'disabled' if not meta.available }}
+                        border border-slate-200 rounded-lg p-4 cursor-pointer
+                        hover:border-indigo-300 flex items-start gap-3">
+            <input type="checkbox" name="approach" value="{{ name }}"
+                   class="mt-1 w-4 h-4 text-indigo-600"
+                   {{ 'disabled' if not meta.available }}
+                   {{ 'checked' if name in ['native_pdf', 'pymupdf_native'] and meta.available }} />
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-medium text-slate-900">{{ meta.label }}</span>
+                <span class="text-xs category-{{ meta.category }}
+                             px-2 py-0.5 rounded bg-slate-100 font-medium">
+                  {{ meta.category }}
+                </span>
+              </div>
+              <p class="text-xs text-slate-600 mt-1">{{ meta.desc }}</p>
+              <div class="flex gap-3 text-xs text-slate-500 mt-2">
+                <span>⏱ {{ meta.runtime }}</span>
+                <span>💰 {{ meta.cost }}</span>
+              </div>
+              {% if not meta.available %}
+              <p class="text-xs text-red-600 mt-1">⚠ {{ meta.disabled_reason }}</p>
+              {% endif %}
+            </div>
+          </label>
+          {% endfor %}
         </div>
 
-        <div id="fileSelected" class="hidden">
-          <svg class="w-12 h-12 text-indigo-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-800">
+          ⚠ Approach OCR butuh ~60 detik. Approach VLM butuh beberapa menit dan biaya
+          API ($0,03–$0,50 per PDF). Estimasi waktu berdasarkan halaman 4–19 BBNI.
+        </div>
+      </section>
+
+      <section class="flex items-center justify-between">
+        <p class="text-sm text-slate-500">
+          Hasil akan ditampilkan dalam format PSAK + raw JSON.
+        </p>
+        <button type="submit"
+                class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white
+                       font-semibold rounded-lg shadow transition-colors
+                       flex items-center gap-2">
+          Jalankan Ekstraksi
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  d="M9 5l7 7-7 7" />
           </svg>
-          <p id="fileName" class="text-indigo-300 font-medium text-lg"></p>
-          <p class="text-slate-500 text-sm mt-1">File siap diproses</p>
-        </div>
-      </div>
+        </button>
+      </section>
 
-      <label class="mt-4 flex items-center gap-3 text-slate-300 text-sm">
-        <input type="checkbox" name="use_ocr" class="h-4 w-4 rounded border-slate-600 bg-slate-800 text-indigo-600 focus:ring-indigo-500" {% if use_ocr %}checked{% endif %} />
-        Gunakan OCR fallback (untuk PDF scan/gambar)
-      </label>
-
-      <button id="submitBtn" type="submit"
-        class="mt-5 w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700
-               text-white font-semibold rounded-xl transition-all duration-150 flex items-center justify-center gap-2 shadow-lg">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-        Ekstrak Laporan
-      </button>
     </form>
-  </div>
+
+    <div id="loading" class="hidden fixed inset-0 bg-slate-900/70 z-50
+                              flex items-center justify-center">
+      <div class="bg-white rounded-xl px-8 py-6 text-center">
+        <div class="inline-block animate-spin w-10 h-10 border-4
+                    border-indigo-200 border-t-indigo-600 rounded-full mb-3"></div>
+        <p class="font-medium text-slate-900">Menjalankan ekstraksi...</p>
+        <p class="text-xs text-slate-500 mt-1">
+          Approach lambat (OCR / VLM) dapat butuh beberapa menit.
+        </p>
+      </div>
+    </div>
+
+    <section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+      <div class="bg-white rounded-lg border border-slate-200 p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Skema Data Terpadu</h3>
+        <p class="text-xs text-slate-600">
+          Semua approach output JSON dengan struktur hierarkis yang sama
+          (sections → nodes dengan level, label, values, children).
+        </p>
+      </div>
+      <div class="bg-white rounded-lg border border-slate-200 p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">Ground Truth</h3>
+        <p class="text-xs text-slate-600">
+          339 baris akun BBNI 2025 transkripsi manual, divalidasi via
+          cross-check identitas akuntansi (Total Aset = Liab + Ekuitas).
+        </p>
+      </div>
+      <div class="bg-white rounded-lg border border-slate-200 p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">5 Metrik Evaluasi</h3>
+        <p class="text-xs text-slate-600">
+          Node F1, Cell value F1, MAE, Hierarchy accuracy, Label similarity.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+    Prototype untuk skripsi Teknik Informatika ITB
+  </footer>
 
   <script>
-    const input = document.getElementById('fileInput');
-    const dropContent = document.getElementById('dropContent');
-    const fileSelected = document.getElementById('fileSelected');
-    const fileName = document.getElementById('fileName');
-    const submitBtn = document.getElementById('submitBtn');
-    const form = document.getElementById('uploadForm');
-
-    input.addEventListener('change', () => {
-      if (input.files.length > 0) {
-        dropContent.classList.add('hidden');
-        fileSelected.classList.remove('hidden');
-        fileName.textContent = input.files[0].name;
-      }
+    document.getElementById('runForm').addEventListener('submit', () => {
+      const selected = document.querySelectorAll('input[name="approach"]:checked').length;
+      const fileInput = document.querySelector('input[type="file"]');
+      const demoChecked = document.querySelector('input[name="demo"]:checked');
+      if (selected === 0) return;
+      if (!fileInput.files.length && !demoChecked) return;
+      document.getElementById('loading').classList.remove('hidden');
     });
 
-    form.addEventListener('submit', () => {
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `
-        <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-        </svg>
-        Memproses...`;
-    });
+    const demoCb = document.querySelector('input[name="demo"]');
+    const fileInput = document.querySelector('input[type="file"]');
+    if (demoCb) {
+      demoCb.addEventListener('change', () => { if (demoCb.checked) fileInput.value = ''; });
+    }
+    if (fileInput) {
+      fileInput.addEventListener('change', () => {
+        if (demoCb && fileInput.files.length) demoCb.checked = false;
+      });
+    }
   </script>
 </body>
 </html>
