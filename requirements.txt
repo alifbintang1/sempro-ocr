@@ -1,13 +1,25 @@
-# PDF parsing
-pdfplumber==0.11.5
-pypdfium2==4.30.0
+# ── Core PDF parsing ──────────────────────────────────────────────
+pdfplumber>=0.11.5
+pypdfium2>=4.30.0
+PyMuPDF>=1.27.0
+pdfminer.six>=20231228
+Pillow>=10.4.0
 
-# (dependency yang biasanya ikut, tapi bagus dipin supaya stabil)
-pdfminer.six==20231228
-Pillow==10.4.0
+# ── Third-party table extractor ───────────────────────────────────
+camelot-py>=1.0.9
+opencv-python-headless>=4.10.0
 
-# Web UI
+# ── OCR (Tesseract Python wrapper; Tesseract binary harus diinstal terpisah) ──
+pytesseract>=0.3.10
+
+# ── VLM (OpenAI API; .env dengan OPENAI_API_KEY dibutuhkan) ───────
+openai>=2.0.0
+
+# ── Web UI ────────────────────────────────────────────────────────
 flask>=3.0.0
 
-# OCR (optional mode)
-pytesseract>=0.3.10
+# ── Data manipulation & analisis ─────────────────────────────────
+pandas>=2.0.0
+
+# ── Visualisasi (untuk tools/make_figures.py) ────────────────────
+matplotlib>=3.9.0

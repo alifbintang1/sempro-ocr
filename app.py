@@ -12,12 +12,11 @@ from __future__ import annotations
 import json
 import os
 import sys
-import tempfile
 import time
 from pathlib import Path
 from typing import Any
 
-from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask import Flask, jsonify, render_template, request
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
@@ -29,10 +28,25 @@ from render_psak import render as render_psak_html  # type: ignore
 from evaluate import evaluate  # type: ignore
 
 app = Flask(__name__)
-app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
 
-GT_PATH = ROOT / "ground_truth" / "bbni_2025.json"
-DEMO_PDF = ROOT / "docs" / "FinancialStatement-2025-Tahunan-BBNI.pdf"
+# Demo documents available (each has a manually-transcribed ground truth)
+DOCUMENTS = {
+    "BBNI": {
+        "issuer_full": "PT Bank Negara Indonesia (Persero) Tbk",
+        "pdf": ROOT / "docs" / "FinancialStatement-2025-Tahunan-BBNI.pdf",
+        "gt": ROOT / "ground_truth" / "bbni_2025.json",
+    },
+    "BBRI": {
+        "issuer_full": "PT Bank Rakyat Indonesia (Persero) Tbk",
+        "pdf": ROOT / "docs" / "FinancialStatement-2025-Tahunan-BBRI.pdf",
+        "gt": ROOT / "ground_truth" / "bbri_2025.json",
+    },
+    "BMRI": {
+        "issuer_full": "PT Bank Mandiri (Persero) Tbk",
+        "pdf": ROOT / "docs" / "FinancialStatement-2025-Tahunan-BMRI.pdf",
+        "gt": ROOT / "ground_truth" / "bmri_2025.json",
+    },
+}
 
 
 APPROACH_META = {
@@ -164,89 +178,66 @@ def _eval_one(pred: dict, gold: dict) -> dict:
 
 # ── Routes ────────────────────────────────────────────────────────────────
 
+def _documents_for_template() -> dict:
+    """Document metadata for the index page (only those whose PDF exists)."""
+    out = {}
+    for code, meta in DOCUMENTS.items():
+        out[code] = {
+            "issuer_full": meta["issuer_full"],
+            "available": meta["pdf"].exists(),
+            "has_gt": meta["gt"].exists(),
+        }
+    return out
+
+
 @app.route("/", methods=["GET"])
 def index():
     return render_template(
         "index.html",
         approaches=_approach_availability(),
-        demo_available=DEMO_PDF.exists(),
+        documents=_documents_for_template(),
     )
 
 
 @app.route("/run", methods=["POST"])
 def run():
-    use_demo = request.form.get("demo") == "true"
-    if use_demo:
-        if not DEMO_PDF.exists():
-            return render_template(
-                "index.html",
-                approaches=_approach_availability(),
-                error="Demo PDF tidak ditemukan.",
-            )
-        pdf_path = str(DEMO_PDF)
-        original_filename = DEMO_PDF.name
-        tmp_path = None
-        is_bbni = True
-    else:
-        if "pdf" not in request.files:
-            return redirect(url_for("index"))
-        file = request.files["pdf"]
-        if not file.filename or not file.filename.lower().endswith(".pdf"):
-            return render_template(
-                "index.html",
-                approaches=_approach_availability(),
-                error="Hanya file PDF yang diterima.",
-            )
-        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
-            tmp_path = tmp.name
-            file.save(tmp_path)
-        pdf_path = tmp_path
-        original_filename = file.filename
-        is_bbni = "BBNI" in (file.filename or "").upper()
-
-    selected = request.form.getlist("approach")
-    if not selected:
-        if tmp_path:
-            try:
-                os.unlink(tmp_path)
-            except OSError:
-                pass
+    code = (request.form.get("document") or "").upper()
+    doc = DOCUMENTS.get(code)
+    if not doc or not doc["pdf"].exists():
         return render_template(
             "index.html",
             approaches=_approach_availability(),
+            documents=_documents_for_template(),
+            error="Pilih dokumen yang tersedia.",
+        )
+
+    selected = request.form.getlist("approach")
+    if not selected:
+        return render_template(
+            "index.html",
+            approaches=_approach_availability(),
+            documents=_documents_for_template(),
             error="Pilih minimal satu approach.",
         )
 
-    # Run each approach
-    results = []
-    for name in selected:
-        if name not in REGISTRY:
-            continue
-        results.append(_run_one(name, pdf_path))
+    pdf_path = str(doc["pdf"])
+    results = [_run_one(name, pdf_path) for name in selected if name in REGISTRY]
 
-    # Cleanup temp upload
-    if tmp_path:
-        try:
-            os.unlink(tmp_path)
-        except OSError:
-            pass
-
-    # Evaluate against GT if available + applicable
-    has_gt = is_bbni and GT_PATH.exists()
+    # Evaluate against ground truth
+    has_gt = doc["gt"].exists()
     if has_gt:
-        gold = json.loads(GT_PATH.read_text(encoding="utf-8"))
+        gold = json.loads(doc["gt"].read_text(encoding="utf-8"))
         for r in results:
             if r.get("error") or not r.get("raw_pred"):
                 continue
             r["metrics"] = _eval_one(r["raw_pred"], gold)
 
-    # Drop heavy raw_pred from template context (already serialized in pred_json)
     for r in results:
         r.pop("raw_pred", None)
 
     return render_template(
         "result.html",
-        filename=original_filename,
+        filename=f"{code} — {doc['issuer_full']}",
         results=results,
         has_gt=has_gt,
     )
@@ -256,16 +247,18 @@ def run():
 def api_run():
     """JSON API endpoint (for headless usage)."""
     data = request.get_json() or {}
-    pdf_path = data.get("pdf_path", str(DEMO_PDF))
+    code = (data.get("document") or "BBNI").upper()
+    doc = DOCUMENTS.get(code)
+    if not doc or not doc["pdf"].exists():
+        return jsonify({"error": f"Unknown document: {code}"}), 400
     approaches = data.get("approaches", ["native_pdf"])
-    if not Path(pdf_path).exists():
-        return jsonify({"error": f"PDF not found: {pdf_path}"}), 400
     results = []
     for name in approaches:
         if name not in REGISTRY:
             continue
-        r = _run_one(name, pdf_path)
-        r.pop("psak_html", None)  # strip heavy HTML from API response
+        r = _run_one(name, str(doc["pdf"]))
+        r.pop("psak_html", None)
+        r.pop("raw_pred", None)
         results.append(r)
     return jsonify({"results": results})
 

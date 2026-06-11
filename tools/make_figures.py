@@ -1,11 +1,18 @@
-"""Generate figures untuk Bab 4 thesis dari hasil comparison."""
+"""Generate figures untuk Bab 4 thesis dari hasil comparison.
+
+Usage: python tools/make_figures.py [run_dir]
+  run_dir defaults to runs/FinancialStatement-2025-Tahunan-BBNI
+"""
 import json
+import sys
 from pathlib import Path
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parent.parent
-COMP = json.loads((ROOT / "runs/FinancialStatement-2025-Tahunan-BBNI/comparison.json").read_text(encoding="utf-8"))
-OUT_DIR = ROOT / "runs/FinancialStatement-2025-Tahunan-BBNI/figures"
+_default = "runs/FinancialStatement-2025-Tahunan-BBNI"
+RUN_DIR = ROOT / (sys.argv[1] if len(sys.argv) > 1 else _default)
+COMP = json.loads((RUN_DIR / "comparison.json").read_text(encoding="utf-8"))
+OUT_DIR = RUN_DIR / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Extract per-approach OVERALL macro rows
