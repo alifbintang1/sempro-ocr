@@ -156,6 +156,24 @@ def _run_one(name: str, pdf_path: str) -> dict[str, Any]:
     }
 
 
+def _gt_stats(gold: dict) -> dict:
+    """Count total nodes + nodes-with-value in a ground truth, for the caption."""
+    total = filled = 0
+
+    def walk(nodes):
+        nonlocal total, filled
+        for n in nodes:
+            total += 1
+            if any(v is not None for v in (n.get("values") or {}).values()):
+                filled += 1
+            walk(n.get("children", []))
+
+    for s in gold.get("statements", []):
+        for nodes in s.get("sections", {}).values():
+            walk(nodes)
+    return {"total": total, "filled": filled}
+
+
 def _eval_one(pred: dict, gold: dict) -> dict:
     """Run evaluator + return condensed metric row."""
     report = evaluate(gold, pred)
@@ -248,8 +266,10 @@ def run():
 
     results = [_run_one(n, str(doc["pdf"])) for n in selected if n in REGISTRY]
     has_gt = doc["gt"].exists()
+    gt_stats = None
     if has_gt:
         gold = json.loads(doc["gt"].read_text(encoding="utf-8"))
+        gt_stats = _gt_stats(gold)
         for r in results:
             if r.get("error") or not r.get("raw_pred"):
                 continue
@@ -262,6 +282,8 @@ def run():
         filename=f"{code} — {doc['issuer_full']}",
         results=results,
         has_gt=has_gt,
+        gt_label=f"{code} 2025",
+        gt_stats=gt_stats,
     )
 
 
