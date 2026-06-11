@@ -46,16 +46,16 @@
     </div>
     {% endif %}
 
-    <form action="/run" method="POST" id="runForm">
+    <form action="/run" method="POST" enctype="multipart/form-data" id="runForm">
 
       <section class="bg-white rounded-xl border border-slate-200 p-6 mb-6">
         <h2 class="text-lg font-semibold text-slate-900 mb-1">
           1. Pilih Dokumen Laporan Keuangan
         </h2>
         <p class="text-sm text-slate-500 mb-4">
-          Tiga laporan keuangan tahunan emiten perbankan IDX 2025. Ketiganya
-          memiliki ground truth (transkripsi manual) sehingga metrik akurasi
-          dihitung otomatis.
+          Pakai salah satu dokumen demo (ada ground truth → metrik dihitung),
+          atau upload PDF sendiri (tanpa ground truth → hanya hasil ekstraksi,
+          tanpa metrik).
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -77,13 +77,30 @@
             <span class="text-xs text-slate-600 leading-snug">{{ doc.issuer_full }}</span>
             <span class="text-xs text-slate-400">Tahunan 2025 · halaman 4–19</span>
             <input type="radio" name="document" value="{{ code }}"
-                   class="hidden" {{ 'disabled' if not doc.available }}
+                   class="doc-radio hidden" {{ 'disabled' if not doc.available }}
                    {{ 'checked' if loop.first and doc.available }} />
             {% if not doc.available %}
             <span class="text-xs text-red-600">⚠ PDF tidak ditemukan</span>
             {% endif %}
           </label>
           {% endfor %}
+        </div>
+
+        <!-- Upload PDF sendiri (tanpa evaluasi) -->
+        <div class="mt-4">
+          <label class="border-2 border-dashed border-slate-300 hover:border-indigo-400
+                        rounded-lg p-5 cursor-pointer transition-colors flex items-center
+                        gap-3 has-[input:valid]:border-indigo-500 has-[input:valid]:bg-indigo-50">
+            <svg class="w-7 h-7 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+            <div class="flex-1 min-w-0">
+              <span class="text-sm font-medium text-slate-700 block">Atau upload PDF laporan keuangan sendiri</span>
+              <span class="text-xs text-slate-500">PDF emiten IDX lain · maks 50 MB · tanpa metrik (belum ada ground truth)</span>
+              <input type="file" name="pdf" accept=".pdf" id="pdfUpload" class="text-xs mt-1.5 w-full" />
+            </div>
+          </label>
         </div>
       </section>
 
@@ -190,11 +207,26 @@
   </footer>
 
   <script>
+    const pdfUpload = document.getElementById('pdfUpload');
+    const docRadios = document.querySelectorAll('.doc-radio');
+
+    // Upload & demo saling eksklusif
+    pdfUpload.addEventListener('change', () => {
+      if (pdfUpload.files.length) {
+        docRadios.forEach(r => { r.checked = false; });
+      }
+    });
+    docRadios.forEach(r => r.addEventListener('change', () => {
+      if (r.checked) pdfUpload.value = '';
+    }));
+
     document.getElementById('runForm').addEventListener('submit', (e) => {
       const selectedApproach = document.querySelectorAll('input[name="approach"]:checked').length;
       const selectedDoc = document.querySelector('input[name="document"]:checked');
-      if (!selectedDoc || selectedApproach === 0) {
+      const hasUpload = pdfUpload.files.length > 0;
+      if ((!selectedDoc && !hasUpload) || selectedApproach === 0) {
         e.preventDefault();
+        alert('Pilih dokumen demo / upload PDF, dan minimal satu approach.');
         return;
       }
       document.getElementById('loading').classList.remove('hidden');

@@ -12,6 +12,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import tempfile
 import time
 from pathlib import Path
 from typing import Any
@@ -28,6 +29,7 @@ from render_psak import render as render_psak_html  # type: ignore
 from evaluate import evaluate  # type: ignore
 
 app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50 MB max upload
 
 # Demo documents available (each has a manually-transcribed ground truth)
 DOCUMENTS = {
@@ -199,31 +201,52 @@ def index():
     )
 
 
+def _index_error(msg: str):
+    return render_template(
+        "index.html",
+        approaches=_approach_availability(),
+        documents=_documents_for_template(),
+        error=msg,
+    )
+
+
 @app.route("/run", methods=["POST"])
 def run():
+    selected = request.form.getlist("approach")
+    if not selected:
+        return _index_error("Pilih minimal satu approach.")
+
+    # Mode A: upload PDF sendiri (tanpa ground truth → tanpa metrik)
+    upload = request.files.get("pdf")
+    if upload and upload.filename:
+        if not upload.filename.lower().endswith(".pdf"):
+            return _index_error("Hanya file PDF yang diterima.")
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
+            tmp_path = tmp.name
+            upload.save(tmp_path)
+        try:
+            results = [_run_one(n, tmp_path) for n in selected if n in REGISTRY]
+        finally:
+            try:
+                os.unlink(tmp_path)
+            except OSError:
+                pass
+        for r in results:
+            r.pop("raw_pred", None)
+        return render_template(
+            "result.html",
+            filename=upload.filename,
+            results=results,
+            has_gt=False,
+        )
+
+    # Mode B: dokumen demo (dengan ground truth → metrik dihitung)
     code = (request.form.get("document") or "").upper()
     doc = DOCUMENTS.get(code)
     if not doc or not doc["pdf"].exists():
-        return render_template(
-            "index.html",
-            approaches=_approach_availability(),
-            documents=_documents_for_template(),
-            error="Pilih dokumen yang tersedia.",
-        )
+        return _index_error("Pilih dokumen demo atau upload PDF.")
 
-    selected = request.form.getlist("approach")
-    if not selected:
-        return render_template(
-            "index.html",
-            approaches=_approach_availability(),
-            documents=_documents_for_template(),
-            error="Pilih minimal satu approach.",
-        )
-
-    pdf_path = str(doc["pdf"])
-    results = [_run_one(name, pdf_path) for name in selected if name in REGISTRY]
-
-    # Evaluate against ground truth
+    results = [_run_one(n, str(doc["pdf"])) for n in selected if n in REGISTRY]
     has_gt = doc["gt"].exists()
     if has_gt:
         gold = json.loads(doc["gt"].read_text(encoding="utf-8"))
@@ -231,7 +254,6 @@ def run():
             if r.get("error") or not r.get("raw_pred"):
                 continue
             r["metrics"] = _eval_one(r["raw_pred"], gold)
-
     for r in results:
         r.pop("raw_pred", None)
 
