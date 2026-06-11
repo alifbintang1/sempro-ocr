@@ -128,7 +128,7 @@ def _approach_availability() -> dict:
     return out
 
 
-def _run_one(name: str, pdf_path: str) -> dict[str, Any]:
+def _run_one(name: str, pdf_path: str, entity_name: str = "") -> dict[str, Any]:
     """Run one approach; return dict with prediction, runtime, PSAK HTML, metrics."""
     try:
         t0 = time.perf_counter()
@@ -143,7 +143,7 @@ def _run_one(name: str, pdf_path: str) -> dict[str, Any]:
         }
 
     # Render PSAK style (fragment HTML for iframe srcdoc)
-    psak_html = render_psak_html(pred, entity_name="")
+    psak_html = render_psak_html(pred, entity_name=entity_name)
 
     return {
         "name": name,
@@ -264,7 +264,8 @@ def run():
     if not doc or not doc["pdf"].exists():
         return _index_error("Pilih dokumen demo atau upload PDF.")
 
-    results = [_run_one(n, str(doc["pdf"])) for n in selected if n in REGISTRY]
+    results = [_run_one(n, str(doc["pdf"]), entity_name=doc["issuer_full"])
+               for n in selected if n in REGISTRY]
     has_gt = doc["gt"].exists()
     gt_stats = None
     if has_gt:

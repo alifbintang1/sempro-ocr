@@ -37,6 +37,15 @@ STATEMENT_TITLE = {
     "cash_flows": "Laporan Arus Kas",
 }
 
+# Header untuk section "unknown" (baris judul/header halaman yang tak masuk
+# seksi akun) — diberi label judul laporannya, bukan "UNKNOWN".
+STATEMENT_SECTION_LABEL = {
+    "financial_position": "LAPORAN POSISI KEUANGAN",
+    "profit_or_loss": "LAPORAN LABA RUGI",
+    "changes_in_equity": "LAPORAN PERUBAHAN EKUITAS",
+    "cash_flows": "LAPORAN ARUS KAS",
+}
+
 CSS = """
   @page { size: A4; margin: 18mm; }
   body { font-family: 'Times New Roman', Georgia, serif; max-width: 780px;
@@ -153,7 +162,10 @@ def _render_statement(stmt: dict) -> str:
 
     body = ""
     for sec_name, nodes in stmt.get("sections", {}).items():
-        sec_label = SECTION_LABELS.get(sec_name, sec_name.replace("_", " ").upper())
+        if sec_name == "unknown":
+            sec_label = STATEMENT_SECTION_LABEL.get(stmt_type, title.upper())
+        else:
+            sec_label = SECTION_LABELS.get(sec_name, sec_name.replace("_", " ").upper())
         body += (f'<tr class="section-header">'
                  f'<td class="label l0">{sec_label}</td>'
                  f'{"<td></td>" * len(yrs)}</tr>')
