@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Penjelasan Algoritma Pembangunan Pohon Hierarki</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: #1a1a1a;
+         font-size: 10.5pt; line-height: 1.55; max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 19pt; color: #1e3a5f; margin: 0 0 2px; }
+  h2 { font-size: 13.5pt; color: #1e3a5f; margin: 22px 0 6px;
+       border-bottom: 2px solid #d0dae8; padding-bottom: 3px; }
+  h3 { font-size: 11.5pt; color: #2a4a6f; margin: 14px 0 4px; }
+  p { margin: 6px 0; text-align: justify; }
+  .sub { color: #666; font-size: 10pt; margin-bottom: 14px; }
+  code { font-family: "Consolas", monospace; background: #eef2f7;
+         padding: 1px 4px; border-radius: 3px; font-size: 9.5pt; }
+  pre { background: #1e293b; color: #e2e8f0; padding: 12px 14px;
+        border-radius: 6px; font-family: "Consolas", monospace;
+        font-size: 9pt; line-height: 1.45; overflow-x: auto;
+        white-space: pre-wrap; page-break-inside: avoid; }
+  pre .cmt { color: #94a3b8; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0;
+          font-size: 9.5pt; page-break-inside: avoid; }
+  th { background: #1e3a5f; color: #fff; text-align: left; padding: 6px 8px; }
+  td { border: 1px solid #cdd7e3; padding: 5px 8px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f4f7fb; }
+  .box { background: #f0f6ff; border-left: 4px solid #2a6fdb;
+         padding: 8px 14px; margin: 12px 0; border-radius: 0 6px 6px 0;
+         page-break-inside: avoid; }
+  .box.warn { background: #fff7ed; border-left-color: #ea922c; }
+  .tree { background: #f7faf7; border: 1px solid #cde0cd; border-radius: 6px;
+          padding: 10px 14px; font-family: "Consolas", monospace;
+          font-size: 9.5pt; white-space: pre; page-break-inside: avoid; }
+  .pagebreak { page-break-before: always; }
+  .footer { margin-top: 28px; padding-top: 8px; border-top: 1px solid #ccc;
+            color: #888; font-size: 8.5pt; }
+  ol, ul { margin: 6px 0 6px 0; padding-left: 22px; }
+  li { margin: 3px 0; }
+</style>
+</head>
+<body>
+
+<h1>Algoritma Pembangunan Pohon Hierarki</h1>
+<p class="sub">Penjelasan kode yang dibangun sendiri pada Sistem Ekstraksi
+Laporan Keuangan IDX &mdash; bagian rekonstruksi struktur hierarki akun.</p>
+
+<h2>1. Latar Masalah</h2>
+<p>Berkas PDF tidak menyimpan struktur tabel. Yang tersimpan hanyalah daftar
+<b>kata beserta koordinat</b>-nya, contoh: <code>"Kas" di (x=94, y=358)</code>.
+Tidak ada informasi mana baris induk dan mana baris anak.</p>
+<p>Padahal akun laporan keuangan bersifat <b>hierarkis</b>. Misalnya
+<i>Giro pada bank lain</i> memiliki sub-akun <i>pihak ketiga</i>,
+<i>pihak berelasi</i>, dan <i>cadangan kerugian</i>. Tugas algoritma yang
+kami bangun adalah <b>merekonstruksi hierarki ini secara otomatis</b> dari
+data mentah, lalu menyimpannya dalam bentuk pohon (tree).</p>
+
+<div class="box">
+<b>Sasaran:</b> ubah data tidak terstruktur (kata + koordinat) menjadi data
+terstruktur berbentuk pohon dengan atribut yang kami tentukan sendiri
+(label, level, nilai, anak) sesuai <i>unified schema</i>.
+</div>
+
+<h2>2. Bentuk Keluaran: Unified Schema</h2>
+<p>Seluruh pendekatan menghasilkan struktur JSON yang sama (didefinisikan di
+<code>idx_fin_parser/unified.py</code>), sehingga dapat dibandingkan secara
+adil. Tiap simpul (node) pohon berbentuk:</p>
+<pre>{
+  "level":    0,                  <span class="cmt"># kedalaman hierarki (0 = induk teratas)</span>
+  "label":    "Giro pada bank lain",
+  "label_en": "Current accounts with other banks",
+  "row_type": "group",            <span class="cmt"># group | item | label_only</span>
+  "values":   { "2025-12-31": null, "2024-12-31": null },
+  "children": [ ...node lain... ] <span class="cmt"># sub-akun (rekursif)</span>
+}</pre>
+<p>Atribut <code>level</code> dan <code>children</code> inilah yang dihasilkan
+oleh algoritma pembangunan pohon.</p>
+
+<h2>3. Algoritma Pembangunan Pohon (Dua Tahap)</h2>
+<p>Inti kontribusi kode kami terdiri atas dua tahap berurutan.</p>
+
+<h3>Tahap 1 &mdash; Menentukan Level dari Indentasi (<code>assign_levels</code>)</h3>
+<p>Lokasi: <code>idx_fin_parser/utils.py</code>. Ide dasarnya:
+<b>posisi horizontal (x) sebuah baris menunjukkan tingkat indentasinya</b>.
+Semakin menjorok ke kanan, semakin dalam levelnya.</p>
+<pre>1. Ambil x0 (posisi kiri kata pertama) dari tiap baris yang memiliki angka
+2. Kelompokkan (cluster) nilai-nilai x0 dengan toleransi 8 poin
+3. Cluster paling kiri  -&gt; level 0  (akun induk)
+   cluster berikutnya   -&gt; level 1  (sub-akun)
+   cluster berikutnya   -&gt; level 2, dan seterusnya
+4. Tiap baris diberi level sesuai cluster x0 terdekat</pre>
+<p>Contoh distribusi koordinat pada PDF BBNI:</p>
+<table>
+<tr><th>Posisi x0</th><th>Level</th><th>Contoh baris</th></tr>
+<tr><td>49</td><td>0</td><td>Aset / Kas / Giro pada bank lain</td></tr>
+<tr><td>79</td><td>1</td><td>Giro pada bank lain pihak ketiga</td></tr>
+<tr><td>94</td><td>2</td><td>Giro pihak ketiga (di bawah Simpanan nasabah)</td></tr>
+<tr><td>109</td><td>3</td><td>Cadangan umum dan wajib</td></tr>
+</table>
+
+<h3>Tahap 2 &mdash; Menyusun Pohon dengan Stack (<code>_parse_structured_rows_to_tree</code>)</h3>
+<p>Lokasi: <code>idx_fin_parser/pdf_statements.py</code>. Setelah tiap baris
+punya level, pohon dibangun memakai struktur data <b>stack (tumpukan)</b>
+dengan aturan: simpul ber-level <i>k</i> menjadi anak dari simpul terakhir
+yang ber-level lebih kecil dari <i>k</i>.</p>
+<pre>stack = []
+untuk setiap baris (urut atas ke bawah):
+
+    <span class="cmt"># Jika baris adalah header seksi (Aset/Liabilitas/Ekuitas):</span>
+    jika baris == section header:
+        section saat ini = baris
+        stack = []          <span class="cmt"># reset, mulai seksi baru</span>
+        lanjut
+
+    node = buat_node(baris)
+
+    <span class="cmt"># Buang dari stack semua yang levelnya >= level baris ini</span>
+    selama stack tidak kosong DAN level(stack.puncak) &gt;= level(baris):
+        stack.pop()
+
+    jika stack tidak kosong:
+        node jadi ANAK dari stack.puncak
+    selainnya:
+        node jadi akar (langsung di bawah section)
+
+    stack.push(node)</pre>
+
+<div class="pagebreak"></div>
+<h3>Ilustrasi Langkah demi Langkah</h3>
+<p>Memproses bagian Aset BBNI, mulai dari "Giro pada bank lain":</p>
+<table>
+<tr><th>Baris masuk</th><th>Level</th><th>Aksi pada stack</th></tr>
+<tr><td>Giro pada bank lain</td><td>0</td>
+    <td>stack kosong &rarr; jadi akar. <code>stack=[Giro]</code></td></tr>
+<tr><td>...pihak ketiga</td><td>1</td>
+    <td>puncak(Giro,0) &lt; 1 &rarr; anak Giro. <code>stack=[Giro, ketiga]</code></td></tr>
+<tr><td>...pihak berelasi</td><td>1</td>
+    <td>puncak(ketiga,1) &ge; 1 &rarr; pop. puncak(Giro,0) &lt; 1 &rarr; anak Giro</td></tr>
+<tr><td>Cadangan kerugian...</td><td>1</td>
+    <td>sama &rarr; pop berelasi, lalu anak Giro</td></tr>
+</table>
+<p>Pohon yang terbentuk:</p>
+<div class="tree">Giro pada bank lain
+&#9500;&#9472;&#9472; Giro pada bank lain pihak ketiga      25.858.094 | 22.031.212
+&#9500;&#9472;&#9472; Giro pada bank lain pihak berelasi         79.999 |     42.974
+&#9492;&#9472;&#9472; Cadangan kerugian penurunan nilai...         (7) |       (13)</div>
+
+<div class="box">
+<b>Kenapa pakai stack?</b> Stack secara alami menjaga "jalur induk aktif".
+Ketika bertemu baris yang levelnya sama atau lebih dangkal, kita menutup
+cabang sebelumnya (pop) sampai menemukan calon induk yang tepat. Ini membuat
+hierarki sedalam apa pun terbentuk otomatis hanya dengan satu kali lintasan
+(O(n)).
+</div>
+
+<h2>4. Approach yang Memakai Algoritma Pembangunan Pohon Ini</h2>
+<p>Dari 8 pendekatan yang dibandingkan, tidak semuanya membangun pohon dengan
+cara yang sama. Terdapat <b>tiga sumber informasi level</b> yang berbeda,
+plus satu kelompok yang sengaja tidak membangun hierarki.</p>
+
+<table>
+<tr><th>Approach</th><th>Sumber level</th><th>Fungsi pembangun pohon</th></tr>
+<tr><td><b>native_pdf</b></td><td>Koordinat x0 (clustering)</td>
+    <td><code>assign_levels</code> + <code>_parse_structured_rows_to_tree</code></td></tr>
+<tr><td><b>pymupdf_native</b></td><td>Koordinat x0 (clustering)</td>
+    <td>sama (pustaka PyMuPDF)</td></tr>
+<tr><td><b>vlm_openai</b> (GPT-4o)</td><td>Level dari output model</td>
+    <td><code>flat_rows_to_tree</code> (stack, level dari model)</td></tr>
+<tr><td><b>ocr_full</b> (Tesseract)</td><td>Urutan teks + awalan label</td>
+    <td><code>_parse_merged_lines_to_tree</code></td></tr>
+<tr><td>baseline_regex</td><td>&mdash; (tidak ada)</td>
+    <td>flat, semua level 0</td></tr>
+<tr><td>pdfplumber_tables</td><td>&mdash; (tidak ada)</td>
+    <td>flat, semua level 0</td></tr>
+<tr><td>camelot_stream</td><td>&mdash; (tidak ada)</td>
+    <td>flat, semua level 0</td></tr>
+</table>
+
+<h3>Penjelasan tiap kelompok</h3>
+<p><b>(a) Berbasis koordinat &mdash; native_pdf &amp; pymupdf_native.</b>
+Memakai algoritma dua tahap di Bab 3 (clustering x0 + stack). Paling akurat
+karena setia pada tata letak fisik dokumen. Keduanya memakai
+<code>_parse_structured_rows_to_tree</code> yang sama; bedanya hanya pustaka
+pengambil koordinat (pdfplumber vs PyMuPDF).</p>
+
+<p><b>(b) Berbasis output model &mdash; vlm_openai.</b> Model VLM (GPT-4o)
+"membaca" indentasi langsung dari gambar dan mengeluarkan angka
+<code>level</code> di JSON-nya. Kode kami tinggal membangun pohon dengan
+prinsip stack yang sama, namun level tidak dihitung dari koordinat melainkan
+diberikan oleh model. Fungsi: <code>flat_rows_to_tree</code> di
+<code>unified.py</code>.</p>
+
+<p><b>(c) Berbasis teks &mdash; ocr_full.</b> Karena OCR (Tesseract)
+kehilangan koordinat, hierarki ditebak dari urutan baris dan pencocokan
+awalan label (jika label suatu baris diawali teks label baris di atasnya,
+dianggap anak). Jauh lebih lemah; ini sebab metrik hierarki OCR rendah.
+Fungsi: <code>_parse_merged_lines_to_tree</code>.</p>
+
+<p><b>(d) Tanpa hierarki &mdash; baseline_regex, pdfplumber_tables,
+camelot_stream.</b> Sengaja tidak membangun pohon: semua baris diletakkan
+sejajar pada level 0. Berfungsi sebagai pembanding "tanpa usaha khusus"
+untuk menunjukkan seberapa besar kontribusi algoritma pembangunan pohon.</p>
+
+<div class="box warn">
+<b>Kesimpulan untuk laporan:</b> algoritma pembangunan pohon (clustering
+indentasi + penyusunan stack) adalah komponen orisinal sistem. Hanya dua
+approach koordinat (native_pdf, pymupdf_native) yang memakainya secara penuh;
+VLM memakai prinsip stack tetapi levelnya dari model; OCR memakai heuristik
+teks; sisanya tidak membangun hierarki sama sekali.
+</div>
+
+<h2>5. Ringkasan</h2>
+<ol>
+<li><b>Unified schema</b> menetapkan bentuk akhir: pohon node dengan atribut
+    level, label, nilai, dan anak.</li>
+<li><b>Tahap 1 (assign_levels):</b> indentasi fisik (x0) &rarr; angka level
+    melalui clustering.</li>
+<li><b>Tahap 2 (stack-based attach):</b> menyusun node menjadi pohon induk-anak
+    dalam satu lintasan.</li>
+<li>Algoritma ini dipakai penuh oleh <b>native_pdf</b> dan <b>pymupdf_native</b>;
+    <b>VLM</b> memakai prinsip stack dengan level dari model; <b>OCR</b> memakai
+    heuristik teks; <b>baseline/camelot/pdfplumber</b> tidak membangun
+    hierarki.</li>
+</ol>
+
+<div class="footer">
+Dokumen penjelasan kode &mdash; Sistem Otomasi Ekstraksi Laporan Keuangan IDX.
+Berkas terkait: <code>idx_fin_parser/utils.py</code>,
+<code>idx_fin_parser/pdf_statements.py</code>,
+<code>idx_fin_parser/unified.py</code>.
+</div>
+
+</body>
+</html>

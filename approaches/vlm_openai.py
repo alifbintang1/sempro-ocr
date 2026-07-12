@@ -105,6 +105,14 @@ Return STRICT JSON only.
 MODEL = os.environ.get("OPENAI_VLM_MODEL", "gpt-4o-mini")
 DPI = int(os.environ.get("OPENAI_VLM_DPI", "150"))
 MAX_TOKENS = int(os.environ.get("OPENAI_VLM_MAX_TOKENS", "4096"))
+# "high" = akurat (WAJIB untuk hasil bermakna; low bikin Node F1 anjlok ke ~0
+#          karena angka laporan tak terbaca setelah gambar di-downscale 512px).
+# "low"  = hemat token tapi HASIL HANCUR — hanya untuk cek "apakah jalan".
+# "auto" = model yang putuskan.
+IMAGE_DETAIL = os.environ.get("OPENAI_VLM_DETAIL", "high")
+# Retry saat kena rate limit (429): tunggu lalu ulang, jangan skip halaman.
+MAX_RETRIES = int(os.environ.get("OPENAI_VLM_MAX_RETRIES", "6"))
+PAGE_DELAY = float(os.environ.get("OPENAI_VLM_PAGE_DELAY", "0"))
 
 START_FP = ["statement of financial position", "laporan posisi keuangan"]
 STOP_FP = ["statement of profit or loss", "laporan laba rugi"]
@@ -157,22 +165,60 @@ def _extract_json(text: str) -> dict:
     return json.loads(text[start:end + 1])
 
 
+def _parse_retry_after(err) -> float:
+    """Ambil saran waktu tunggu dari pesan rate-limit (mis. 'try again in 1.129s')."""
+    msg = str(getattr(err, "message", "") or err)
+    m = re.search(r"try again in ([\d.]+)\s*s", msg)
+    if m:
+        try:
+            return float(m.group(1))
+        except ValueError:
+            pass
+    return 0.0
+
+
 def _call_openai(client: OpenAI, image_b64: str, model: str) -> str:
-    resp = client.chat.completions.create(
-        model=model,
-        max_tokens=MAX_TOKENS,
-        temperature=0.0,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": [
-                {"type": "text", "text": USER_PROMPT},
-                {"type": "image_url", "image_url": {
-                    "url": f"data:image/png;base64,{image_b64}",
-                }},
-            ]},
-        ],
-    )
-    return resp.choices[0].message.content or ""
+    last_exc = None
+    for attempt in range(MAX_RETRIES + 1):
+        try:
+            resp = client.chat.completions.create(
+                model=model,
+                max_tokens=MAX_TOKENS,
+                temperature=0.0,
+                messages=[
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": [
+                        {"type": "text", "text": USER_PROMPT},
+                        {"type": "image_url", "image_url": {
+                            "url": f"data:image/png;base64,{image_b64}",
+                            "detail": IMAGE_DETAIL,
+                        }},
+                    ]},
+                ],
+            )
+            return resp.choices[0].message.content or ""
+        except Exception as exc:
+            last_exc = exc
+            status = getattr(exc, "status_code", None)
+            emsg = str(exc).lower()
+            is_rate = status == 429 or "rate_limit" in emsg
+            # timeout / koneksi putus / error server sementara → layak diulang
+            is_transient = (
+                "timeout" in emsg or "timed out" in emsg
+                or "connection" in emsg
+                or (isinstance(status, int) and status >= 500)
+            )
+            if (not is_rate and not is_transient) or attempt == MAX_RETRIES:
+                raise
+            wait = _parse_retry_after(exc)
+            if wait <= 0:
+                wait = min(2 ** attempt, 30)
+            wait += 1.0  # buffer agar jendela TPM benar-benar reset
+            sebab = "rate limit" if is_rate else "timeout/koneksi"
+            print(f"      {sebab} — tunggu {wait:.1f}s lalu coba lagi "
+                  f"(percobaan {attempt + 1}/{MAX_RETRIES})")
+            time.sleep(wait)
+    raise last_exc  # pragma: no cover
 
 
 def _statement_from_pages(pdf, pages_idx: list[int], statement_type: str,
@@ -201,6 +247,8 @@ def _statement_from_pages(pdf, pages_idx: list[int], statement_type: str,
         by_type_rows.extend(rows)
         pages_used.append(i)
         print(f"      [page {i + 1}] {len(rows)} rows")
+        if PAGE_DELAY > 0:
+            time.sleep(PAGE_DELAY)
 
     nodes = flat_rows_to_tree(by_type_rows, all_years, label_en_key=None)
     sections = split_into_sections(nodes)
@@ -209,11 +257,12 @@ def _statement_from_pages(pdf, pages_idx: list[int], statement_type: str,
 
 # ── Entry point ───────────────────────────────────────────────────────────
 
-def run(pdf_path: str) -> tuple[dict, float]:
+def run(pdf_path: str, model: str = MODEL) -> tuple[dict, float]:
     if not os.environ.get("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY not set in environment")
-    client = OpenAI()
-    model = MODEL
+    # timeout: cegah request menggantung (default SDK 10 menit → terasa "stuck").
+    # max_retries=0: retry ditangani _call_openai kita sendiri (hindari dobel).
+    client = OpenAI(timeout=90.0, max_retries=0)
     raw_cache: list = []
     t0 = time.perf_counter()
     with pdfplumber.open(pdf_path) as pdf:
@@ -278,6 +327,10 @@ def rebuild_from_cache(cache_path: str, pdf_path: str) -> dict:
     )
 
 
-# Register under a model-aware name so multiple variants can coexist
-_approach_name = f"vlm_openai_{MODEL.replace('-', '_')}"
-register(_approach_name, run)
+# Register BOTH model variants so keduanya muncul di UI sekaligus.
+# Tiap variant memanggil run() dengan model spesifiknya.
+for _m in ("gpt-4o-mini", "gpt-4o"):
+    register(
+        f"vlm_openai_{_m.replace('-', '_')}",
+        (lambda m: (lambda pdf_path: run(pdf_path, model=m)))(_m),
+    )
